@@ -365,37 +365,32 @@ class _HomeScreenState extends State<HomeScreen> {
     if (mounted) setState(() {});
   }
 
-  Future<void> _import() async {
-    if (_updating) return;
-    if (_driving) return;
-    try {
-      final result = await FilePicker.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['json'],
-        withData: true,
-      );
-      if (result == null) return;
-      final bytes = result.files.single.bytes;
-      if (bytes == null) throw const FormatException('Cannot read file');
-      if (bytes.length > 10 * 1024 * 1024) {
-        throw const FormatException('Dataset too large');
-      }
-      final data = await _store.replace(utf8.decode(bytes));
-      if (mounted) {
-        setState(() {
-          _dataset = data;
-          _engine = AlertEngine(data);
-          _pendingDataset = null;
-          _pendingUpdate = false;
-          _status = tr(
-            '${data.radars.length} radars importats',
-            '${data.radars.length} radares importados',
-          );
-        });
-      }
-    } catch (e) {
-      if (mounted) setState(() => _status = '$e');
+  Future<bool> _import() async {
+    if (_updating || _driving) return false;
+    final result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['json'],
+      withData: true,
+    );
+    if (result == null) return false;
+    final bytes = result.files.single.bytes;
+    if (bytes == null) throw const FormatException('Cannot read file');
+    if (bytes.length > 10 * 1024 * 1024) {
+      throw const FormatException('Dataset too large');
     }
+    final data = await _store.replace(utf8.decode(bytes));
+    if (!mounted) return false;
+    setState(() {
+      _dataset = data;
+      _engine = AlertEngine(data);
+      _pendingDataset = null;
+      _pendingUpdate = false;
+      _status = tr(
+        '${data.radars.length} radars importats',
+        '${data.radars.length} radares importados',
+      );
+    });
+    return true;
   }
 
   Future<void> _download({bool automatic = false}) async {
@@ -441,7 +436,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _settings() async {
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => SettingsScreen(widget.settings, onDownload: _download),
+        builder: (_) => SettingsScreen(
+          widget.settings,
+          onDownload: _download,
+          onImport: _import,
+        ),
       ),
     );
     if (mounted) setState(() {});
@@ -551,16 +550,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 12),
-              if (!_driving)
-                OutlinedButton.icon(
-                  onPressed: _import,
-                  style: OutlinedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(60),
-                  ),
-                  icon: const Icon(Icons.file_open),
-                  label: Text(tr('Importa dades JSON', 'Importar datos JSON')),
-                ),
-              const SizedBox(height: 12),
               Text(
                 data == null
                     ? '…'
@@ -581,9 +570,15 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen(this.settings, {required this.onDownload, super.key});
+  const SettingsScreen(
+    this.settings, {
+    required this.onDownload,
+    required this.onImport,
+    super.key,
+  });
   final AppSettings settings;
   final Future<void> Function() onDownload;
+  final Future<bool> Function() onImport;
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -672,6 +667,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
           },
           icon: const Icon(Icons.download),
           label: Text(tr('Actualitza ara', 'Actualizar ahora')),
+        ),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          onPressed: () async {
+            try {
+              final imported = await widget.onImport();
+              if (imported && context.mounted) Navigator.of(context).pop();
+            } catch (error) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      tr(
+                        'No s’ha pogut importar el JSON: $error',
+                        'No se pudo importar el JSON: $error',
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }
+          },
+          style: OutlinedButton.styleFrom(
+            minimumSize: const Size.fromHeight(60),
+          ),
+          icon: const Icon(Icons.file_open),
+          label: Text(tr('Importa dades JSON', 'Importar datos JSON')),
         ),
         SwitchListTile(
           title: Text(
