@@ -11,7 +11,7 @@ class DataStore {
     final file = await _file;
     if (!await file.exists()) {
       return RadarDataset.parse(
-        await rootBundle.loadString('assets/data/madrid-radars.json'),
+        await rootBundle.loadString('assets/data/spain-radars.json'),
       );
     }
     return RadarDataset.parse(await file.readAsString());

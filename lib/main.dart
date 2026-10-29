@@ -56,6 +56,15 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _offlineVoiceAvailable = true;
   bool get _va => widget.settings.language == 'va';
   String tr(String va, String es) => _va ? va : es;
+  String sourceLabel(RadarDataset data) => data.source.contains('Tachwire/IGN')
+      ? tr('Espanya · cobertura parcial', 'España · cobertura parcial')
+      : data.source.contains('Ayuntamiento de Madrid') &&
+            data.source.contains('Servei Català de Trànsit')
+      ? tr(
+          'Madrid + Catalunya · cobertura parcial',
+          'Madrid + Cataluña · cobertura parcial',
+        )
+      : data.source;
 
   @override
   void initState() {
@@ -392,10 +401,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 data == null
                     ? '…'
                     : tr(
-                        '${data.radars.length} radars locals · ${data.source}',
-                        '${data.radars.length} radares locales · ${data.source}',
+                        '${data.radars.length} radars locals · ${sourceLabel(data)}',
+                        '${data.radars.length} radares locales · ${sourceLabel(data)}',
                       ),
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
@@ -504,6 +515,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           tr(
             'El GPS es processa al dispositiu. No hi ha analítica ni servidor de l’app.',
             'El GPS se procesa en el dispositivo. No hay analítica ni servidor de la app.',
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          tr(
+            'Dades: DGT, IGN/CartoCiudad, Tachwire i OpenStreetMap (ODbL 1.0); Ajuntament de Madrid (CC BY 4.0); Servei Català de Trànsit. Vegeu DATA_SOURCES.md.',
+            'Datos: DGT, IGN/CartoCiudad, Tachwire y OpenStreetMap (ODbL 1.0); Ayuntamiento de Madrid (CC BY 4.0); Servei Català de Trànsit. Consulta DATA_SOURCES.md.',
           ),
         ),
       ],

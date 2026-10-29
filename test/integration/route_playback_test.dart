@@ -5,12 +5,15 @@ import 'package:radar_local/core/alert_engine.dart';
 import 'package:radar_local/core/radar.dart';
 
 void main() {
-  test('bundled official Madrid snapshot validates', () {
+  test('bundled Spain snapshot validates', () {
     final dataset = RadarDataset.parse(
-      File('assets/data/madrid-radars.json').readAsStringSync(),
+      File('assets/data/spain-radars.json').readAsStringSync(),
     );
-    expect(dataset.radars.length, 36);
-    expect(dataset.radars.where((r) => r.kind == RadarKind.section).length, 9);
+    expect(dataset.radars.length, 1056);
+    expect(
+      dataset.radars.where((r) => r.kind == RadarKind.section).length,
+      129,
+    );
   });
   test('JSON dataset and GPS route produce one alert', () {
     final dataset = RadarDataset.parse(

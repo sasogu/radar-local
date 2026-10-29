@@ -1,0 +1,2017 @@
+{
+  "schema": 1,
+  "source": "Servei Català de Trànsit, radars fixos, reutilització amb atribució",
+  "updated_at": "2026-10-29T14:05:55+00:00",
+  "radars": [
+    {
+      "id": "sct-1",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.53822851,
+        "lon": 0.45945672
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 445,35"
+    },
+    {
+      "id": "sct-2",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.63657318,
+        "lon": 0.79043605
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 477,4"
+    },
+    {
+      "id": "sct-3",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.65695322,
+        "lon": 1.16662769
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 510"
+    },
+    {
+      "id": "sct-4",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.66663835,
+        "lon": 1.29696442
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 522,046"
+    },
+    {
+      "id": "sct-5",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.65517078,
+        "lon": 1.31315795
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 524"
+    },
+    {
+      "id": "sct-6",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.62269448,
+        "lon": 1.41584612
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 534,15"
+    },
+    {
+      "id": "sct-7",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.59261998,
+        "lon": 1.68038486
+      },
+      "speed_limit": 100,
+      "name": "A-2 PK 560,25"
+    },
+    {
+      "id": "sct-8",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.57977699,
+        "lon": 1.77847223
+      },
+      "speed_limit": 100,
+      "name": "A-2 PK 570,3"
+    },
+    {
+      "id": "sct-9",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.53767481,
+        "lon": 1.85924798
+      },
+      "speed_limit": 100,
+      "name": "A-2 PK 579,4"
+    },
+    {
+      "id": "sct-10",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.42932902,
+        "lon": 1.99766011
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 597,45"
+    },
+    {
+      "id": "sct-11",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.38530804,
+        "lon": 2.02179891
+      },
+      "speed_limit": 100,
+      "name": "A-2 PK 602,75"
+    },
+    {
+      "id": "sct-12",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.38187549,
+        "lon": 2.0235848
+      },
+      "speed_limit": 100,
+      "name": "A-2 PK 603,2"
+    },
+    {
+      "id": "sct-13",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.35425042,
+        "lon": 2.05451654
+      },
+      "speed_limit": 80,
+      "name": "A-2 PK 608,2"
+    },
+    {
+      "id": "sct-14",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.34929384,
+        "lon": 2.06250383
+      },
+      "speed_limit": 80,
+      "name": "A-2 PK 609,075"
+    },
+    {
+      "id": "sct-15",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.89296139,
+        "lon": 2.78437645
+      },
+      "speed_limit": 120,
+      "name": "A-2 PK 707,467"
+    },
+    {
+      "id": "sct-16",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.21515345,
+        "lon": 2.62866527
+      },
+      "speed_limit": 100,
+      "name": "A-26 PK 69,729"
+    },
+    {
+      "id": "sct-17",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.22180524,
+        "lon": 2.57607192
+      },
+      "speed_limit": 100,
+      "name": "A-26 PK 74,64"
+    },
+    {
+      "id": "sct-18",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.19323137,
+        "lon": 2.5140234
+      },
+      "speed_limit": 100,
+      "name": "A-26 PK 82,641"
+    },
+    {
+      "id": "sct-19",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.50678053,
+        "lon": 0.7736116
+      },
+      "speed_limit": 120,
+      "name": "AP-2 PK 154,85"
+    },
+    {
+      "id": "sct-20",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.4799211,
+        "lon": 0.875779
+      },
+      "speed_limit": 120,
+      "name": "AP-2 PK 164,967"
+    },
+    {
+      "id": "sct-21",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.42547444,
+        "lon": 0.94596006
+      },
+      "speed_limit": 120,
+      "name": "AP-2 PK 173,857"
+    },
+    {
+      "id": "sct-22",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.45526589,
+        "lon": 1.98268313
+      },
+      "speed_limit": 120,
+      "name": "AP-7 PK 164"
+    },
+    {
+      "id": "sct-23",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.90490819,
+        "lon": 0.81692443
+      },
+      "speed_limit": 120,
+      "name": "AP-7 PK 294,48"
+    },
+    {
+      "id": "sct-24",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.81291209,
+        "lon": 0.70414577
+      },
+      "speed_limit": 120,
+      "name": "AP-7 PK 308,608"
+    },
+    {
+      "id": "sct-25",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.62722744,
+        "lon": 0.49115915
+      },
+      "speed_limit": 120,
+      "name": "AP-7 PK 337,045"
+    },
+    {
+      "id": "sct-26",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58966244,
+        "lon": 2.08928783
+      },
+      "speed_limit": 90,
+      "name": "B-124 PK 4,7"
+    },
+    {
+      "id": "sct-27",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.53222393,
+        "lon": 2.14503194
+      },
+      "speed_limit": 90,
+      "name": "B-140 PK 3,12"
+    },
+    {
+      "id": "sct-28",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.4584375,
+        "lon": 2.21003535
+      },
+      "speed_limit": 80,
+      "name": "B-20 PK 18,1"
+    },
+    {
+      "id": "sct-29",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.4682686,
+        "lon": 2.24473671
+      },
+      "speed_limit": 100,
+      "name": "B-20 PK 21,5"
+    },
+    {
+      "id": "sct-30",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.37588336,
+        "lon": 2.07079593
+      },
+      "speed_limit": 80,
+      "name": "B-23 PK 3,35"
+    },
+    {
+      "id": "sct-31",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.37337961,
+        "lon": 2.05435146
+      },
+      "speed_limit": 80,
+      "name": "B-23 PK 4,76"
+    },
+    {
+      "id": "sct-32",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.39811296,
+        "lon": 2.02203088
+      },
+      "speed_limit": 100,
+      "name": "B-23 PK 9,26"
+    },
+    {
+      "id": "sct-33",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.41774639,
+        "lon": 2.00959798
+      },
+      "speed_limit": 100,
+      "name": "B-23 PK 11,65"
+    },
+    {
+      "id": "sct-34",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58186273,
+        "lon": 2.06728295
+      },
+      "speed_limit": 70,
+      "name": "BV-1248 PK 4"
+    },
+    {
+      "id": "sct-35",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.65194247,
+        "lon": 2.28795328
+      },
+      "speed_limit": 70,
+      "name": "BV-1433 PK 2,01"
+    },
+    {
+      "id": "sct-36",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.63537049,
+        "lon": 2.23218787
+      },
+      "speed_limit": 90,
+      "name": "BV-1435 PK 9,57"
+    },
+    {
+      "id": "sct-37",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.42893185,
+        "lon": 2.08738092
+      },
+      "speed_limit": 50,
+      "name": "BV-1462 PK 6,567"
+    },
+    {
+      "id": "sct-38",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.24894986,
+        "lon": 1.77161365
+      },
+      "speed_limit": 90,
+      "name": "BV-2113 PK 1,432"
+    },
+    {
+      "id": "sct-39",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.48763324,
+        "lon": 2.19377683
+      },
+      "speed_limit": 90,
+      "name": "BV-5001 PK 7,89"
+    },
+    {
+      "id": "sct-40",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.51470312,
+        "lon": 2.21449963
+      },
+      "speed_limit": 90,
+      "name": "BV-5001 PK 11,596"
+    },
+    {
+      "id": "sct-41",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.78240804,
+        "lon": 0.50340156
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 14,259"
+    },
+    {
+      "id": "sct-42",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.84037759,
+        "lon": 0.51444385
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 21,411"
+    },
+    {
+      "id": "sct-43",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.91415841,
+        "lon": 0.48940193
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 30,719"
+    },
+    {
+      "id": "sct-44",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.11140485,
+        "lon": 0.64121566
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 65,729"
+    },
+    {
+      "id": "sct-45",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.45679349,
+        "lon": 0.57709028
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 120,26"
+    },
+    {
+      "id": "sct-46",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.63845397,
+        "lon": 0.64754716
+      },
+      "speed_limit": 90,
+      "name": "C-12 PK 144,96"
+    },
+    {
+      "id": "sct-47",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.65888743,
+        "lon": 0.66058681
+      },
+      "speed_limit": 70,
+      "name": "C-12 PK 147,509"
+    },
+    {
+      "id": "sct-48",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.76356451,
+        "lon": 0.81305401
+      },
+      "speed_limit": 90,
+      "name": "C-13 PK 27,925"
+    },
+    {
+      "id": "sct-49",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.18680225,
+        "lon": 0.90725584
+      },
+      "speed_limit": 90,
+      "name": "C-13 PK 89,686"
+    },
+    {
+      "id": "sct-50",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.12857934,
+        "lon": 1.1223878
+      },
+      "speed_limit": 70,
+      "name": "C-14 PK 4,35"
+    },
+    {
+      "id": "sct-51",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.20475222,
+        "lon": 1.14647555
+      },
+      "speed_limit": 120,
+      "name": "C-14 PK 13,916"
+    },
+    {
+      "id": "sct-52",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.2550221,
+        "lon": 1.17356862
+      },
+      "speed_limit": 120,
+      "name": "C-14 PK 20,029"
+    },
+    {
+      "id": "sct-53",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.31350994,
+        "lon": 1.18434141
+      },
+      "speed_limit": 60,
+      "name": "C-14 PK 28,15"
+    },
+    {
+      "id": "sct-54",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.91813725,
+        "lon": 1.22044056
+      },
+      "speed_limit": 90,
+      "name": "C-14 PK 120,628"
+    },
+    {
+      "id": "sct-55",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.16816067,
+        "lon": 1.31722315
+      },
+      "speed_limit": 90,
+      "name": "C-14 PK 154,33"
+    },
+    {
+      "id": "sct-56",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.20465349,
+        "lon": 1.32774452
+      },
+      "speed_limit": 90,
+      "name": "C-14 PK 161,016"
+    },
+    {
+      "id": "sct-57",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.83087793,
+        "lon": 1.36258077
+      },
+      "speed_limit": 90,
+      "name": "C-1412a PK 19,3"
+    },
+    {
+      "id": "sct-58",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.71935642,
+        "lon": 1.5234396
+      },
+      "speed_limit": 90,
+      "name": "C-1412a PK 39,873"
+    },
+    {
+      "id": "sct-59",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.70712769,
+        "lon": 1.53594195
+      },
+      "speed_limit": 80,
+      "name": "C-1412a PK 41,618"
+    },
+    {
+      "id": "sct-60",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.6287784,
+        "lon": 1.52215653
+      },
+      "speed_limit": 90,
+      "name": "C-1412a PK 53,235"
+    },
+    {
+      "id": "sct-61",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.43484908,
+        "lon": 2.00179163
+      },
+      "speed_limit": 90,
+      "name": "C-1413a PK 2,4"
+    },
+    {
+      "id": "sct-62",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.41958118,
+        "lon": 1.69011853
+      },
+      "speed_limit": 100,
+      "name": "C-15 PK 24,238"
+    },
+    {
+      "id": "sct-63",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.57402876,
+        "lon": 2.20823001
+      },
+      "speed_limit": 50,
+      "name": "C-155 PK 10,35"
+    },
+    {
+      "id": "sct-64",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58743497,
+        "lon": 2.25179039
+      },
+      "speed_limit": 90,
+      "name": "C-155 PK 14,7"
+    },
+    {
+      "id": "sct-65",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.72607188,
+        "lon": 1.86515476
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 51,088"
+    },
+    {
+      "id": "sct-66",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.72691645,
+        "lon": 1.86531809
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 51,183"
+    },
+    {
+      "id": "sct-67",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.82320511,
+        "lon": 1.88954374
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 63,29"
+    },
+    {
+      "id": "sct-68",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.86136626,
+        "lon": 1.87065005
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 68,294"
+    },
+    {
+      "id": "sct-69",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.93972162,
+        "lon": 1.87743833
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 78"
+    },
+    {
+      "id": "sct-70",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.07578074,
+        "lon": 1.86583147
+      },
+      "speed_limit": 120,
+      "name": "C-16 PK 94,219"
+    },
+    {
+      "id": "sct-71",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.22255276,
+        "lon": 1.87251639
+      },
+      "speed_limit": 90,
+      "name": "C-16 PK 113,555"
+    },
+    {
+      "id": "sct-72",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.51018656,
+        "lon": 2.2032536
+      },
+      "speed_limit": 100,
+      "name": "C-17 PK 7,9"
+    },
+    {
+      "id": "sct-73",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.78497891,
+        "lon": 2.24384879
+      },
+      "speed_limit": 80,
+      "name": "C-17 PK 42,662"
+    },
+    {
+      "id": "sct-74",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.78560924,
+        "lon": 2.24281308
+      },
+      "speed_limit": 80,
+      "name": "C-17 PK 42,717"
+    },
+    {
+      "id": "sct-75",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.45637501,
+        "lon": 1.67761652
+      },
+      "speed_limit": 90,
+      "name": "C-244 PK 22,113"
+    },
+    {
+      "id": "sct-76",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.2914574,
+        "lon": 1.99418021
+      },
+      "speed_limit": 50,
+      "name": "C-245 PK 4,067"
+    },
+    {
+      "id": "sct-77",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.74539175,
+        "lon": 1.57943251
+      },
+      "speed_limit": 120,
+      "name": "C-25 PK 111,635"
+    },
+    {
+      "id": "sct-78",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.73416497,
+        "lon": 1.7688639
+      },
+      "speed_limit": 120,
+      "name": "C-25 PK 128,724"
+    },
+    {
+      "id": "sct-79",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.78648739,
+        "lon": 1.91009628
+      },
+      "speed_limit": 120,
+      "name": "C-25 PK 143,359"
+    },
+    {
+      "id": "sct-80",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.89423874,
+        "lon": 2.07229409
+      },
+      "speed_limit": 120,
+      "name": "C-25 PK 162,76"
+    },
+    {
+      "id": "sct-81",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.95693304,
+        "lon": 2.24561117
+      },
+      "speed_limit": 100,
+      "name": "C-25 PK 180,551"
+    },
+    {
+      "id": "sct-82",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.87992836,
+        "lon": 2.71017113
+      },
+      "speed_limit": 120,
+      "name": "C-25 PK 230,075"
+    },
+    {
+      "id": "sct-83",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.63431046,
+        "lon": 2.33579178
+      },
+      "speed_limit": 90,
+      "name": "C-251 PK 5,156"
+    },
+    {
+      "id": "sct-84",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.64889557,
+        "lon": 2.41645774
+      },
+      "speed_limit": 90,
+      "name": "C-251 PK 12,28"
+    },
+    {
+      "id": "sct-85",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.81193453,
+        "lon": 0.64371055
+      },
+      "speed_limit": 90,
+      "name": "C-26 PK 8,45"
+    },
+    {
+      "id": "sct-86",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.81014041,
+        "lon": 0.86338607
+      },
+      "speed_limit": 90,
+      "name": "C-26 PK 30,613"
+    },
+    {
+      "id": "sct-87",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.02397463,
+        "lon": 1.37219231
+      },
+      "speed_limit": 90,
+      "name": "C-26 PK 89,335"
+    },
+    {
+      "id": "sct-88",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.20646025,
+        "lon": 1.56006987
+      },
+      "speed_limit": 80,
+      "name": "C-31 PK 137,457"
+    },
+    {
+      "id": "sct-89",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.27230157,
+        "lon": 2.0406423
+      },
+      "speed_limit": 80,
+      "name": "C-31 PK 186,068"
+    },
+    {
+      "id": "sct-90",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.27566539,
+        "lon": 2.04843938
+      },
+      "speed_limit": 80,
+      "name": "C-31 PK 186,84"
+    },
+    {
+      "id": "sct-91",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.31191974,
+        "lon": 2.06692468
+      },
+      "speed_limit": 100,
+      "name": "C-31 PK 191,207"
+    },
+    {
+      "id": "sct-92",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.33459458,
+        "lon": 2.09363934
+      },
+      "speed_limit": 80,
+      "name": "C-31 PK 194,688"
+    },
+    {
+      "id": "sct-93",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.8083523,
+        "lon": 3.03428903
+      },
+      "speed_limit": 80,
+      "name": "C-31 PK 312,787"
+    },
+    {
+      "id": "sct-94",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.85574863,
+        "lon": 3.07286633
+      },
+      "speed_limit": 100,
+      "name": "C-31 PK 319,775"
+    },
+    {
+      "id": "sct-95",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.93861368,
+        "lon": 3.16143018
+      },
+      "speed_limit": 90,
+      "name": "C-31 PK 336,13"
+    },
+    {
+      "id": "sct-96",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.21871884,
+        "lon": 3.01731898
+      },
+      "speed_limit": 90,
+      "name": "C-31 PK 376,51"
+    },
+    {
+      "id": "sct-97",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.13894695,
+        "lon": 3.06741774
+      },
+      "speed_limit": 90,
+      "name": "C-31a PK 366"
+    },
+    {
+      "id": "sct-98",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.10534376,
+        "lon": 1.20405245
+      },
+      "speed_limit": 80,
+      "name": "C-31b PK 8,235"
+    },
+    {
+      "id": "sct-99",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.21063644,
+        "lon": 1.60559818
+      },
+      "speed_limit": 120,
+      "name": "C-32 PK 9,17"
+    },
+    {
+      "id": "sct-100",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.29759549,
+        "lon": 2.01823757
+      },
+      "speed_limit": 80,
+      "name": "C-32 PK 50,07"
+    },
+    {
+      "id": "sct-101",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.31141155,
+        "lon": 2.03135758
+      },
+      "speed_limit": 80,
+      "name": "C-32 PK 51,97"
+    },
+    {
+      "id": "sct-102",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.32417398,
+        "lon": 2.04486386
+      },
+      "speed_limit": 120,
+      "name": "C-32 PK 53,777"
+    },
+    {
+      "id": "sct-103",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.48335408,
+        "lon": 2.29500702
+      },
+      "speed_limit": 120,
+      "name": "C-32 nord PK 85"
+    },
+    {
+      "id": "sct-104",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.28664762,
+        "lon": 1.99947689
+      },
+      "speed_limit": 120,
+      "name": "C-32 sud PK 48,085"
+    },
+    {
+      "id": "sct-105",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.47617999,
+        "lon": 2.18323506
+      },
+      "speed_limit": 120,
+      "name": "C-33 PK 80,048"
+    },
+    {
+      "id": "sct-106",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.5714635,
+        "lon": 2.25331651
+      },
+      "speed_limit": 90,
+      "name": "C-35 PK 29,15"
+    },
+    {
+      "id": "sct-107",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.6616694,
+        "lon": 2.46121999
+      },
+      "speed_limit": 80,
+      "name": "C-35 PK 52,1"
+    },
+    {
+      "id": "sct-108",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.74639865,
+        "lon": 2.63225313
+      },
+      "speed_limit": 90,
+      "name": "C-35 PK 69,887"
+    },
+    {
+      "id": "sct-109",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.80177348,
+        "lon": 2.83720812
+      },
+      "speed_limit": 100,
+      "name": "C-35 PK 91,2"
+    },
+    {
+      "id": "sct-110",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.26873094,
+        "lon": 1.21364142
+      },
+      "speed_limit": 90,
+      "name": "C-37 PK 3,2"
+    },
+    {
+      "id": "sct-111",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.62373436,
+        "lon": 1.6578799
+      },
+      "speed_limit": 90,
+      "name": "C-37z PK 71,485"
+    },
+    {
+      "id": "sct-112",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.25358133,
+        "lon": 2.34334018
+      },
+      "speed_limit": 90,
+      "name": "C-38 PK 1,635"
+    },
+    {
+      "id": "sct-113",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.54123275,
+        "lon": 1.88726345
+      },
+      "speed_limit": 80,
+      "name": "C-55 PK 3,89"
+    },
+    {
+      "id": "sct-114",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.62018154,
+        "lon": 1.84880793
+      },
+      "speed_limit": 80,
+      "name": "C-55 PK 15,297"
+    },
+    {
+      "id": "sct-115",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.64727603,
+        "lon": 1.85730185
+      },
+      "speed_limit": 80,
+      "name": "C-55 PK 18,52"
+    },
+    {
+      "id": "sct-116",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.69896585,
+        "lon": 1.84162265
+      },
+      "speed_limit": 80,
+      "name": "C-55 PK 25,5"
+    },
+    {
+      "id": "sct-117",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.71127263,
+        "lon": 1.83565614
+      },
+      "speed_limit": 80,
+      "name": "C-55 PK 27"
+    },
+    {
+      "id": "sct-118",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.77199207,
+        "lon": 1.78870285
+      },
+      "speed_limit": 90,
+      "name": "C-55 PK 39,129"
+    },
+    {
+      "id": "sct-119",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.87302957,
+        "lon": 1.71395959
+      },
+      "speed_limit": 90,
+      "name": "C-55 PK 53,74"
+    },
+    {
+      "id": "sct-120",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.93440083,
+        "lon": 1.6213203
+      },
+      "speed_limit": 90,
+      "name": "C-55 PK 68,193"
+    },
+    {
+      "id": "sct-121",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.49536615,
+        "lon": 2.14960381
+      },
+      "speed_limit": 120,
+      "name": "C-58 PK 5,89"
+    },
+    {
+      "id": "sct-122",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.50528548,
+        "lon": 2.11304916
+      },
+      "speed_limit": 120,
+      "name": "C-58 PK 15,726"
+    },
+    {
+      "id": "sct-123",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.5429546,
+        "lon": 2.06677357
+      },
+      "speed_limit": 80,
+      "name": "C-58 PK 25,38"
+    },
+    {
+      "id": "sct-124",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.56548947,
+        "lon": 1.96458128
+      },
+      "speed_limit": 80,
+      "name": "C-58 PK 26,85"
+    },
+    {
+      "id": "sct-125",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.57727274,
+        "lon": 1.96042607
+      },
+      "speed_limit": 80,
+      "name": "C-58 PK 29,27"
+    },
+    {
+      "id": "sct-126",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.5841805,
+        "lon": 1.93572088
+      },
+      "speed_limit": 80,
+      "name": "C-58 PK 29,8"
+    },
+    {
+      "id": "sct-127",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58462931,
+        "lon": 1.92876138
+      },
+      "speed_limit": 80,
+      "name": "C-58 PK 30,95"
+    },
+    {
+      "id": "sct-128",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58766334,
+        "lon": 1.91560871
+      },
+      "speed_limit": 90,
+      "name": "C-58 PK 38,15"
+    },
+    {
+      "id": "sct-129",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.60605203,
+        "lon": 2.17974935
+      },
+      "speed_limit": 90,
+      "name": "C-59 PK 11,05"
+    },
+    {
+      "id": "sct-130",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.64065772,
+        "lon": 2.16652732
+      },
+      "speed_limit": 80,
+      "name": "C-59 PK 15,354"
+    },
+    {
+      "id": "sct-131",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.67056048,
+        "lon": 2.16504523
+      },
+      "speed_limit": 90,
+      "name": "C-59 PK 19,014"
+    },
+    {
+      "id": "sct-132",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.79971675,
+        "lon": 2.10240648
+      },
+      "speed_limit": 70,
+      "name": "C-59 PK 37,365"
+    },
+    {
+      "id": "sct-133",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.56760938,
+        "lon": 2.39625365
+      },
+      "speed_limit": 120,
+      "name": "C-60 PK 3,364"
+    },
+    {
+      "id": "sct-134",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.56800797,
+        "lon": 2.3960157
+      },
+      "speed_limit": 120,
+      "name": "C-60 PK 3,413"
+    },
+    {
+      "id": "sct-135",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.73960839,
+        "lon": 2.8157508
+      },
+      "speed_limit": 80,
+      "name": "C-63 PK 4,1"
+    },
+    {
+      "id": "sct-136",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.7457443,
+        "lon": 2.81609533
+      },
+      "speed_limit": 80,
+      "name": "C-63 PK 4,8"
+    },
+    {
+      "id": "sct-137",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.77859294,
+        "lon": 2.7774859
+      },
+      "speed_limit": 80,
+      "name": "C-63 PK 10,778"
+    },
+    {
+      "id": "sct-138",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.83840933,
+        "lon": 2.70189519
+      },
+      "speed_limit": 90,
+      "name": "C-63 PK 21,194"
+    },
+    {
+      "id": "sct-139",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.82749427,
+        "lon": 2.96048849
+      },
+      "speed_limit": 100,
+      "name": "C-65 PK 6,662"
+    },
+    {
+      "id": "sct-140",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.90973553,
+        "lon": 2.85245686
+      },
+      "speed_limit": 90,
+      "name": "C-65 PK 22,613"
+    },
+    {
+      "id": "sct-141",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.95182918,
+        "lon": 3.08887517
+      },
+      "speed_limit": 90,
+      "name": "C-66 PK 5,57"
+    },
+    {
+      "id": "sct-142",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.0663307,
+        "lon": 2.8129737
+      },
+      "speed_limit": 100,
+      "name": "C-66 PK 38,107"
+    },
+    {
+      "id": "sct-143",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.06667066,
+        "lon": 2.81311679
+      },
+      "speed_limit": 100,
+      "name": "C-66 PK 38,147"
+    },
+    {
+      "id": "sct-144",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.18155415,
+        "lon": 2.74245261
+      },
+      "speed_limit": 90,
+      "name": "C-66 PK 54,117"
+    },
+    {
+      "id": "sct-145",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.71862083,
+        "lon": 2.71106468
+      },
+      "speed_limit": 90,
+      "name": "GI-512 PK 2,69"
+    },
+    {
+      "id": "sct-146",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.79908673,
+        "lon": 2.54359909
+      },
+      "speed_limit": 90,
+      "name": "GI-552 PK 13,345"
+    },
+    {
+      "id": "sct-147",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.12884954,
+        "lon": 2.97446681
+      },
+      "speed_limit": 90,
+      "name": "GI-623 PK 6,249"
+    },
+    {
+      "id": "sct-148",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.67425478,
+        "lon": 2.76560121
+      },
+      "speed_limit": 90,
+      "name": "GI-682 PK 3,55"
+    },
+    {
+      "id": "sct-149",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.71983447,
+        "lon": 2.90474286
+      },
+      "speed_limit": 90,
+      "name": "GI-682 PK 18,468"
+    },
+    {
+      "id": "sct-150",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.61500643,
+        "lon": 0.88576466
+      },
+      "speed_limit": 90,
+      "name": "L-200 PK 1,733"
+    },
+    {
+      "id": "sct-151",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.69537731,
+        "lon": 1.17179077
+      },
+      "speed_limit": 70,
+      "name": "L-310 PK 5,403"
+    },
+    {
+      "id": "sct-152",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.75252838,
+        "lon": 1.23604707
+      },
+      "speed_limit": 90,
+      "name": "L-310 PK 13,81"
+    },
+    {
+      "id": "sct-153",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.96778583,
+        "lon": 2.72538649
+      },
+      "speed_limit": 90,
+      "name": "N-141a PK 108,811"
+    },
+    {
+      "id": "sct-154",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.48682548,
+        "lon": 2.15694056
+      },
+      "speed_limit": 40,
+      "name": "N-150 PK 3,318"
+    },
+    {
+      "id": "sct-155",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.55447652,
+        "lon": 2.05221054
+      },
+      "speed_limit": 90,
+      "name": "N-150 PK 15,555"
+    },
+    {
+      "id": "sct-156",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.74606853,
+        "lon": 2.75063089
+      },
+      "speed_limit": 90,
+      "name": "N-2 PK 687,863"
+    },
+    {
+      "id": "sct-157",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.13254263,
+        "lon": 2.90333015
+      },
+      "speed_limit": 90,
+      "name": "N-2 PK 736,539"
+    },
+    {
+      "id": "sct-158",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.30816406,
+        "lon": 2.93550953
+      },
+      "speed_limit": 80,
+      "name": "N-2 PK 761"
+    },
+    {
+      "id": "sct-159",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.8385725,
+        "lon": 0.56892631
+      },
+      "speed_limit": 90,
+      "name": "N-230 PK 27,505"
+    },
+    {
+      "id": "sct-160",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.4603708,
+        "lon": 0.71098994
+      },
+      "speed_limit": 90,
+      "name": "N-230 PK 130,157"
+    },
+    {
+      "id": "sct-161",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.84593351,
+        "lon": 0.73305541
+      },
+      "speed_limit": 90,
+      "name": "N-230 PK 186,7"
+    },
+    {
+      "id": "sct-162",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.25667277,
+        "lon": 1.24848805
+      },
+      "speed_limit": 80,
+      "name": "N-240 PK 15,7"
+    },
+    {
+      "id": "sct-163",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.39297392,
+        "lon": 1.13207268
+      },
+      "speed_limit": 80,
+      "name": "N-240 PK 39,638"
+    },
+    {
+      "id": "sct-164",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.4253016,
+        "lon": 0.98612902
+      },
+      "speed_limit": 90,
+      "name": "N-240 PK 53,188"
+    },
+    {
+      "id": "sct-165",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.53754918,
+        "lon": 0.83518824
+      },
+      "speed_limit": 90,
+      "name": "N-240 PK 71,95"
+    },
+    {
+      "id": "sct-166",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.5780528,
+        "lon": 0.7534767
+      },
+      "speed_limit": 90,
+      "name": "N-240 PK 80,475"
+    },
+    {
+      "id": "sct-167",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.75626232,
+        "lon": 0.409287
+      },
+      "speed_limit": 90,
+      "name": "N-240 PK 118,16"
+    },
+    {
+      "id": "sct-168",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.32685626,
+        "lon": 3.07510267
+      },
+      "speed_limit": 90,
+      "name": "N-260 PK 26,32"
+    },
+    {
+      "id": "sct-169",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.22179996,
+        "lon": 2.82626428
+      },
+      "speed_limit": 90,
+      "name": "N-260 PK 50"
+    },
+    {
+      "id": "sct-170",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.31009065,
+        "lon": 2.15487392
+      },
+      "speed_limit": 80,
+      "name": "N-260 PK 121,497"
+    },
+    {
+      "id": "sct-171",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.37323146,
+        "lon": 1.74770804
+      },
+      "speed_limit": 90,
+      "name": "N-260 PK 199,075"
+    },
+    {
+      "id": "sct-172",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.3661888,
+        "lon": 1.64797962
+      },
+      "speed_limit": 90,
+      "name": "N-260 PK 209,105"
+    },
+    {
+      "id": "sct-173",
+      "kind": "fixed",
+      "start": {
+        "lat": 42.32967004,
+        "lon": 1.40444963
+      },
+      "speed_limit": 90,
+      "name": "N-260 PK 233,302"
+    },
+    {
+      "id": "sct-174",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.59931361,
+        "lon": 0.56036115
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1068,355"
+    },
+    {
+      "id": "sct-175",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.73026506,
+        "lon": 0.59360015
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1084,318"
+    },
+    {
+      "id": "sct-176",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.77524065,
+        "lon": 0.65994911
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1091,842"
+    },
+    {
+      "id": "sct-177",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.86926094,
+        "lon": 0.71604898
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1104,766"
+    },
+    {
+      "id": "sct-178",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.97180726,
+        "lon": 0.88119049
+      },
+      "speed_limit": 80,
+      "name": "N-340 PK 1125,327"
+    },
+    {
+      "id": "sct-179",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.04508199,
+        "lon": 0.98912065
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1137,838"
+    },
+    {
+      "id": "sct-180",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.15863547,
+        "lon": 1.39244367
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1176,25"
+    },
+    {
+      "id": "sct-181",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.27628669,
+        "lon": 1.61122995
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1200,703"
+    },
+    {
+      "id": "sct-182",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.33285931,
+        "lon": 1.6648684
+      },
+      "speed_limit": 90,
+      "name": "N-340 PK 1208,271"
+    },
+    {
+      "id": "sct-183",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.39413095,
+        "lon": 1.85698208
+      },
+      "speed_limit": 70,
+      "name": "N-340 PK 1226,862"
+    },
+    {
+      "id": "sct-184",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.40425438,
+        "lon": 1.99745863
+      },
+      "speed_limit": 60,
+      "name": "N-340 PK 1242,245"
+    },
+    {
+      "id": "sct-185",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.09691177,
+        "lon": 0.6567658
+      },
+      "speed_limit": 90,
+      "name": "N-420 PK 825,428"
+    },
+    {
+      "id": "sct-186",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.17198567,
+        "lon": 0.94753755
+      },
+      "speed_limit": 90,
+      "name": "N-420 PK 856,97"
+    },
+    {
+      "id": "sct-187",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.16492208,
+        "lon": 0.98778895
+      },
+      "speed_limit": 80,
+      "name": "N-420 PK 862,945"
+    },
+    {
+      "id": "sct-188",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.13621278,
+        "lon": 1.14777404
+      },
+      "speed_limit": 70,
+      "name": "N-420a PK 879,314"
+    },
+    {
+      "id": "sct-189",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.60296258,
+        "lon": 0.52950972
+      },
+      "speed_limit": 90,
+      "name": "N-II PK 453,514"
+    },
+    {
+      "id": "sct-190",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.48502523,
+        "lon": 2.34490364
+      },
+      "speed_limit": 80,
+      "name": "N-II PK 636,415"
+    },
+    {
+      "id": "sct-191",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.51239796,
+        "lon": 2.40922228
+      },
+      "speed_limit": 80,
+      "name": "N-II PK 642,608"
+    },
+    {
+      "id": "sct-192",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.54396914,
+        "lon": 2.46313027
+      },
+      "speed_limit": 90,
+      "name": "N-II PK 648,355"
+    },
+    {
+      "id": "sct-193",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.58075673,
+        "lon": 2.56279493
+      },
+      "speed_limit": 90,
+      "name": "N-II PK 657,9"
+    },
+    {
+      "id": "sct-194",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.60472304,
+        "lon": 2.63444841
+      },
+      "speed_limit": 60,
+      "name": "N-II PK 665,159"
+    },
+    {
+      "id": "sct-195",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.15467921,
+        "lon": 1.07652068
+      },
+      "speed_limit": 100,
+      "name": "T-11 PK 2,337"
+    },
+    {
+      "id": "sct-196",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.13434008,
+        "lon": 1.10309281
+      },
+      "speed_limit": 100,
+      "name": "T-11 PK 5,87"
+    },
+    {
+      "id": "sct-197",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.14359036,
+        "lon": 1.0778579
+      },
+      "speed_limit": 90,
+      "name": "T-310 PK 2,8"
+    },
+    {
+      "id": "sct-198",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.12382378,
+        "lon": 1.01252144
+      },
+      "speed_limit": 90,
+      "name": "T-310 PK 9,296"
+    },
+    {
+      "id": "sct-199",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.15701269,
+        "lon": 1.27117663
+      },
+      "speed_limit": 70,
+      "name": "TP-2031 PK 4,766"
+    },
+    {
+      "id": "sct-200",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.26432261,
+        "lon": 1.55232817
+      },
+      "speed_limit": 90,
+      "name": "TP-2125 PK 4,795"
+    },
+    {
+      "id": "sct-201",
+      "kind": "fixed",
+      "start": {
+        "lat": 41.12408213,
+        "lon": 1.09632782
+      },
+      "speed_limit": 80,
+      "name": "TV-3141 PK 5,224"
+    }
+  ]
+}
