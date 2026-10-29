@@ -1,0 +1,34 @@
+name: Prepare radar source updates
+
+on:
+  schedule:
+    - cron: '45 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install coordinate converter
+        run: sudo apt-get update && sudo apt-get install -y proj-bin
+      - name: Refresh and validate source candidates
+        run: python3 tool/refresh_sources.py
+      - name: Open review pull request when data changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/radar-source-updates
+          delete-branch: true
+          commit-message: Update radar source candidates
+          title: Review updated radar source data
+          body: |
+            This is a candidate update from the DGT/Tachwire, SCT and Madrid sources.
+            Review the official DGT PDF against Tachwire, coordinates, directions,
+            section endpoints, source licenses and count changes before merging.
+            The app's GitHub JSON changes only after this pull request is merged.
+          add-paths: |
+            assets/data/*-radars.json

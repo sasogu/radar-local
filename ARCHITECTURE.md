@@ -7,3 +7,5 @@ Per cada fix GPS, el motor exigeix una precisió horitzontal de 50 m o millor, v
 L'avís de tram és només d'entrada. Un futur càlcul de velocitat mitjana requerirà punts d'inici/final georeferenciats i validats, sentit de circulació, longitud oficial, límit fiable i fixos GPS coherents al llarg del tram. No es presentarà cap estimació si falta una d'aquestes dades.
 
 La substitució del dataset es valida abans d'escriure i es fa amb fitxer temporal. No s'apliquen actualitzacions mentre la sessió de conducció està activa. Les dades d'entrada tenen límit de 10 MB i 100.000 radars. La URL de xarxa ha de ser HTTPS.
+
+Les propostes es guarden en preferències locals i no s'afegeixen al dataset actiu. La pantalla obri GitHub sense adjuntar coordenades a la URL; només l'usuari pot copiar-les i publicar-les. L'actualització HTTPS usa la URL GitHub per defecte, amb una URL alternativa configurable. El monitor n8n comprova empremtes de les fonts una vegada al dia i avisa si canvien. GitHub Actions executa els convertidors i obri una pull request quan el contingut canvia; la revisió editorial precedeix qualsevol publicació del JSON.

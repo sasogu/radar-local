@@ -1,0 +1,40 @@
+name: Proposar un radar
+description: Proposa una ubicació perquè es verifique abans d'afegir-la a les dades
+title: "[Radar] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Publicar una incidència envia la informació a GitHub. Revisa la ubicació i elimina qualsevol dada personal. Cap proposta s'incorpora automàticament a l'app.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Tipus de radar
+      options:
+        - Fix / Fijo
+        - De tram / De tramo
+        - De semàfor / De semáforo
+        - Per determinar / Por determinar
+    validations:
+      required: true
+  - type: input
+    id: latitude
+    attributes:
+      label: Latitud (WGS84)
+      placeholder: "39.470000"
+    validations:
+      required: true
+  - type: input
+    id: longitude
+    attributes:
+      label: Longitud (WGS84)
+      placeholder: "-0.370000"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Font i detalls / Fuente y detalles
+      description: Indica un enllaç oficial, via, sentit i punt quilomètric si els coneixes.
+    validations:
+      required: true

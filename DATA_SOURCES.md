@@ -29,3 +29,7 @@ Format JSON v1:
 ```
 
 `kind` accepta `fixed`, `redLight` i `section`. `direction` és el rumb de circulació en graus des del nord (0–359), opcional si la font no el coneix. Els radars de tram exigeixen `end`; actualment s'avisa de l'entrada, sense càlcul de mitjana. Els IDs han de ser únics. Les coordenades són WGS84. L'exemple inclòs és fictici i no s'ha de distribuir com a dades reals.
+
+## Vigilància de novetats
+
+`automation/n8n-radar-sources.json` és un flux n8n diari (07:15, Europe/Madrid) que comprova la pàgina DGT i els fitxers de Tachwire, SCT i Madrid. Guarda només empremtes SHA-256 en el volum privat d’n8n i avisa per Telegram quan detecta canvis o un error nou. La primera execució estableix la referència sense avisar. Les fallades repetides no generen missatges diaris. GitHub Actions executa `tool/refresh_sources.py` cada dia i, si les dades convertides canvien, prepara una pull request amb els JSON candidats. Cal revisar la font oficial, les coordenades, els sentits i la llicència abans de fusionar-la. La branca principal i la URL de l’app només canvien després de la fusió. Per a crear pull requests automàticament, el repositori ha de permetre a GitHub Actions crear-ne en la configuració d’Actions. L’app descarrega la nova versió del JSON de GitHub quan l’usuari ho demana o si activa les actualitzacions setmanals.

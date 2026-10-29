@@ -8,8 +8,11 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'core/alert_engine.dart';
+import 'core/proposal.dart';
 import 'core/radar.dart';
+import 'proposal_screen.dart';
 import 'services/data_store.dart';
+import 'services/proposal_store.dart';
 import 'services/settings.dart';
 import 'services/update_service.dart';
 
@@ -47,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   RadarDataset? _dataset;
   AlertEngine? _engine;
   StreamSubscription<Position>? _positions;
+  Position? _latestPosition;
   String _status = '';
   RadarAlert? _alert;
   DateTime? _alertAt;
@@ -186,6 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _onPosition(Position position) {
     if (!mounted || !_driving) return;
+    _latestPosition = position;
     final fix = GpsFix(
       point: Point(position.latitude, position.longitude),
       time: position.timestamp,
@@ -248,6 +253,65 @@ class _HomeScreenState extends State<HomeScreen> {
         _status = tr('Conducció finalitzada', 'Conducción finalizada');
       });
     }
+  }
+
+  Future<void> _markProposal() async {
+    final position = _latestPosition;
+    if (position == null ||
+        !position.accuracy.isFinite ||
+        position.accuracy < 0 ||
+        position.accuracy > 50 ||
+        DateTime.now().difference(position.timestamp).inSeconds.abs() > 15) {
+      if (mounted) {
+        setState(
+          () => _status = tr(
+            'Espera un senyal GPS fiable per marcar el punt',
+            'Espera una señal GPS fiable para marcar el punto',
+          ),
+        );
+      }
+      return;
+    }
+    try {
+      final heading =
+          position.headingAccuracy >= 0 &&
+              position.headingAccuracy <= 45 &&
+              position.heading >= 0 &&
+              position.heading < 360
+          ? position.heading
+          : null;
+      await ProposalStore(widget.settings.prefs).save(
+        RadarProposal(
+          id: DateTime.now().microsecondsSinceEpoch.toString(),
+          point: Point(position.latitude, position.longitude),
+          createdAt: DateTime.now().toUtc(),
+          accuracy: position.accuracy,
+          heading: heading,
+        ),
+      );
+      if (mounted) {
+        setState(
+          () => _status = tr(
+            'Punt guardat localment. Revisa’l en acabar.',
+            'Punto guardado localmente. Revísalo al terminar.',
+          ),
+        );
+      }
+    } catch (error) {
+      if (mounted) setState(() => _status = '$error');
+    }
+  }
+
+  Future<void> _openProposals() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ProposalScreen(
+          store: ProposalStore(widget.settings.prefs),
+          language: widget.settings.language,
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
   }
 
   Future<void> _import() async {
@@ -387,6 +451,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: _driving ? _markProposal : _openProposals,
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(60),
+                ),
+                icon: const Icon(Icons.add_location_alt),
+                label: Text(
+                  _driving
+                      ? tr('Marca possible radar', 'Marcar posible radar')
+                      : tr('Proposa un radar', 'Proponer un radar'),
+                ),
+              ),
+              const SizedBox(height: 12),
               if (!_driving)
                 OutlinedButton.icon(
                   onPressed: _import,
@@ -478,8 +555,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
           keyboardType: TextInputType.url,
           decoration: InputDecoration(
             labelText: tr('URL HTTPS de dades', 'URL HTTPS de datos'),
+            helperText: tr(
+              'Font de GitHub per defecte; pots escriure una altra URL',
+              'Fuente de GitHub por defecto; puedes escribir otra URL',
+            ),
           ),
-          onChanged: (v) => widget.settings.setUpdateUrl(v.trim()),
+          onChanged: (v) => widget.settings.setUpdateUrl(v),
+        ),
+        TextButton.icon(
+          onPressed: () async {
+            await widget.settings.setUpdateUrl('');
+            _url.text = defaultRadarUpdateUrl;
+            if (mounted) setState(() {});
+          },
+          icon: const Icon(Icons.restore),
+          label: Text(
+            tr(
+              'Restaura la font per defecte',
+              'Restaurar fuente predeterminada',
+            ),
+          ),
         ),
         const SizedBox(height: 12),
         OutlinedButton.icon(
