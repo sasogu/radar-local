@@ -47,7 +47,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _store = DataStore();
   final _tts = FlutterTts();
+  Timer? _updateTimer;
   RadarDataset? _dataset;
+  RadarDataset? _pendingDataset;
   AlertEngine? _engine;
   StreamSubscription<Position>? _positions;
   Position? _latestPosition;
@@ -56,6 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime? _alertAt;
   double? _speed;
   bool _busy = false;
+  bool _updating = false;
+  bool _pendingUpdate = false;
   bool _driving = false;
   bool _offlineVoiceAvailable = true;
   bool get _va => widget.settings.language == 'va';
@@ -74,25 +78,35 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _load();
+    _updateTimer = Timer.periodic(
+      const Duration(hours: 1),
+      (_) => _maybeAutomaticUpdate(),
+    );
   }
 
   Future<void> _load() async {
     try {
+      await _store.applyPending();
       final data = await _store.load();
       if (!mounted) return;
       setState(() {
         _dataset = data;
         _engine = AlertEngine(data);
       });
-      final last = widget.settings.lastUpdateCheck;
-      if (widget.settings.automaticUpdates &&
-          widget.settings.updateUrl.isNotEmpty &&
-          (last == null ||
-              DateTime.now().difference(last) > const Duration(days: 7))) {
-        await _download();
-      }
+      _maybeAutomaticUpdate();
     } catch (e) {
       if (mounted) setState(() => _status = '$e');
+    }
+  }
+
+  void _maybeAutomaticUpdate() {
+    final last = widget.settings.lastUpdateCheck;
+    if (mounted &&
+        !_updating &&
+        widget.settings.automaticUpdates &&
+        (last == null ||
+            DateTime.now().difference(last) > const Duration(days: 7))) {
+      unawaited(_download(automatic: true));
     }
   }
 
@@ -245,13 +259,35 @@ class _HomeScreenState extends State<HomeScreen> {
     _positions = null;
     await _tts.stop();
     if (mounted) {
+      final pendingInMemory = _pendingDataset;
       setState(() {
         _driving = false;
+        _busy = true;
+        _pendingUpdate = false;
+        _pendingDataset = null;
         _speed = null;
         _alert = null;
         _alertAt = null;
         _status = tr('Conducció finalitzada', 'Conducción finalizada');
       });
+      try {
+        final pending = await _store.applyPending() ?? pendingInMemory;
+        if (mounted && pending != null) {
+          setState(() {
+            _dataset = pending;
+            _engine = AlertEngine(pending);
+            _pendingUpdate = false;
+            _status = tr(
+              '${pending.radars.length} radars actualitzats',
+              '${pending.radars.length} radares actualizados',
+            );
+          });
+        }
+      } catch (error) {
+        if (mounted) setState(() => _status = '$error');
+      } finally {
+        if (mounted) setState(() => _busy = false);
+      }
     }
   }
 
@@ -315,6 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _import() async {
+    if (_updating) return;
     if (_driving) return;
     try {
       final result = await FilePicker.pickFiles(
@@ -333,6 +370,8 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _dataset = data;
           _engine = AlertEngine(data);
+          _pendingDataset = null;
+          _pendingUpdate = false;
           _status = tr(
             '${data.radars.length} radars importats',
             '${data.radars.length} radares importados',
@@ -344,28 +383,43 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<void> _download() async {
-    if (_driving || _busy) return;
-    setState(() => _busy = true);
+  Future<void> _download({bool automatic = false}) async {
+    if (_updating || (!automatic && (_driving || _busy))) return;
+    _updating = true;
+    if (!automatic) setState(() => _busy = true);
     try {
-      final data = await UpdateService(
-        _store,
-      ).download(widget.settings.updateUrl);
+      final sourceUrl = widget.settings.updateUrl;
+      final fetched = await UpdateService(_store).fetch(sourceUrl);
+      if (widget.settings.updateUrl != sourceUrl) return;
+      final data = automatic
+          ? await _store.stage(fetched.encode())
+          : await _store.replace(fetched.encode());
+      if (automatic && !_driving) await _store.applyPending();
       await widget.settings.markUpdateCheck();
       if (mounted) {
-        setState(() {
-          _dataset = data;
-          _engine = AlertEngine(data);
-          _status = tr(
-            '${data.radars.length} radars actualitzats',
-            '${data.radars.length} radares actualizados',
-          );
-        });
+        if (_driving) {
+          setState(() {
+            _pendingDataset = data;
+            _pendingUpdate = true;
+          });
+        } else {
+          setState(() {
+            _dataset = data;
+            _engine = AlertEngine(data);
+            _pendingDataset = null;
+            _pendingUpdate = false;
+            _status = tr(
+              '${data.radars.length} radars actualitzats',
+              '${data.radars.length} radares actualizados',
+            );
+          });
+        }
       }
     } catch (e) {
       if (mounted) setState(() => _status = '$e');
     } finally {
-      if (mounted) setState(() => _busy = false);
+      _updating = false;
+      if (!automatic && mounted) setState(() => _busy = false);
     }
   }
 
@@ -380,6 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
+    _updateTimer?.cancel();
     _positions?.cancel();
     _tts.stop();
     super.dispose();
@@ -439,6 +494,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const Spacer(),
+              if (_pendingUpdate)
+                Text(
+                  tr(
+                    'Actualització preparada per al final del trajecte',
+                    'Actualización preparada para el final del trayecto',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               FilledButton.icon(
                 onPressed: _busy ? null : (_driving ? _stop : _start),
                 style: FilledButton.styleFrom(
@@ -595,8 +658,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           subtitle: Text(
             tr(
-              'Només en obrir l’app, abans de conduir',
-              'Solo al abrir la app, antes de conducir',
+              'Es pot descarregar en ruta; s’activarà en acabar',
+              'Puede descargarse en ruta; se activará al terminar',
             ),
           ),
           value: widget.settings.automaticUpdates,

@@ -8,6 +8,11 @@ class UpdateService {
   final DataStore store;
 
   Future<RadarDataset> download(String address) async {
+    final data = await fetch(address);
+    return store.replace(data.encode());
+  }
+
+  Future<RadarDataset> fetch(String address) async {
     final uri = Uri.tryParse(address);
     if (uri == null ||
         uri.scheme != 'https' ||
@@ -36,7 +41,7 @@ class UpdateService {
         }
         chunks.addAll(chunk);
       }
-      return store.replace(utf8.decode(chunks));
+      return RadarDataset.parse(utf8.decode(chunks));
     } finally {
       client.close();
     }

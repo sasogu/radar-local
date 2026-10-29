@@ -4,7 +4,7 @@ App Flutter d'avisos de radars sense mapes. La base de dades és local i el GPS 
 
 ## Estat
 
-Prototip funcional Android/iOS: importació manual JSON, actualització HTTPS des de GitHub per defecte (consulta setmanal opcional en obrir l'app), GPS, avís de veu i so, índex espacial i simulador de rutes. Inclou **1.056 radars**: 819 de la llista DGT d'agost de 2026 georeferenciats per Tachwire/IGN, 201 fixos del Servei Català de Trànsit i 36 de l'Ajuntament de Madrid. **La cobertura continua sent parcial: el País Basc i diversos registres sense coordenades verificables queden pendents.** Consulteu les atribucions i exclusions en [DATA_SOURCES.md](DATA_SOURCES.md). No useu l'app com a únic mitjà de seguretat ni manipuleu el telèfon mentre conduïu.
+Prototip funcional Android/iOS: importació manual JSON, actualització HTTPS des de GitHub per defecte (consulta setmanal opcional amb l'app oberta), GPS, avís de veu i so, índex espacial i simulador de rutes. Inclou **1.056 radars**: 819 de la llista DGT d'agost de 2026 georeferenciats per Tachwire/IGN, 201 fixos del Servei Català de Trànsit i 36 de l'Ajuntament de Madrid. **La cobertura continua sent parcial: el País Basc i diversos registres sense coordenades verificables queden pendents.** Consulteu les atribucions i exclusions en [DATA_SOURCES.md](DATA_SOURCES.md). No useu l'app com a únic mitjà de seguretat ni manipuleu el telèfon mentre conduïu.
 
 Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. Els càlculs de velocitat mitjana dels radars de tram encara no estan disponibles: s'avisa de l'entrada del tram amb prioritat.
 
@@ -16,7 +16,7 @@ flutter test
 flutter run
 ```
 
-Podeu importar un JSON amb l'esquema de [DATA_SOURCES.md](DATA_SOURCES.md). El fitxer `assets/data/example-radars.json` és fictici i només serveix per a proves. La URL inicial és `https://raw.githubusercontent.com/sasogu/radar-local/master/assets/data/spain-radars.json`; es pot substituir per qualsevol altra URL HTTPS amb JSON v1 i restaurar-la des de Configuració. Les actualitzacions automàtiques estan desactivades inicialment i, quan s'activen, només es consulten en obrir l'app fora de la conducció.
+Podeu importar un JSON amb l'esquema de [DATA_SOURCES.md](DATA_SOURCES.md). El fitxer `assets/data/example-radars.json` és fictici i només serveix per a proves. La URL inicial és `https://raw.githubusercontent.com/sasogu/radar-local/master/assets/data/spain-radars.json`; es pot substituir per qualsevol altra URL HTTPS amb JSON v1 i restaurar-la des de Configuració. Les actualitzacions automàtiques estan desactivades inicialment. Quan s’activen, l’app comprova les dades en obrir-se i periòdicament mentre continua oberta, com a màxim una vegada cada set dies després d’una descàrrega correcta. Pot descarregar i validar durant la conducció; la nova base només s’activa en acabar el trajecte.
 
 El botó «Proposa un radar» permet guardar esborranys locals. Durant la conducció, «Marca possible radar» guarda un punt GPS fiable amb un toc; en acabar, es pot revisar, copiar i publicar manualment com a incidència de GitHub. Cap proposta entra automàticament a la base.
 
