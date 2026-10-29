@@ -1,7 +1,7 @@
 # Pla incremental
 
 1. **Arquitectura:** model, separació core/serveis/UI — fet; analitzar i provar.
-2. **Dades:** JSON local, validació, importació i actualització opcional; descàrrega possible en ruta amb activació diferida — implementat; pendent prova física.
+2. **Dades:** JSON local, validació, importació i actualització opcional; descàrrega possible en ruta amb activació diferida o confirmació explícita — implementat; pendent prova física.
 3. **Motor:** distància, rumb, velocitat, precisió, sentit i silenci — fet; proves unitàries.
 4. **GPS:** flux de posicions i permisos — implementat; pendent prova física.
 5. **Alertes:** veu i so configurables — implementat; pendent prova física de TTS.

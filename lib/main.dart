@@ -254,15 +254,18 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Future<void> _stop() async {
-    await _positions?.cancel();
-    _positions = null;
-    await _tts.stop();
-    if (mounted) {
-      final pendingInMemory = _pendingDataset;
+  Future<bool> _stop() async {
+    if (!mounted || _busy) return false;
+    setState(() => _busy = true);
+    RadarDataset? pendingInMemory;
+    try {
+      await _positions?.cancel();
+      _positions = null;
+      await _tts.stop();
+      if (!mounted) return false;
+      pendingInMemory = _pendingDataset;
       setState(() {
         _driving = false;
-        _busy = true;
         _pendingUpdate = false;
         _pendingDataset = null;
         _speed = null;
@@ -270,25 +273,37 @@ class _HomeScreenState extends State<HomeScreen> {
         _alertAt = null;
         _status = tr('Conducció finalitzada', 'Conducción finalizada');
       });
-      try {
-        final pending = await _store.applyPending() ?? pendingInMemory;
-        if (mounted && pending != null) {
-          setState(() {
-            _dataset = pending;
-            _engine = AlertEngine(pending);
-            _pendingUpdate = false;
-            _status = tr(
-              '${pending.radars.length} radars actualitzats',
-              '${pending.radars.length} radares actualizados',
-            );
-          });
-        }
-      } catch (error) {
-        if (mounted) setState(() => _status = '$error');
-      } finally {
-        if (mounted) setState(() => _busy = false);
+      final pending = await _store.applyPending() ?? pendingInMemory;
+      if (mounted && pending != null) {
+        setState(() {
+          _dataset = pending;
+          _engine = AlertEngine(pending);
+          _pendingUpdate = false;
+          _status = tr(
+            '${pending.radars.length} radars actualitzats',
+            '${pending.radars.length} radares actualizados',
+          );
+        });
+        return true;
       }
+    } catch (error) {
+      if (mounted) {
+        setState(() {
+          _pendingDataset = pendingInMemory;
+          _pendingUpdate = pendingInMemory != null;
+          _status = '$error';
+        });
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
+    return false;
+  }
+
+  Future<void> _applyPendingNow() async {
+    if (!_driving || !_pendingUpdate || _busy) return;
+    final activated = await _stop();
+    if (activated && mounted) await _start();
   }
 
   Future<void> _markProposal() async {
@@ -495,12 +510,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const Spacer(),
               if (_pendingUpdate)
-                Text(
-                  tr(
-                    'Actualització preparada per al final del trajecte',
-                    'Actualización preparada para el final del trayecto',
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: OutlinedButton.icon(
+                    onPressed: _busy ? null : _applyPendingNow,
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(60),
+                    ),
+                    icon: const Icon(Icons.restart_alt),
+                    label: Text(
+                      tr(
+                        'Aplica radars i reinicia avisos',
+                        'Aplicar radares y reiniciar avisos',
+                      ),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               FilledButton.icon(
                 onPressed: _busy ? null : (_driving ? _stop : _start),
