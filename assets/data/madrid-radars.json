@@ -1,0 +1,412 @@
+{
+  "schema": 1,
+  "source": "Ayuntamiento de Madrid, radares fijos, CC BY 4.0",
+  "updated_at": "2026-10-29T13:52:19+00:00",
+  "radars": [
+    {
+      "id": "madrid-1",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.47934148,
+        "lon": -3.67433808
+      },
+      "name": "M-30, ENTRADA DE LA A-1, SENTIDO PUENTE DE VENTAS P.K. 0,500",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-2",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.47934175,
+        "lon": -3.67429089
+      },
+      "name": "M-30, ENTRADA DE LA A-1, SENTIDO PUENTE DE VENTAS P.K. 0,500",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-3",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.45892328,
+        "lon": -3.66880283
+      },
+      "name": "PASO INFERIOR COSTA RICA, SENTIDO PRÍNCIPE DE VERGARA",
+      "speed_limit": 50
+    },
+    {
+      "id": "madrid-4",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.42618023,
+        "lon": -3.66014384
+      },
+      "name": "M-30, PTE. DE VENTAS. SENTIDO SUR A O´DONNELL P.K. 6,700",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-5",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.42618971,
+        "lon": -3.66006141
+      },
+      "name": "M-30, PTE. DE VENTAS. SENTIDO SUR A O´DONNELL P.K. 6,700",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-6",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.41663568,
+        "lon": -3.65926082
+      },
+      "name": "M-30, ENLACE O´DONNELL SENTIDO NORTE A PTE. DE VENTAS PK 7,800",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-7",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.41664449,
+        "lon": -3.65929627
+      },
+      "name": "M-30, ENLACE O´DONNELL SENTIDO NORTE A PTE. DE VENTAS PK 7,800",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-8",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.397352,
+        "lon": -3.670048
+      },
+      "name": "TÚNEL BAIPÁS, SENTIDO NORTE A PTE. DE VENTAS (MÉNDEZ ÁLVARO-AVDA. DEL METITARRÁNEO)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-9",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.397323,
+        "lon": -3.669973
+      },
+      "name": "TÚNEL BAIPÁS, SENTIDO NORTE A PTE. DE VENTAS (MÉNDEZ ÁLVARO-AVDA. DEL METITARRÁNEO)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-10",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.38678654,
+        "lon": -3.69499826
+      },
+      "name": "ENTRADA TÚNEL M-30, DESDE NUDO SUR HACIA PTE. DE LOS FRANCESES",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-11",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.39118,
+        "lon": -3.699691
+      },
+      "name": "TÚNEL M-30, SENTIDO NUDO SUR - PTE. DE LOS FRANCESES, (GTA. LEGAZPI - Pº STA. Mª DE LA CABEZA)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-12",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.394924,
+        "lon": -3.703274
+      },
+      "name": "TÚNEL BYPASS, SENTIDO A-3 A PTE. FRANCESES, (GTA. LEGAZPI - Pº STA. Mª DE LA CABEZA)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-13",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.39052318,
+        "lon": -3.71017703
+      },
+      "name": "PASEO DE STA. Mª DE LA CABEZA Nº 115, ENTRADA",
+      "speed_limit": 50
+    },
+    {
+      "id": "madrid-14",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.39657,
+        "lon": -3.708108
+      },
+      "name": "TÚNEL BYPASS, SENTIDO A3 A PTE. DE LOS FRANCESES, (ENLACE Pº STA. Mª DE LA CABEZA)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-15",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.397139,
+        "lon": -3.709684
+      },
+      "name": "TÚNEL BYPASS, SENTIDO A3 A PTE. DE LOS FRANCESES, (Pº STA. Mª DE LA CABEZA - GTA. PIRÁMIDES)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-16",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.403114,
+        "lon": -3.722988
+      },
+      "name": "TÚNEL M-30, SENTIDO PTE. DE LOS FRANCESES - A3 (PTE. SAN ISIDRO - GTA. MARQUÉS DE VADILLO)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-17",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.40939,
+        "lon": -3.721414
+      },
+      "name": "TÚNEL M-30, SENTIDO NUDO SUR - PTE. DE LOS FRANCESES, (PASADA SALIDA VIRGEN DEL PUERTO)",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-18",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.41389,
+        "lon": -3.731092
+      },
+      "name": "TÚNEL AVDA. DE PORTUGAL, SENTIDO M-30",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-19",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.413797,
+        "lon": -3.73102
+      },
+      "name": "TÚNEL AVDA. DE PORTUGAL, SENTIDO M-30",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-20",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.40744539,
+        "lon": -3.74545156
+      },
+      "name": "A-5 PK 4,000, SALIDA",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-21",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.422937,
+        "lon": -3.727663
+      },
+      "name": "ENTRADA TÚNEL EN MARQUÉS DE MONISTROL, P.K. 19,060",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-22",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.422839,
+        "lon": -3.727724
+      },
+      "name": "ENTRADA TÚNEL EN MARQUÉS DE MONISTROL, P.K. 19,060",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-23",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.42763957,
+        "lon": -3.73482875
+      },
+      "name": "M-30  MARQUÉS DE MONISTROL, SENTIDO PTE. DE LOS FRANCESES (PTE. DEL REY - PTE. FRANCESES) P.K. 19,800",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-24",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.42763957,
+        "lon": -3.73482875
+      },
+      "name": "M-30  MARQUÉS DE MONISTROL, SENTIDO PTE. DE LOS FRANCESES (PTE. DEL REY - PTE. FRANCESES) P.K. 19,800",
+      "speed_limit": 70
+    },
+    {
+      "id": "madrid-25",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.4743471,
+        "lon": -3.74530618
+      },
+      "name": "M-30 SENTIDO AVDA. DE LA ILUSTRACIÓN (CTRA. DEL PARDO - AVDA. DE LA ILUSTRACIÓN) P.K. 25,700",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-26",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.47279048,
+        "lon": -3.73089695
+      },
+      "name": "M-30  SENTIDO CTRA DEL PARDO (AVDA. DE LA ILUSTRACIÓN - CTRA. DEL PARDO) P.K. 27,300",
+      "speed_limit": 90
+    },
+    {
+      "id": "madrid-27",
+      "kind": "fixed",
+      "start": {
+        "lat": 40.48048344,
+        "lon": -3.68542793
+      },
+      "name": "PASEO DE LA CASTELLANA Nº 300, SALIDA",
+      "speed_limit": 50
+    },
+    {
+      "id": "madrid-28",
+      "kind": "section",
+      "start": {
+        "lat": 40.387572,
+        "lon": -3.69938
+      },
+      "name": "AVENIDA DE CÓRDOBA CON CALLE DOCTOR TOLOSA LATOUR, SENTIDO GLORIETA DE MÁLAGA",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.37859,
+        "lon": -3.696519
+      },
+      "direction": 166.36
+    },
+    {
+      "id": "madrid-29",
+      "kind": "section",
+      "start": {
+        "lat": 40.4072412609861,
+        "lon": -3.74574755307117
+      },
+      "name": "A-5 PK 5+750, SENTIDO SALIDA",
+      "speed_limit": 70,
+      "end": {
+        "lat": 40.4001241953525,
+        "lon": -3.76358611606955
+      },
+      "direction": 242.35
+    },
+    {
+      "id": "madrid-30",
+      "kind": "section",
+      "start": {
+        "lat": 40.4001241953525,
+        "lon": -3.76358611606955
+      },
+      "name": "A-5 PK 4+000, SENTIDO ENTRADA",
+      "speed_limit": 70,
+      "end": {
+        "lat": 40.4072412609861,
+        "lon": -3.74574755307117
+      },
+      "direction": 62.34
+    },
+    {
+      "id": "madrid-31",
+      "kind": "section",
+      "start": {
+        "lat": 40.469247,
+        "lon": -3.712945
+      },
+      "name": "Sinesio Delgado, Sentido Ciudad Universitaria, Farolas 144 -152",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.467149,
+        "lon": -3.714454
+      },
+      "direction": 208.69
+    },
+    {
+      "id": "madrid-32",
+      "kind": "section",
+      "start": {
+        "lat": 40.467149,
+        "lon": -3.714454
+      },
+      "name": "Sinesio Delgado, Sentido Ciudad Universitaria, Farolas 152 - 188",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.460303,
+        "lon": -3.728241
+      },
+      "direction": 236.87
+    },
+    {
+      "id": "madrid-33",
+      "kind": "section",
+      "start": {
+        "lat": 40.469247,
+        "lon": -3.712945
+      },
+      "name": "Sinesio Delgado, Sentido Ciudad Universitaria, Farolas 144 -188",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.460303,
+        "lon": -3.728241
+      },
+      "direction": 232.46
+    },
+    {
+      "id": "madrid-34",
+      "kind": "section",
+      "start": {
+        "lat": 40.460208,
+        "lon": -3.728207
+      },
+      "name": "Sinesio Delgado, Sentido Av Betanzos, Farola 187-152",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.467149,
+        "lon": -3.714454
+      },
+      "direction": 56.44
+    },
+    {
+      "id": "madrid-35",
+      "kind": "section",
+      "start": {
+        "lat": 40.467149,
+        "lon": -3.714454
+      },
+      "name": "Sinesio Delgado, Sentido Av Betanzos, Farola 152- 143",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.469208,
+        "lon": -3.712743
+      },
+      "direction": 32.3
+    },
+    {
+      "id": "madrid-36",
+      "kind": "section",
+      "start": {
+        "lat": 40.460208,
+        "lon": -3.728207
+      },
+      "name": "Sinesio Delgado, Sentido Av Betanzos, Farola 187-143",
+      "speed_limit": 50,
+      "end": {
+        "lat": 40.469208,
+        "lon": -3.712743
+      },
+      "direction": 52.58
+    }
+  ]
+}

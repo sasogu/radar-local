@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "source": "EXAMPLE ONLY - NOT REAL RADARS",
+  "updated_at": "2026-10-29T00:00:00Z",
+  "radars": [
+    {"id":"example-1","kind":"fixed","start":{"lat":39.47,"lon":-0.37},"direction":0,"speed_limit":50,"name":"Example"},
+    {"id":"example-section","kind":"section","start":{"lat":39.49,"lon":-0.37},"end":{"lat":39.50,"lon":-0.37},"direction":0,"speed_limit":80}
+  ]
+}
