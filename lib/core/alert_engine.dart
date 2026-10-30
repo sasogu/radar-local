@@ -50,6 +50,32 @@ class AlertEngine {
   RadarAlert? _lastAlert;
   DateTime? _lastAlertAt;
 
+  Radar? limitAhead(GpsFix fix, {double maxDistance = 1200}) {
+    if (!fix.reliable) return null;
+    Radar? best;
+    var bestDistance = double.infinity;
+    for (final radar in _index.near(fix.point, maxDistance)) {
+      if (radar.speedLimit == null) continue;
+      final distance = distanceMeters(fix.point, radar.start);
+      if (distance > maxDistance ||
+          distance <= math.max(35, fix.accuracy * 1.5) ||
+          bearingDifference(
+                fix.heading,
+                bearingDegrees(fix.point, radar.start),
+              ) >
+              50 ||
+          (radar.direction != null &&
+              bearingDifference(fix.heading, radar.direction!) > 35)) {
+        continue;
+      }
+      if (distance < bestDistance) {
+        best = radar;
+        bestDistance = distance;
+      }
+    }
+    return best;
+  }
+
   RadarAlert? evaluate(GpsFix fix) {
     if (!fix.reliable ||
         fix.speed < 3 ||

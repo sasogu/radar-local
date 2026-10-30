@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'core/alert_engine.dart';
 import 'core/proposal.dart';
 import 'core/radar.dart';
+import 'core/speed_limit.dart';
 import 'proposal_screen.dart';
 import 'services/data_store.dart';
 import 'services/proposal_store.dart';
@@ -57,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
   RadarAlert? _alert;
   DateTime? _alertAt;
   double? _speed;
+  int? _speedLimit;
   bool _busy = false;
   bool _updating = false;
   bool _pendingUpdate = false;
@@ -73,6 +75,12 @@ class _HomeScreenState extends State<HomeScreen> {
           'Madrid + Cataluña · cobertura parcial',
         )
       : data.source;
+  Color _speedColor(BuildContext context, SpeedZone? zone) => switch (zone) {
+    null => Theme.of(context).colorScheme.onSurface,
+    SpeedZone.within => Colors.green.shade400,
+    SpeedZone.tolerance => Colors.orange.shade400,
+    SpeedZone.fine => Colors.red.shade400,
+  };
 
   @override
   void initState() {
@@ -193,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
       setState(() {
         _driving = true;
+        _speedLimit = null;
         _status = tr('Escoltant GPS', 'Escuchando GPS');
       });
     } catch (e) {
@@ -215,8 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
       headingAccuracy: position.headingAccuracy,
     );
     final alert = _engine?.evaluate(fix);
+    final limit = _engine?.limitAhead(fix)?.speedLimit;
     setState(() {
       _speed = position.speed * 3.6;
+      _speedLimit = limit;
       _status = !_offlineVoiceAvailable
           ? tr(
               'Veu offline no disponible: només so',
@@ -274,6 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _pendingUpdate = false;
         _pendingDataset = null;
         _speed = null;
+        _speedLimit = null;
         _alert = null;
         _alertAt = null;
         _status = tr('Conducció finalitzada', 'Conducción finalizada');
@@ -462,6 +474,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final data = _dataset;
+    final speed = _speed?.round();
+    final limit = _speedLimit;
+    final zone = speed == null || limit == null
+        ? null
+        : SpeedLimit.zone(speed, limit);
+    final speedColor = _speedColor(context, zone);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Radar Local'),
@@ -474,103 +492,182 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Semantics(
-                liveRegion: true,
-                child: Text(
-                  _status.isEmpty ? tr('Preparat', 'Preparado') : _status,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ),
-              const Spacer(),
-              Text(
-                _speed == null ? '—' : '${_speed!.round()}',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 84,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'km/h',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: 28),
-              Semantics(
-                liveRegion: true,
-                child: Text(
-                  _alert == null
-                      ? tr('Sense avisos', 'Sin avisos')
-                      : '${_alert!.radar.kind == RadarKind.section
-                            ? tr('Radar de tram', 'Radar de tramo')
-                            : _alert!.radar.kind == RadarKind.phone
-                            ? tr('Càmera de control', 'Cámara de control')
-                            : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ),
-              const Spacer(),
-              if (_pendingUpdate)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: OutlinedButton.icon(
-                    onPressed: _busy ? null : _applyPendingNow,
-                    style: OutlinedButton.styleFrom(
-                      minimumSize: const Size.fromHeight(60),
-                    ),
-                    icon: const Icon(Icons.restart_alt),
-                    label: Text(
-                      tr(
-                        'Aplica radars i reinicia avisos',
-                        'Aplicar radares y reiniciar avisos',
+        child: LayoutBuilder(
+          builder: (context, constraints) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: IntrinsicHeight(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          _status.isEmpty
+                              ? tr('Preparat', 'Preparado')
+                              : _status,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
                       ),
-                    ),
+                      const Spacer(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            speed?.toString() ?? '—',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 84,
+                              fontWeight: FontWeight.bold,
+                              color: speedColor,
+                            ),
+                          ),
+                          if (limit != null) ...[
+                            const SizedBox(width: 16),
+                            Semantics(
+                              label: tr('Límit $limit', 'Límite $limit'),
+                              child: Container(
+                                width: 64,
+                                height: 64,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.red.shade700,
+                                    width: 6,
+                                  ),
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  '$limit',
+                                  style: const TextStyle(
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                      Text(
+                        'km/h',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      if (limit != null)
+                        Text(
+                          tr(
+                            'Taronja: tolerància, no és una velocitat legal',
+                            'Naranja: tolerancia, no es una velocidad legal',
+                          ),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      const SizedBox(height: 28),
+                      Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          _alert == null
+                              ? tr('Sense avisos', 'Sin avisos')
+                              : '${_alert!.radar.kind == RadarKind.section
+                                    ? tr('Radar de tram', 'Radar de tramo')
+                                    : _alert!.radar.kind == RadarKind.phone
+                                    ? tr('Càmera de control', 'Cámara de control')
+                                    : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                      ),
+                      const Spacer(),
+                      if (_pendingUpdate)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 12),
+                          child: OutlinedButton.icon(
+                            onPressed: _busy ? null : _applyPendingNow,
+                            style: OutlinedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(60),
+                            ),
+                            icon: const Icon(Icons.restart_alt),
+                            label: Text(
+                              tr(
+                                'Aplica radars i reinicia avisos',
+                                'Aplicar radares y reiniciar avisos',
+                              ),
+                            ),
+                          ),
+                        ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: FilledButton.icon(
+                              onPressed: _busy
+                                  ? null
+                                  : (_driving ? _stop : _start),
+                              style: FilledButton.styleFrom(
+                                minimumSize: const Size.fromHeight(72),
+                              ),
+                              icon: Icon(
+                                _driving ? Icons.stop : Icons.play_arrow,
+                              ),
+                              label: Text(
+                                _driving
+                                    ? tr('Atura', 'Detener')
+                                    : tr('Inicia', 'Iniciar'),
+                                style: const TextStyle(fontSize: 24),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: OutlinedButton.icon(
+                              onPressed: _driving
+                                  ? _markProposal
+                                  : _openProposals,
+                              style: OutlinedButton.styleFrom(
+                                minimumSize: const Size.fromHeight(72),
+                              ),
+                              icon: const Icon(Icons.add_location_alt),
+                              label: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  _driving
+                                      ? tr(
+                                          'Marca possible radar',
+                                          'Marcar posible radar',
+                                        )
+                                      : tr(
+                                          'Proposa un radar',
+                                          'Proponer un radar',
+                                        ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        data == null
+                            ? '…'
+                            : tr(
+                                '${data.radars.length} radars locals · ${sourceLabel(data)}',
+                                '${data.radars.length} radares locales · ${sourceLabel(data)}',
+                              ),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
                   ),
                 ),
-              FilledButton.icon(
-                onPressed: _busy ? null : (_driving ? _stop : _start),
-                style: FilledButton.styleFrom(
-                  minimumSize: const Size.fromHeight(72),
-                ),
-                icon: Icon(_driving ? Icons.stop : Icons.play_arrow),
-                label: Text(
-                  _driving ? tr('Atura', 'Detener') : tr('Inicia', 'Iniciar'),
-                  style: const TextStyle(fontSize: 24),
-                ),
               ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                onPressed: _driving ? _markProposal : _openProposals,
-                style: OutlinedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(60),
-                ),
-                icon: const Icon(Icons.add_location_alt),
-                label: Text(
-                  _driving
-                      ? tr('Marca possible radar', 'Marcar posible radar')
-                      : tr('Proposa un radar', 'Proponer un radar'),
-                ),
-              ),
-              const SizedBox(height: 12),
-              Text(
-                data == null
-                    ? '…'
-                    : tr(
-                        '${data.radars.length} radars locals · ${sourceLabel(data)}',
-                        '${data.radars.length} radares locales · ${sourceLabel(data)}',
-                      ),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -722,6 +819,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
             await widget.settings.setAutomaticUpdates(v);
             setState(() {});
           },
+        ),
+        const Divider(height: 32),
+        Text(
+          tr('Colors de velocitat', 'Colores de velocidad'),
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          tr(
+            'Verd: dins del límit. Taronja: marge de tolerància, no és una velocitat legal. Roig: multa probable.',
+            'Verde: dentro del límite. Naranja: margen de tolerancia, no es una velocidad legal. Rojo: multa probable.',
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          tr(
+            'Els límits de la DGT són estimats a partir d’OpenStreetMap; els de Catalunya i Madrid són oficials.',
+            'Los límites de la DGT son estimados a partir de OpenStreetMap; los de Cataluña y Madrid son oficiales.',
+          ),
         ),
         const SizedBox(height: 20),
         Text(

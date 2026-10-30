@@ -71,6 +71,46 @@ void main() {
     );
     expect(engine.evaluate(fix())?.radar.id, 'S');
   });
+  test('finds the speed limit ahead', () {
+    final limited = Radar(
+      id: 'L',
+      kind: RadarKind.fixed,
+      start: radar.start,
+      direction: 0,
+      speedLimit: 90,
+    );
+    final engine = AlertEngine(
+      RadarDataset([limited], source: 'test', updatedAt: DateTime.now()),
+    );
+    expect(engine.limitAhead(fix())?.speedLimit, 90);
+  });
+  test('ignores limits behind or without a limit', () {
+    final behind = Radar(
+      id: 'B',
+      kind: RadarKind.fixed,
+      start: radar.start,
+      direction: 180,
+      speedLimit: 90,
+    );
+    final unlimited = Radar(
+      id: 'U',
+      kind: RadarKind.fixed,
+      start: radar.start,
+      direction: 0,
+    );
+    expect(
+      AlertEngine(
+        RadarDataset([behind], source: 'test', updatedAt: DateTime.now()),
+      ).limitAhead(fix()),
+      isNull,
+    );
+    expect(
+      AlertEngine(
+        RadarDataset([unlimited], source: 'test', updatedAt: DateTime.now()),
+      ).limitAhead(fix()),
+      isNull,
+    );
+  });
   test('alerts on a phone control camera', () {
     final phone = Radar(
       id: 'P',

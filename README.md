@@ -6,6 +6,8 @@ App Flutter d'avisos de radars sense mapes. La base de dades és local i el GPS 
 
 Prototip funcional Android/iOS: importació manual JSON, actualització HTTPS des de GitHub per defecte (consulta setmanal opcional amb l'app oberta), GPS, avís de veu i so, índex espacial i simulador de rutes. Inclou **1.291 avisos**: 1.056 radars (819 de la llista DGT d'agost de 2026 georeferenciats per Tachwire/IGN, 201 fixos del Servei Català de Trànsit i 36 de l'Ajuntament de Madrid) i 235 càmeres de control de cinturó i mòbil de la DGT. **La cobertura continua sent parcial: el País Basc i diversos registres sense coordenades verificables queden pendents.** Consulteu les atribucions i exclusions en [DATA_SOURCES.md](DATA_SOURCES.md). No useu l'app com a únic mitjà de seguretat ni manipuleu el telèfon mentre conduïu.
 
+Durant la conducció, quan s'acosta a un radar amb límit conegut, mostra el senyal del límit i acoloreix la velocitat: verd dins del límit, taronja dins del marge de tolerància (7 km/h o 7 %, que no és una velocitat legal) i roig a partir del llindar de multa. Si no hi ha límit conegut, no inventa cap color.
+
 Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. Els càlculs de velocitat mitjana dels radars de tram encara no estan disponibles: s'avisa de l'entrada del tram amb prioritat.
 
 ## Inici
