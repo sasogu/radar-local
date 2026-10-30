@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'core/alert_engine.dart';
 import 'core/proposal.dart';
 import 'core/radar.dart';
@@ -102,6 +103,11 @@ class _HomeScreenState extends State<HomeScreen> {
         _engine = AlertEngine(data);
       });
       _maybeAutomaticUpdate();
+      if (widget.settings.autoStart) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) unawaited(_start());
+        });
+      }
     } catch (e) {
       if (mounted) setState(() => _status = '$e');
     }
@@ -204,6 +210,11 @@ class _HomeScreenState extends State<HomeScreen> {
         _speedLimit = null;
         _status = tr('Escoltant GPS', 'Escuchando GPS');
       });
+      if (widget.settings.keepScreenOn) {
+        unawaited(WakelockPlus.enable());
+      } else {
+        unawaited(WakelockPlus.disable());
+      }
     } catch (e) {
       if (mounted) setState(() => _status = '$e');
     } finally {
@@ -272,6 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<bool> _stop() async {
     if (!mounted || _busy) return false;
+    unawaited(WakelockPlus.disable());
     setState(() => _busy = true);
     RadarDataset? pendingInMemory;
     try {
@@ -468,6 +480,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _updateTimer?.cancel();
     _positions?.cancel();
     _tts.stop();
+    unawaited(WakelockPlus.disable());
     super.dispose();
   }
 
@@ -734,6 +747,41 @@ class _SettingsScreenState extends State<SettingsScreen> {
           value: widget.settings.sound,
           onChanged: (v) async {
             await widget.settings.setSound(v);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: Text(
+            tr(
+              'Inicia automàticament en obrir',
+              'Iniciar automáticamente al abrir',
+            ),
+          ),
+          subtitle: Text(
+            tr(
+              'Demana ubicació i comença a escoltar el GPS',
+              'Pide ubicación y empieza a escuchar el GPS',
+            ),
+          ),
+          value: widget.settings.autoStart,
+          onChanged: (v) async {
+            await widget.settings.setAutoStart(v);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: Text(
+            tr('Mantén la pantalla encesa', 'Mantén la pantalla encendida'),
+          ),
+          subtitle: Text(
+            tr(
+              'Només mentre la conducció està activa',
+              'Solo mientras la conducción está activa',
+            ),
+          ),
+          value: widget.settings.keepScreenOn,
+          onChanged: (v) async {
+            await widget.settings.setKeepScreenOn(v);
             setState(() {});
           },
         ),

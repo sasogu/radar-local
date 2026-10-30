@@ -10,6 +10,8 @@ class AppSettings {
   bool get voice => prefs.getBool('voice') ?? true;
   bool get sound => prefs.getBool('sound') ?? true;
   bool get automaticUpdates => prefs.getBool('automatic_updates') ?? false;
+  bool get keepScreenOn => prefs.getBool('keep_screen_on') ?? true;
+  bool get autoStart => prefs.getBool('auto_start') ?? true;
   String get updateUrl {
     final configured = prefs.getString('update_url')?.trim();
     return configured == null || configured.isEmpty
@@ -27,6 +29,9 @@ class AppSettings {
   Future<void> setSound(bool value) => prefs.setBool('sound', value);
   Future<void> setAutomaticUpdates(bool value) =>
       prefs.setBool('automatic_updates', value);
+  Future<void> setKeepScreenOn(bool value) =>
+      prefs.setBool('keep_screen_on', value);
+  Future<void> setAutoStart(bool value) => prefs.setBool('auto_start', value);
   Future<void> setUpdateUrl(String value) async {
     final normalized = value.trim();
     final selected = normalized.isEmpty ? defaultRadarUpdateUrl : normalized;

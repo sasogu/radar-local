@@ -8,7 +8,7 @@ Prototip funcional Android/iOS: importació manual JSON, actualització HTTPS de
 
 Durant la conducció, quan s'acosta a un radar amb límit conegut, mostra el senyal del límit i acoloreix la velocitat: verd dins del límit, taronja dins del marge de tolerància (7 km/h o 7 %, que no és una velocitat legal) i roig a partir del llindar de multa. Si no hi ha límit conegut, no inventa cap color.
 
-Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. Els càlculs de velocitat mitjana dels radars de tram encara no estan disponibles: s'avisa de l'entrada del tram amb prioritat.
+En obrir-se, l'app pot iniciar la conducció automàticament (opció activada per defecte) i demana el permís d'ubicació si cal. Mentre la conducció està activa, pot mantindre la pantalla encesa (també activat per defecte a Configuració) i la torna a alliberar en aturar. Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. Els càlculs de velocitat mitjana dels radars de tram encara no estan disponibles: s'avisa de l'entrada del tram amb prioritat.
 
 ## Inici
 

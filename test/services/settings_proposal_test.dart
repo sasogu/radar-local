@@ -20,6 +20,20 @@ void main() {
     expect(settings.updateUrl, defaultRadarUpdateUrl);
   });
 
+  test('auto start defaults to true and can be disabled', () async {
+    SharedPreferences.setMockInitialValues({});
+    final settings = AppSettings(await SharedPreferences.getInstance());
+    expect(settings.autoStart, isTrue);
+    await settings.setAutoStart(false);
+    expect(settings.autoStart, isFalse);
+  });
+  test('keep screen on defaults to true and can be disabled', () async {
+    SharedPreferences.setMockInitialValues({});
+    final settings = AppSettings(await SharedPreferences.getInstance());
+    expect(settings.keepScreenOn, isTrue);
+    await settings.setKeepScreenOn(false);
+    expect(settings.keepScreenOn, isFalse);
+  });
   test('proposal persists locally and can be removed', () async {
     SharedPreferences.setMockInitialValues({});
     final prefs = await SharedPreferences.getInstance();
