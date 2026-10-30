@@ -1,6 +1,6 @@
 # Compilació i publicació
 
-Requisits: Flutter 3.47.9, Dart 3.13, Android SDK per a APK i Android App Bundle. Executeu des d'aquest directori:
+Requisits: Flutter 3.47.9 (fixat a `pubspec.yaml`; `~/.local/bin/flutterw` tria el SDK instal·lat que toca), Dart 3.13, Android SDK per a APK i Android App Bundle. Executeu des d'aquest directori:
 
 ```sh
 flutter pub get
