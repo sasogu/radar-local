@@ -14,6 +14,7 @@ body:
         - Fix / Fijo
         - De tram / De tramo
         - De semàfor / De semáforo
+        - Càmera de control (cinturó, mòbil, línia contínua o stop) / Cámara de control
         - Per determinar / Por determinar
     validations:
       required: true

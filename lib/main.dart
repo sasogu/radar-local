@@ -275,6 +275,11 @@ class _HomeScreenState extends State<HomeScreen> {
               'càmera de control de cinturó i mòbil',
               'cámara de control de cinturón y móvil',
             )
+          : alert.radar.kind == RadarKind.lineStop
+          ? tr(
+              'càmera de línia contínua o stop',
+              'cámara de línea continua o stop',
+            )
           : tr('radar fix', 'radar fijo');
       final metres = (alert.distanceMeters / 50).round() * 50;
       await _tts.speak(tr('$kind a $metres metres', '$kind a $metres metros'));
@@ -590,7 +595,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               ? tr('Sense avisos', 'Sin avisos')
                               : '${_alert!.radar.kind == RadarKind.section
                                     ? tr('Radar de tram', 'Radar de tramo')
-                                    : _alert!.radar.kind == RadarKind.phone
+                                    : _alert!.radar.kind == RadarKind.redLight
+                                    ? tr('Radar de semàfor', 'Radar de semáforo')
+                                    : _alert!.radar.kind == RadarKind.phone || _alert!.radar.kind == RadarKind.lineStop
                                     ? tr('Càmera de control', 'Cámara de control')
                                     : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
                           textAlign: TextAlign.center,

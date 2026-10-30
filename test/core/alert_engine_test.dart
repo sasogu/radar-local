@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:radar_local/core/alert_engine.dart';
 import 'package:radar_local/core/geo.dart';
@@ -166,5 +167,36 @@ void main() {
     ).encode();
     expect(() => RadarDataset.parse(duplicate), throwsFormatException);
     expect(RadarDataset.parse(dataset.encode()).radars.single.id, 'A');
+  });
+  test('skips radar kinds from newer app versions', () {
+    final parsed = RadarDataset.parse(
+      jsonEncode({
+        'schema': 1,
+        'source': 'test',
+        'updated_at': '2026-10-30T00:00:00Z',
+        'radars': [
+          radar.toJson(),
+          {
+            'id': 'F',
+            'kind': 'futureKind',
+            'start': {'lat': 39.47, 'lon': -0.37},
+          },
+        ],
+      }),
+    );
+    expect(parsed.radars.single.id, 'A');
+  });
+  test('alerts on solid-line and stop cameras', () {
+    final camera = Radar(
+      id: 'L',
+      kind: RadarKind.lineStop,
+      start: const Point(39.47, -0.37),
+      direction: 0,
+    );
+    final engine = AlertEngine(
+      RadarDataset([camera], source: 'test', updatedAt: DateTime.now()),
+    );
+    expect(engine.evaluate(fix())?.radar.kind, RadarKind.lineStop);
+    expect(RadarKind.values.byName('lineStop'), RadarKind.lineStop);
   });
 }

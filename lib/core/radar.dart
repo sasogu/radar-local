@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-enum RadarKind { fixed, redLight, section, phone }
+enum RadarKind { fixed, redLight, section, phone, lineStop }
 
 class Point {
   const Point(this.lat, this.lon);
@@ -99,8 +99,12 @@ class RadarDataset {
     if (json['schema'] != 1) throw const FormatException('Unsupported schema');
     final entries = json['radars'] as List<dynamic>;
     if (entries.length > 100000) throw const FormatException('Too many radars');
+    final known = RadarKind.values.map((k) => k.name).toSet();
+    // Skip kinds added by newer app versions so old installs keep updating.
     final radars = entries
-        .map((e) => Radar.fromJson(e as Map<String, dynamic>))
+        .cast<Map<String, dynamic>>()
+        .where((e) => known.contains(e['kind'] as String))
+        .map(Radar.fromJson)
         .toList();
     if (radars.map((e) => e.id).toSet().length != radars.length) {
       throw const FormatException('Duplicate radar IDs');

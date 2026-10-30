@@ -3,7 +3,7 @@
 
 Input: https://tachwire.app/data/cameras/es.json
 Tachwire links the DGT "Equipos automaticos de deteccion de infracciones" PDF
-(seatbelt and mobile phone cameras) to IGN kilometre posts. See DATA_SOURCES.md.
+(seatbelt/phone, red-light, solid-line and stop cameras) to IGN kilometre posts. See DATA_SOURCES.md.
 """
 import json
 import sys
@@ -32,16 +32,22 @@ def direction(item):
     return bearing
 
 
+# Tachwire's "other" holds the PDF's solid-line and stop-sign cameras.
+KINDS = {'seatbelt_phone': 'phone', 'red_light': 'redLight', 'other': 'lineStop'}
+
+
 def convert(data):
     if data.get('schema') != 1 or data.get('country') != 'ES' or data.get('licence') != 'ODbL-1.0':
         raise ValueError('Unexpected source metadata')
-    cameras = [x for x in data['cameras']
-               if x.get('source') == 'dgt-equipos-pdf' and x.get('type') == 'seatbelt_phone']
-    if len(cameras) < 200:
+    cameras = [x for x in data['cameras'] if x.get('source') == 'dgt-equipos-pdf']
+    if sum(x.get('type') == 'seatbelt_phone' for x in cameras) < 200:
         raise ValueError('Too few DGT enforcement camera records')
     radars = []
     for item in cameras:
-        radar = {'id': 'tachwire-' + item['id'], 'kind': 'phone',
+        kind = KINDS.get(item.get('type'))
+        if kind is None:
+            raise ValueError(f'Unexpected camera type: {item.get("type")}')
+        radar = {'id': 'tachwire-' + item['id'], 'kind': kind,
                  'start': point(item), 'name': camera_name(item)}
         heading = direction(item)
         if heading is not None:

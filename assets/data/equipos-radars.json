@@ -14,6 +14,16 @@
       "direction": 28
     },
     {
+      "id": "tachwire-es-dgt-000941",
+      "kind": "lineStop",
+      "start": {
+        "lat": 40.53274,
+        "lon": -3.63481
+      },
+      "name": "A-1 PK 15.95",
+      "direction": 246
+    },
+    {
       "id": "tachwire-es-dgt-000942",
       "kind": "phone",
       "start": {
@@ -102,6 +112,16 @@
       },
       "name": "A-2 PK 8.0",
       "direction": 91
+    },
+    {
+      "id": "tachwire-es-dgt-000951",
+      "kind": "lineStop",
+      "start": {
+        "lat": 40.44977,
+        "lon": -3.57552
+      },
+      "name": "A-2 PK 11.8",
+      "direction": 272
     },
     {
       "id": "tachwire-es-dgt-000952",
@@ -634,6 +654,16 @@
       "direction": 86
     },
     {
+      "id": "tachwire-es-dgt-001005",
+      "kind": "lineStop",
+      "start": {
+        "lat": 40.27533,
+        "lon": -3.75118
+      },
+      "name": "A-42 PK 16.9",
+      "direction": 28
+    },
+    {
       "id": "tachwire-es-dgt-001006",
       "kind": "phone",
       "start": {
@@ -812,6 +842,16 @@
       },
       "name": "A-55 PK 2.94",
       "direction": 155
+    },
+    {
+      "id": "tachwire-es-dgt-001024",
+      "kind": "lineStop",
+      "start": {
+        "lat": 40.50694,
+        "lon": -3.87705
+      },
+      "name": "A-6 PK 20.2",
+      "direction": 152
     },
     {
       "id": "tachwire-es-dgt-001025",
@@ -1504,6 +1544,16 @@
       "direction": 186
     },
     {
+      "id": "tachwire-es-dgt-001094",
+      "kind": "lineStop",
+      "start": {
+        "lat": 39.53217,
+        "lon": -1.90025
+      },
+      "name": "CM-220 PK 68.68",
+      "direction": 343
+    },
+    {
       "id": "tachwire-es-dgt-001095",
       "kind": "phone",
       "start": {
@@ -1582,6 +1632,16 @@
       },
       "name": "M-104 PK 6.65",
       "direction": 269
+    },
+    {
+      "id": "tachwire-es-dgt-001103",
+      "kind": "lineStop",
+      "start": {
+        "lat": 40.22169,
+        "lon": -3.15355
+      },
+      "name": "M-222 PK 13.95",
+      "direction": 64
     },
     {
       "id": "tachwire-es-dgt-001104",
@@ -2202,6 +2262,16 @@
       },
       "name": "NI-V PK 643.1",
       "direction": 222
+    },
+    {
+      "id": "tachwire-es-dgt-001166",
+      "kind": "redLight",
+      "start": {
+        "lat": 40.71555,
+        "lon": -4.19813
+      },
+      "name": "NV-I PK 63.2",
+      "direction": 287
     },
     {
       "id": "tachwire-es-dgt-001167",
