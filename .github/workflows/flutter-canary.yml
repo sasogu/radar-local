@@ -20,7 +20,8 @@ jobs:
         with:
           channel: stable
       - name: Drop the SDK pin for this run
-        run: sed -i '/^  flutter: [0-9]/d' pubspec.yaml
+        run: |
+          sed -i '/^  flutter: [0-9]/d' pubspec.yaml
       - run: flutter --version
       - run: flutter pub upgrade --major-versions
       - run: flutter analyze
