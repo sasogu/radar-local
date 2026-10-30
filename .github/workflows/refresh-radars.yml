@@ -13,13 +13,13 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: Install coordinate converter
         run: sudo apt-get update && sudo apt-get install -y proj-bin
       - name: Refresh and validate source candidates
         run: python3 tool/refresh_sources.py
       - name: Open review pull request when data changed
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11
         with:
           branch: automation/radar-source-updates
           delete-branch: true
@@ -29,7 +29,8 @@ jobs:
             This is a candidate update from the DGT/Tachwire, SCT and Madrid sources.
             Review the official DGT PDFs (radars and enforcement equipment) against
             Tachwire, coordinates, directions, section endpoints, source licenses and
-            count changes before merging.
+            count changes before merging. Then run `tool/sign_dataset.sh` locally
+            and push the new `spain-radars.json.sig`; CI fails until it is signed.
             The app's GitHub JSON changes only after this pull request is merged.
           add-paths: |
             assets/data/*-radars.json

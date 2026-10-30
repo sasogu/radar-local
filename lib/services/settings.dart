@@ -19,6 +19,12 @@ class AppSettings {
         : configured;
   }
 
+  /// The default source is signature-checked; any other URL needs the
+  /// user's explicit confirmation before it is downloaded.
+  bool get updateUrlTrusted =>
+      updateUrl == defaultRadarUpdateUrl ||
+      prefs.getString('confirmed_update_url') == updateUrl;
+
   DateTime? get lastUpdateCheck {
     final value = prefs.getString('last_update_check');
     return value == null ? null : DateTime.tryParse(value);
@@ -43,6 +49,13 @@ class AppSettings {
     }
     await prefs.remove('last_update_check');
   }
+
+  Future<void> confirmUpdateUrl() =>
+      prefs.setString('confirmed_update_url', updateUrl);
+
+  /// Forgets the last download so the next one is not compared against data
+  /// that came from somewhere else, such as a manual import.
+  Future<void> clearUpdateCheck() => prefs.remove('last_update_check');
 
   Future<void> markUpdateCheck() => prefs.setString(
     'last_update_check',

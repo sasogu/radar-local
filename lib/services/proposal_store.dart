@@ -10,10 +10,21 @@ class ProposalStore {
   List<RadarProposal> all() {
     final raw = prefs.getString(_key);
     if (raw == null) return [];
-    final entries = jsonDecode(raw) as List<dynamic>;
-    return entries
-        .map((e) => RadarProposal.fromJson(e as Map<String, dynamic>))
-        .toList();
+    final Object? entries;
+    try {
+      entries = jsonDecode(raw);
+    } on FormatException {
+      return [];
+    }
+    if (entries is! List) return [];
+    // One damaged draft must not hide or block the others.
+    final proposals = <RadarProposal>[];
+    for (final entry in entries) {
+      try {
+        proposals.add(RadarProposal.fromJson(entry as Map<String, dynamic>));
+      } catch (_) {}
+    }
+    return proposals;
   }
 
   Future<void> save(RadarProposal proposal) async {

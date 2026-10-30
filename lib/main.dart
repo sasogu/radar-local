@@ -101,6 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         _dataset = data;
         _engine = AlertEngine(data);
+        if (_store.recoveredFromCorruption) {
+          _status = tr(
+            'La base guardada estava malmesa; s’usa la inclosa en l’app',
+            'La base guardada estaba dañada; se usa la incluida en la app',
+          );
+        }
       });
       _maybeAutomaticUpdate();
       if (widget.settings.autoStart) {
@@ -118,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (mounted &&
         !_updating &&
         widget.settings.automaticUpdates &&
+        widget.settings.updateUrlTrusted &&
         (last == null ||
             DateTime.now().difference(last) > const Duration(days: 7))) {
       unawaited(_download(automatic: true));
@@ -412,7 +419,10 @@ class _HomeScreenState extends State<HomeScreen> {
     if (bytes.length > 10 * 1024 * 1024) {
       throw const FormatException('Dataset too large');
     }
-    final data = await _store.replace(utf8.decode(bytes));
+    final candidate = await parseDataset(utf8.decode(bytes));
+    if (!mounted || !await _confirmImport(candidate)) return false;
+    final data = await _store.replace(candidate);
+    await widget.settings.clearUpdateCheck();
     if (!mounted) return false;
     setState(() {
       _dataset = data;
@@ -427,17 +437,63 @@ class _HomeScreenState extends State<HomeScreen> {
     return true;
   }
 
+  Future<bool> _confirmImport(RadarDataset candidate) async {
+    final current = _dataset;
+    final fewer =
+        current != null &&
+        candidate.radars.length < current.radars.length * 0.8;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(tr('Substituir la base?', '¿Sustituir la base?')),
+        content: Text(
+          [
+            tr(
+              '${candidate.radars.length} avisos (ara ${current?.radars.length ?? 0})',
+              '${candidate.radars.length} avisos (ahora ${current?.radars.length ?? 0})',
+            ),
+            '${tr('Font', 'Fuente')}: ${candidate.source}',
+            '${tr('Data', 'Fecha')}: ${candidate.updatedAt.toLocal().toString().substring(0, 10)}',
+            if (fewer)
+              tr(
+                'Atenció: té molts menys avisos que la base actual.',
+                'Atención: tiene muchos menos avisos que la base actual.',
+              ),
+          ].join('\n'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(tr('Cancel·la', 'Cancelar')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(tr('Substituix', 'Sustituir')),
+          ),
+        ],
+      ),
+    );
+    return confirmed ?? false;
+  }
+
   Future<void> _download({bool automatic = false}) async {
     if (_updating || (!automatic && (_driving || _busy))) return;
     _updating = true;
     if (!automatic) setState(() => _busy = true);
     try {
       final sourceUrl = widget.settings.updateUrl;
-      final fetched = await UpdateService(_store).fetch(sourceUrl);
+      if (!widget.settings.updateUrlTrusted) {
+        throw const FormatException('Unconfirmed update URL');
+      }
+      final fetched = await UpdateService().fetch(sourceUrl);
       if (widget.settings.updateUrl != sourceUrl) return;
+      final active = _pendingDataset ?? _dataset;
+      if (widget.settings.lastUpdateCheck != null && active != null) {
+        fetched.checkReplaces(active);
+      }
       final data = automatic
-          ? await _store.stage(fetched.encode())
-          : await _store.replace(fetched.encode());
+          ? await _store.stage(fetched)
+          : await _store.replace(fetched);
       if (automatic && !_driving) await _store.applyPending();
       await widget.settings.markUpdateCheck();
       if (mounted) {
@@ -721,6 +777,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.dispose();
   }
 
+  Future<bool> _confirmCustomUrl() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(tr('Font no verificada', 'Fuente no verificada')),
+        content: Text(
+          tr(
+            'Només la font de GitHub per defecte porta la signatura de Radar Local. Les dades d’aquesta URL no es poden verificar: si són incorrectes, l’app pot deixar d’avisar. Vols fer-la servir?',
+            'Solo la fuente de GitHub predeterminada lleva la firma de Radar Local. Los datos de esta URL no se pueden verificar: si son incorrectos, la app puede dejar de avisar. ¿Quieres usarla?',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(tr('Cancel·la', 'Cancelar')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(tr('Fes-la servir', 'Usarla')),
+          ),
+        ],
+      ),
+    );
+    return confirmed ?? false;
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: Text(tr('Configuració', 'Configuración'))),
@@ -823,6 +905,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         OutlinedButton.icon(
           onPressed: () async {
             await widget.settings.setUpdateUrl(_url.text.trim());
+            if (!widget.settings.updateUrlTrusted) {
+              if (!await _confirmCustomUrl()) return;
+              await widget.settings.confirmUpdateUrl();
+            }
             await widget.onDownload();
             if (context.mounted) Navigator.of(context).pop();
           },

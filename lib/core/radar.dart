@@ -106,6 +106,7 @@ class RadarDataset {
         .where((e) => known.contains(e['kind'] as String))
         .map(Radar.fromJson)
         .toList();
+    if (radars.isEmpty) throw const FormatException('Dataset has no radars');
     if (radars.map((e) => e.id).toSet().length != radars.length) {
       throw const FormatException('Duplicate radar IDs');
     }
@@ -114,6 +115,19 @@ class RadarDataset {
       source: json['source'] as String,
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
+  }
+
+  /// Rejects an update that would silently drop coverage or roll back data.
+  void checkReplaces(RadarDataset current) {
+    if (radars.length < current.radars.length * 0.8) {
+      throw FormatException(
+        'Suspicious update: ${radars.length} radars, '
+        '${current.radars.length} active',
+      );
+    }
+    if (updatedAt.isBefore(current.updatedAt)) {
+      throw const FormatException('Update is older than the active dataset');
+    }
   }
 
   String encode() => jsonEncode({

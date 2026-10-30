@@ -1,0 +1,2 @@
+assets/data/spain-radars.json -text
+assets/data/*.sig -text
