@@ -1,10 +1,9 @@
 version: 2
 updates:
+  # pub is left out: Dependabot ignores the pinned Flutter SDK (3.35.7) and
+  # proposes packages that need a newer one. Review `flutter pub outdated`
+  # when upgrading Flutter instead.
   - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: monthly
-  - package-ecosystem: pub
     directory: /
     schedule:
       interval: monthly
