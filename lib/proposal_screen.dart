@@ -29,6 +29,10 @@ class _ProposalScreenState extends State<ProposalScreen> {
     ProposedRadarKind.fixed => tr('Fix', 'Fijo'),
     ProposedRadarKind.section => tr('De tram', 'De tramo'),
     ProposedRadarKind.redLight => tr('De semàfor', 'De semáforo'),
+    ProposedRadarKind.phone => tr(
+      'Càmera de cinturó i mòbil',
+      'Cámara de cinturón y móvil',
+    ),
   };
 
   String report(RadarProposal proposal) => [
@@ -298,6 +302,12 @@ class _ProposalEditorState extends State<ProposalEditor> {
             DropdownMenuItem(
               value: ProposedRadarKind.redLight,
               child: Text(tr('De semàfor', 'De semáforo')),
+            ),
+            DropdownMenuItem(
+              value: ProposedRadarKind.phone,
+              child: Text(
+                tr('Càmera de cinturó i mòbil', 'Cámara de cinturón y móvil'),
+              ),
             ),
           ],
           onChanged: (v) {

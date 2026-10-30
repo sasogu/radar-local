@@ -71,6 +71,36 @@ void main() {
     );
     expect(engine.evaluate(fix())?.radar.id, 'S');
   });
+  test('alerts on a phone control camera', () {
+    final phone = Radar(
+      id: 'P',
+      kind: RadarKind.phone,
+      start: const Point(39.47, -0.37),
+      direction: 0,
+    );
+    final engine = AlertEngine(
+      RadarDataset([phone], source: 'test', updatedAt: DateTime.now()),
+    );
+    expect(engine.evaluate(fix())?.radar.kind, RadarKind.phone);
+    expect(RadarKind.values.byName('phone'), RadarKind.phone);
+  });
+  test('does not repeat an alert at the same site', () {
+    final phone = Radar(
+      id: 'P',
+      kind: RadarKind.phone,
+      start: radar.start,
+      direction: 0,
+    );
+    final engine = AlertEngine(
+      RadarDataset([radar, phone], source: 'test', updatedAt: DateTime.now()),
+    );
+    final first = fix();
+    expect(engine.evaluate(first), isNotNull);
+    expect(
+      engine.evaluate(fix(time: first.time.add(const Duration(seconds: 2)))),
+      isNull,
+    );
+  });
   test('imminent fixed radar wins over section', () {
     final section = Radar(
       id: 'S',

@@ -1,0 +1,2357 @@
+{
+  "schema": 1,
+  "source": "DGT 2024 via Tachwire/IGN, ODbL 1.0",
+  "updated_at": "2026-10-29T23:40:09Z",
+  "radars": [
+    {
+      "id": "tachwire-es-dgt-000940",
+      "kind": "phone",
+      "start": {
+        "lat": 40.52515,
+        "lon": -3.64885
+      },
+      "name": "A-1 PK 14.56",
+      "direction": 28
+    },
+    {
+      "id": "tachwire-es-dgt-000942",
+      "kind": "phone",
+      "start": {
+        "lat": 40.8292,
+        "lon": -3.61507
+      },
+      "name": "A-1 PK 54.6",
+      "direction": 354
+    },
+    {
+      "id": "tachwire-es-dgt-000943",
+      "kind": "phone",
+      "start": {
+        "lat": 41.19919,
+        "lon": -3.58227
+      },
+      "name": "A-1 PK 99.55",
+      "direction": 193
+    },
+    {
+      "id": "tachwire-es-dgt-000944",
+      "kind": "phone",
+      "start": {
+        "lat": 41.2812,
+        "lon": -3.60454
+      },
+      "name": "A-1 PK 109.964",
+      "direction": 341
+    },
+    {
+      "id": "tachwire-es-dgt-000945",
+      "kind": "phone",
+      "start": {
+        "lat": 41.3493,
+        "lon": -3.64089
+      },
+      "name": "A-1 PK 118.85",
+      "direction": 188
+    },
+    {
+      "id": "tachwire-es-dgt-000946",
+      "kind": "phone",
+      "start": {
+        "lat": 41.50235,
+        "lon": -3.71016
+      },
+      "name": "A-1 PK 138.149",
+      "direction": 334
+    },
+    {
+      "id": "tachwire-es-dgt-000947",
+      "kind": "phone",
+      "start": {
+        "lat": 42.30959,
+        "lon": -3.70243
+      },
+      "name": "A-1 PK 234.933",
+      "direction": 4
+    },
+    {
+      "id": "tachwire-es-dgt-000948",
+      "kind": "phone",
+      "start": {
+        "lat": 36.8718,
+        "lon": -2.44427
+      },
+      "name": "A-1000 PK 0.0",
+      "direction": 227
+    },
+    {
+      "id": "tachwire-es-dgt-000949",
+      "kind": "phone",
+      "start": {
+        "lat": 42.4688,
+        "lon": -2.41833
+      },
+      "name": "A-13 PK 2.48",
+      "direction": 202
+    },
+    {
+      "id": "tachwire-es-dgt-000950",
+      "kind": "phone",
+      "start": {
+        "lat": 40.44978,
+        "lon": -3.61946
+      },
+      "name": "A-2 PK 8.0",
+      "direction": 91
+    },
+    {
+      "id": "tachwire-es-dgt-000952",
+      "kind": "phone",
+      "start": {
+        "lat": 40.55367,
+        "lon": -3.26457
+      },
+      "name": "A-2 PK 41.95",
+      "direction": 42
+    },
+    {
+      "id": "tachwire-es-dgt-000953",
+      "kind": "phone",
+      "start": {
+        "lat": 40.5755,
+        "lon": -3.24023
+      },
+      "name": "A-2 PK 45.15",
+      "direction": 216
+    },
+    {
+      "id": "tachwire-es-dgt-000954",
+      "kind": "phone",
+      "start": {
+        "lat": 40.8114,
+        "lon": -2.93886
+      },
+      "name": "A-2 PK 83.9",
+      "direction": 48
+    },
+    {
+      "id": "tachwire-es-dgt-000955",
+      "kind": "phone",
+      "start": {
+        "lat": 40.91816,
+        "lon": -2.73043
+      },
+      "name": "A-2 PK 105.25",
+      "direction": 227
+    },
+    {
+      "id": "tachwire-es-dgt-000956",
+      "kind": "phone",
+      "start": {
+        "lat": 41.17549,
+        "lon": -2.40395
+      },
+      "name": "A-2 PK 152.56",
+      "direction": 246
+    },
+    {
+      "id": "tachwire-es-dgt-000957",
+      "kind": "phone",
+      "start": {
+        "lat": 41.3037,
+        "lon": -1.9449
+      },
+      "name": "A-2 PK 202.33",
+      "direction": 73
+    },
+    {
+      "id": "tachwire-es-dgt-000958",
+      "kind": "phone",
+      "start": {
+        "lat": 41.31782,
+        "lon": -1.77906
+      },
+      "name": "A-2 PK 219.5",
+      "direction": 299
+    },
+    {
+      "id": "tachwire-es-dgt-000959",
+      "kind": "phone",
+      "start": {
+        "lat": 41.66894,
+        "lon": -0.93458
+      },
+      "name": "A-2 PK 317.2",
+      "direction": 39
+    },
+    {
+      "id": "tachwire-es-dgt-000960",
+      "kind": "phone",
+      "start": {
+        "lat": 36.65419,
+        "lon": -6.08639
+      },
+      "name": "A-2004 PK 0.0",
+      "direction": 106
+    },
+    {
+      "id": "tachwire-es-dgt-000961",
+      "kind": "phone",
+      "start": {
+        "lat": 39.79175,
+        "lon": -0.40009
+      },
+      "name": "A-23 PK 19.8",
+      "direction": 332
+    },
+    {
+      "id": "tachwire-es-dgt-000962",
+      "kind": "phone",
+      "start": {
+        "lat": 41.54912,
+        "lon": -0.99505
+      },
+      "name": "A-23 PK 267.7",
+      "direction": 41
+    },
+    {
+      "id": "tachwire-es-dgt-000963",
+      "kind": "phone",
+      "start": {
+        "lat": 42.24652,
+        "lon": -0.44571
+      },
+      "name": "A-23 PK 372.425",
+      "direction": 4
+    },
+    {
+      "id": "tachwire-es-dgt-000964",
+      "kind": "phone",
+      "start": {
+        "lat": 42.44989,
+        "lon": -5.39094
+      },
+      "name": "A-231 PK 19.014",
+      "direction": 124
+    },
+    {
+      "id": "tachwire-es-dgt-000965",
+      "kind": "phone",
+      "start": {
+        "lat": 42.34993,
+        "lon": -4.61514
+      },
+      "name": "A-231 PK 85.54",
+      "direction": 266
+    },
+    {
+      "id": "tachwire-es-dgt-000966",
+      "kind": "phone",
+      "start": {
+        "lat": 42.3584,
+        "lon": -3.8041
+      },
+      "name": "A-231 PK 155.55",
+      "direction": 119
+    },
+    {
+      "id": "tachwire-es-dgt-000967",
+      "kind": "phone",
+      "start": {
+        "lat": 40.06402,
+        "lon": -3.08019
+      },
+      "name": "A-3 PK 71.82",
+      "direction": 317
+    },
+    {
+      "id": "tachwire-es-dgt-000968",
+      "kind": "phone",
+      "start": {
+        "lat": 39.91899,
+        "lon": -2.8144
+      },
+      "name": "A-3 PK 102.08",
+      "direction": 122
+    },
+    {
+      "id": "tachwire-es-dgt-000969",
+      "kind": "phone",
+      "start": {
+        "lat": 39.81662,
+        "lon": -2.4696
+      },
+      "name": "A-3 PK 135.973",
+      "direction": 314
+    },
+    {
+      "id": "tachwire-es-dgt-000970",
+      "kind": "phone",
+      "start": {
+        "lat": 39.53312,
+        "lon": -2.25422
+      },
+      "name": "A-3 PK 176.0",
+      "direction": 142
+    },
+    {
+      "id": "tachwire-es-dgt-000971",
+      "kind": "phone",
+      "start": {
+        "lat": 39.50871,
+        "lon": -1.69347
+      },
+      "name": "A-3 PK 230.35",
+      "direction": 93
+    },
+    {
+      "id": "tachwire-es-dgt-000972",
+      "kind": "phone",
+      "start": {
+        "lat": 39.50853,
+        "lon": -1.65468
+      },
+      "name": "A-3 PK 233.7",
+      "direction": 269
+    },
+    {
+      "id": "tachwire-es-dgt-000973",
+      "kind": "phone",
+      "start": {
+        "lat": 39.47153,
+        "lon": -0.67802
+      },
+      "name": "A-3 PK 328.9",
+      "direction": 267
+    },
+    {
+      "id": "tachwire-es-dgt-000974",
+      "kind": "phone",
+      "start": {
+        "lat": 39.47299,
+        "lon": -0.55984
+      },
+      "name": "A-3 PK 339.15",
+      "direction": 91
+    },
+    {
+      "id": "tachwire-es-dgt-000975",
+      "kind": "phone",
+      "start": {
+        "lat": 38.53163,
+        "lon": -1.68216
+      },
+      "name": "A-30 PK 57.35",
+      "direction": 327
+    },
+    {
+      "id": "tachwire-es-dgt-000976",
+      "kind": "phone",
+      "start": {
+        "lat": 38.25279,
+        "lon": -1.42845
+      },
+      "name": "A-30 PK 98.5",
+      "direction": 134
+    },
+    {
+      "id": "tachwire-es-dgt-000977",
+      "kind": "phone",
+      "start": {
+        "lat": 38.1765,
+        "lon": -1.3143
+      },
+      "name": "A-30 PK 112.9",
+      "direction": 330
+    },
+    {
+      "id": "tachwire-es-dgt-000978",
+      "kind": "phone",
+      "start": {
+        "lat": 37.98848,
+        "lon": -1.2609
+      },
+      "name": "A-30 PK 138.3",
+      "direction": 325
+    },
+    {
+      "id": "tachwire-es-dgt-000979",
+      "kind": "phone",
+      "start": {
+        "lat": 39.39285,
+        "lon": -2.20899
+      },
+      "name": "A-31 PK 15.15",
+      "direction": 324
+    },
+    {
+      "id": "tachwire-es-dgt-000980",
+      "kind": "phone",
+      "start": {
+        "lat": 39.02253,
+        "lon": -1.86977
+      },
+      "name": "A-31 PK 72.3",
+      "direction": 311
+    },
+    {
+      "id": "tachwire-es-dgt-000981",
+      "kind": "phone",
+      "start": {
+        "lat": 38.82643,
+        "lon": -1.01195
+      },
+      "name": "A-31 PK 158.2",
+      "direction": 311
+    },
+    {
+      "id": "tachwire-es-dgt-000982",
+      "kind": "phone",
+      "start": {
+        "lat": 38.6199,
+        "lon": -0.85011
+      },
+      "name": "A-31 PK 185.8",
+      "direction": 328
+    },
+    {
+      "id": "tachwire-es-dgt-000983",
+      "kind": "phone",
+      "start": {
+        "lat": 38.84327,
+        "lon": -1.00092
+      },
+      "name": "A-35 PK 1.45",
+      "direction": 297
+    },
+    {
+      "id": "tachwire-es-dgt-000984",
+      "kind": "phone",
+      "start": {
+        "lat": 36.52097,
+        "lon": -4.88135
+      },
+      "name": "A-355 PK 34.14",
+      "direction": 203
+    },
+    {
+      "id": "tachwire-es-dgt-000985",
+      "kind": "phone",
+      "start": {
+        "lat": 36.51688,
+        "lon": -4.88355
+      },
+      "name": "A-355 PK 34.61",
+      "direction": 23
+    },
+    {
+      "id": "tachwire-es-dgt-000986",
+      "kind": "phone",
+      "start": {
+        "lat": 36.58773,
+        "lon": -4.59699
+      },
+      "name": "A-368 PK 4.9",
+      "direction": 109
+    },
+    {
+      "id": "tachwire-es-dgt-000987",
+      "kind": "phone",
+      "start": {
+        "lat": 36.58587,
+        "lon": -4.58704
+      },
+      "name": "A-368 PK 5.9",
+      "direction": 283
+    },
+    {
+      "id": "tachwire-es-dgt-000988",
+      "kind": "phone",
+      "start": {
+        "lat": 36.71314,
+        "lon": -6.04438
+      },
+      "name": "A-382 PK 2.9",
+      "direction": 64
+    },
+    {
+      "id": "tachwire-es-dgt-000989",
+      "kind": "phone",
+      "start": {
+        "lat": 36.72037,
+        "lon": -6.02977
+      },
+      "name": "A-382 PK 4.5",
+      "direction": 249
+    },
+    {
+      "id": "tachwire-es-dgt-000990",
+      "kind": "phone",
+      "start": {
+        "lat": 36.49185,
+        "lon": -5.93075
+      },
+      "name": "A-390 PK 20.9",
+      "direction": 33
+    },
+    {
+      "id": "tachwire-es-dgt-000991",
+      "kind": "phone",
+      "start": {
+        "lat": 36.84624,
+        "lon": -2.61989
+      },
+      "name": "A-391 PK 5.1",
+      "direction": 145
+    },
+    {
+      "id": "tachwire-es-dgt-000992",
+      "kind": "phone",
+      "start": {
+        "lat": 37.15555,
+        "lon": -3.58437
+      },
+      "name": "A-395 PK 3.0",
+      "direction": 61
+    },
+    {
+      "id": "tachwire-es-dgt-000993",
+      "kind": "phone",
+      "start": {
+        "lat": 37.15399,
+        "lon": -3.48739
+      },
+      "name": "A-395 PK 13.3",
+      "direction": 284
+    },
+    {
+      "id": "tachwire-es-dgt-000994",
+      "kind": "phone",
+      "start": {
+        "lat": 36.50556,
+        "lon": -5.00386
+      },
+      "name": "A-397 PK 45.6",
+      "direction": 178
+    },
+    {
+      "id": "tachwire-es-dgt-000995",
+      "kind": "phone",
+      "start": {
+        "lat": 39.66821,
+        "lon": -3.51094
+      },
+      "name": "A-4 PK 95.85",
+      "direction": 15
+    },
+    {
+      "id": "tachwire-es-dgt-000996",
+      "kind": "phone",
+      "start": {
+        "lat": 39.47372,
+        "lon": -3.52058
+      },
+      "name": "A-4 PK 118.2",
+      "direction": 159
+    },
+    {
+      "id": "tachwire-es-dgt-000997",
+      "kind": "phone",
+      "start": {
+        "lat": 38.96942,
+        "lon": -3.38274
+      },
+      "name": "A-4 PK 177.52",
+      "direction": 6
+    },
+    {
+      "id": "tachwire-es-dgt-000998",
+      "kind": "phone",
+      "start": {
+        "lat": 38.74277,
+        "lon": -3.41936
+      },
+      "name": "A-4 PK 203.65",
+      "direction": 353
+    },
+    {
+      "id": "tachwire-es-dgt-000999",
+      "kind": "phone",
+      "start": {
+        "lat": 38.6702,
+        "lon": -3.44886
+      },
+      "name": "A-4 PK 211.97",
+      "direction": 211
+    },
+    {
+      "id": "tachwire-es-dgt-001000",
+      "kind": "phone",
+      "start": {
+        "lat": 38.43124,
+        "lon": -3.49787
+      },
+      "name": "A-4 PK 241.65",
+      "direction": 187
+    },
+    {
+      "id": "tachwire-es-dgt-001001",
+      "kind": "phone",
+      "start": {
+        "lat": 38.00681,
+        "lon": -4.39174
+      },
+      "name": "A-4 PK 360.2",
+      "direction": 91
+    },
+    {
+      "id": "tachwire-es-dgt-001002",
+      "kind": "phone",
+      "start": {
+        "lat": 37.92248,
+        "lon": -4.58431
+      },
+      "name": "A-4 PK 382.2",
+      "direction": 223
+    },
+    {
+      "id": "tachwire-es-dgt-001003",
+      "kind": "phone",
+      "start": {
+        "lat": 37.43071,
+        "lon": -5.85578
+      },
+      "name": "A-4 PK 527.9",
+      "direction": 266
+    },
+    {
+      "id": "tachwire-es-dgt-001004",
+      "kind": "phone",
+      "start": {
+        "lat": 37.43051,
+        "lon": -5.85687
+      },
+      "name": "A-4 PK 528.0",
+      "direction": 86
+    },
+    {
+      "id": "tachwire-es-dgt-001006",
+      "kind": "phone",
+      "start": {
+        "lat": 40.25776,
+        "lon": -3.76278
+      },
+      "name": "A-42 PK 19.05",
+      "direction": 41
+    },
+    {
+      "id": "tachwire-es-dgt-001007",
+      "kind": "phone",
+      "start": {
+        "lat": 40.09265,
+        "lon": -3.85543
+      },
+      "name": "A-42 PK 39.75",
+      "direction": 209
+    },
+    {
+      "id": "tachwire-es-dgt-001008",
+      "kind": "phone",
+      "start": {
+        "lat": 37.51239,
+        "lon": -6.06955
+      },
+      "name": "A-460 PK 0.8",
+      "direction": 217
+    },
+    {
+      "id": "tachwire-es-dgt-001009",
+      "kind": "phone",
+      "start": {
+        "lat": 36.6819,
+        "lon": -6.16338
+      },
+      "name": "A-480 PK 25.8",
+      "direction": 280
+    },
+    {
+      "id": "tachwire-es-dgt-001010",
+      "kind": "phone",
+      "start": {
+        "lat": 37.34497,
+        "lon": -6.55752
+      },
+      "name": "A-483 PK 1.1",
+      "direction": 345
+    },
+    {
+      "id": "tachwire-es-dgt-001011",
+      "kind": "phone",
+      "start": {
+        "lat": 37.35979,
+        "lon": -6.52542
+      },
+      "name": "A-49 PK 46.3",
+      "direction": 262
+    },
+    {
+      "id": "tachwire-es-dgt-001012",
+      "kind": "phone",
+      "start": {
+        "lat": 37.35269,
+        "lon": -6.57507
+      },
+      "name": "A-49 PK 50.8",
+      "direction": 81
+    },
+    {
+      "id": "tachwire-es-dgt-001013",
+      "kind": "phone",
+      "start": {
+        "lat": 37.27225,
+        "lon": -6.9884
+      },
+      "name": "A-492 PK 0.2",
+      "direction": 329
+    },
+    {
+      "id": "tachwire-es-dgt-001014",
+      "kind": "phone",
+      "start": {
+        "lat": 40.24545,
+        "lon": -4.0578
+      },
+      "name": "A-5 PK 37.5",
+      "direction": 32
+    },
+    {
+      "id": "tachwire-es-dgt-001015",
+      "kind": "phone",
+      "start": {
+        "lat": 39.98141,
+        "lon": -4.73814
+      },
+      "name": "A-5 PK 107.47",
+      "direction": 88
+    },
+    {
+      "id": "tachwire-es-dgt-001016",
+      "kind": "phone",
+      "start": {
+        "lat": 39.92633,
+        "lon": -5.17684
+      },
+      "name": "A-5 PK 147.5",
+      "direction": 253
+    },
+    {
+      "id": "tachwire-es-dgt-001017",
+      "kind": "phone",
+      "start": {
+        "lat": 39.86388,
+        "lon": -5.60461
+      },
+      "name": "A-5 PK 186.95",
+      "direction": 61
+    },
+    {
+      "id": "tachwire-es-dgt-001018",
+      "kind": "phone",
+      "start": {
+        "lat": 37.20684,
+        "lon": -7.02913
+      },
+      "name": "A-5051 PK 1.5",
+      "direction": 22
+    },
+    {
+      "id": "tachwire-es-dgt-001019",
+      "kind": "phone",
+      "start": {
+        "lat": 37.26495,
+        "lon": -7.01258
+      },
+      "name": "A-5077 PK 1.3",
+      "direction": 168
+    },
+    {
+      "id": "tachwire-es-dgt-001020",
+      "kind": "phone",
+      "start": {
+        "lat": 42.02118,
+        "lon": -6.36072
+      },
+      "name": "A-52 PK 58.45",
+      "direction": 102
+    },
+    {
+      "id": "tachwire-es-dgt-001021",
+      "kind": "phone",
+      "start": {
+        "lat": 42.05526,
+        "lon": -6.58552
+      },
+      "name": "A-52 PK 77.6",
+      "direction": 272
+    },
+    {
+      "id": "tachwire-es-dgt-001022",
+      "kind": "phone",
+      "start": {
+        "lat": 42.89964,
+        "lon": -8.48972
+      },
+      "name": "A-54 PK 91.75",
+      "direction": 299
+    },
+    {
+      "id": "tachwire-es-dgt-001023",
+      "kind": "phone",
+      "start": {
+        "lat": 42.21057,
+        "lon": -8.69837
+      },
+      "name": "A-55 PK 2.94",
+      "direction": 155
+    },
+    {
+      "id": "tachwire-es-dgt-001025",
+      "kind": "phone",
+      "start": {
+        "lat": 41.06773,
+        "lon": -4.70572
+      },
+      "name": "A-6 PK 125.8",
+      "direction": 337
+    },
+    {
+      "id": "tachwire-es-dgt-001026",
+      "kind": "phone",
+      "start": {
+        "lat": 41.07751,
+        "lon": -4.72932
+      },
+      "name": "A-6 PK 128.25",
+      "direction": 125
+    },
+    {
+      "id": "tachwire-es-dgt-001027",
+      "kind": "phone",
+      "start": {
+        "lat": 41.28415,
+        "lon": -4.8951
+      },
+      "name": "A-6 PK 155.219",
+      "direction": 330
+    },
+    {
+      "id": "tachwire-es-dgt-001028",
+      "kind": "phone",
+      "start": {
+        "lat": 41.46956,
+        "lon": -4.98781
+      },
+      "name": "A-6 PK 178.0",
+      "direction": 345
+    },
+    {
+      "id": "tachwire-es-dgt-001029",
+      "kind": "phone",
+      "start": {
+        "lat": 42.03439,
+        "lon": -5.67191
+      },
+      "name": "A-6 PK 265.6",
+      "direction": 354
+    },
+    {
+      "id": "tachwire-es-dgt-001030",
+      "kind": "phone",
+      "start": {
+        "lat": 42.5776,
+        "lon": -6.53285
+      },
+      "name": "A-6 PK 380.6",
+      "direction": 30
+    },
+    {
+      "id": "tachwire-es-dgt-001031",
+      "kind": "phone",
+      "start": {
+        "lat": 42.07138,
+        "lon": -4.2178
+      },
+      "name": "A-62 PK 57.299",
+      "direction": 48
+    },
+    {
+      "id": "tachwire-es-dgt-001032",
+      "kind": "phone",
+      "start": {
+        "lat": 41.85135,
+        "lon": -4.55674
+      },
+      "name": "A-62 PK 96.93",
+      "direction": 36
+    },
+    {
+      "id": "tachwire-es-dgt-001033",
+      "kind": "phone",
+      "start": {
+        "lat": 41.71654,
+        "lon": -4.69756
+      },
+      "name": "A-62 PK 116.347",
+      "direction": 221
+    },
+    {
+      "id": "tachwire-es-dgt-001034",
+      "kind": "phone",
+      "start": {
+        "lat": 41.61106,
+        "lon": -4.79883
+      },
+      "name": "A-62 PK 131.5",
+      "direction": 58
+    },
+    {
+      "id": "tachwire-es-dgt-001035",
+      "kind": "phone",
+      "start": {
+        "lat": 41.00304,
+        "lon": -5.61212
+      },
+      "name": "A-62 PK 233.35",
+      "direction": 248
+    },
+    {
+      "id": "tachwire-es-dgt-001036",
+      "kind": "phone",
+      "start": {
+        "lat": 43.33276,
+        "lon": -5.87014
+      },
+      "name": "A-66 PK 33.85",
+      "direction": 188
+    },
+    {
+      "id": "tachwire-es-dgt-001037",
+      "kind": "phone",
+      "start": {
+        "lat": 43.24444,
+        "lon": -5.77987
+      },
+      "name": "A-66 PK 48.7",
+      "direction": 354
+    },
+    {
+      "id": "tachwire-es-dgt-001038",
+      "kind": "phone",
+      "start": {
+        "lat": 42.06624,
+        "lon": -5.66565
+      },
+      "name": "A-66 PK 204.25",
+      "direction": 223
+    },
+    {
+      "id": "tachwire-es-dgt-001039",
+      "kind": "phone",
+      "start": {
+        "lat": 39.96934,
+        "lon": -6.16152
+      },
+      "name": "A-66 PK 480.3",
+      "direction": 220
+    },
+    {
+      "id": "tachwire-es-dgt-001040",
+      "kind": "phone",
+      "start": {
+        "lat": 37.62282,
+        "lon": -6.13443
+      },
+      "name": "A-66 PK 783.15",
+      "direction": 310
+    },
+    {
+      "id": "tachwire-es-dgt-001041",
+      "kind": "phone",
+      "start": {
+        "lat": 37.58111,
+        "lon": -6.11773
+      },
+      "name": "A-66 PK 788.3",
+      "direction": 134
+    },
+    {
+      "id": "tachwire-es-dgt-001042",
+      "kind": "phone",
+      "start": {
+        "lat": 43.38023,
+        "lon": -4.03393
+      },
+      "name": "A-67 PK 185.4",
+      "direction": 220
+    },
+    {
+      "id": "tachwire-es-dgt-001043",
+      "kind": "phone",
+      "start": {
+        "lat": 43.42847,
+        "lon": -3.93048
+      },
+      "name": "A-67 PK 195.68",
+      "direction": 53
+    },
+    {
+      "id": "tachwire-es-dgt-001044",
+      "kind": "phone",
+      "start": {
+        "lat": 39.61567,
+        "lon": -0.33817
+      },
+      "name": "A-7 PK 310.4",
+      "direction": 223
+    },
+    {
+      "id": "tachwire-es-dgt-001045",
+      "kind": "phone",
+      "start": {
+        "lat": 39.58663,
+        "lon": -0.39593
+      },
+      "name": "A-7 PK 316.51",
+      "direction": 80
+    },
+    {
+      "id": "tachwire-es-dgt-001046",
+      "kind": "phone",
+      "start": {
+        "lat": 39.54631,
+        "lon": -0.44508
+      },
+      "name": "A-7 PK 323.05",
+      "direction": 224
+    },
+    {
+      "id": "tachwire-es-dgt-001047",
+      "kind": "phone",
+      "start": {
+        "lat": 39.38238,
+        "lon": -0.47116
+      },
+      "name": "A-7 PK 348.8",
+      "direction": 312
+    },
+    {
+      "id": "tachwire-es-dgt-001048",
+      "kind": "phone",
+      "start": {
+        "lat": 38.29514,
+        "lon": -0.68592
+      },
+      "name": "A-7 PK 514.2",
+      "direction": 77
+    },
+    {
+      "id": "tachwire-es-dgt-001049",
+      "kind": "phone",
+      "start": {
+        "lat": 38.23611,
+        "lon": -0.78635
+      },
+      "name": "A-7 PK 525.9",
+      "direction": 220
+    },
+    {
+      "id": "tachwire-es-dgt-001050",
+      "kind": "phone",
+      "start": {
+        "lat": 38.09673,
+        "lon": -1.04804
+      },
+      "name": "A-7 PK 554.75",
+      "direction": 245
+    },
+    {
+      "id": "tachwire-es-dgt-001051",
+      "kind": "phone",
+      "start": {
+        "lat": 38.04384,
+        "lon": -1.13296
+      },
+      "name": "A-7 PK 564.6",
+      "direction": 63
+    },
+    {
+      "id": "tachwire-es-dgt-001052",
+      "kind": "phone",
+      "start": {
+        "lat": 36.88495,
+        "lon": -2.45622
+      },
+      "name": "A-7 PK 781.925",
+      "direction": 214
+    },
+    {
+      "id": "tachwire-es-dgt-001053",
+      "kind": "phone",
+      "start": {
+        "lat": 36.75063,
+        "lon": -3.75866
+      },
+      "name": "A-7 PK 920.5",
+      "direction": 265
+    },
+    {
+      "id": "tachwire-es-dgt-001054",
+      "kind": "phone",
+      "start": {
+        "lat": 36.75783,
+        "lon": -4.08781
+      },
+      "name": "A-7 PK 951.85",
+      "direction": 64
+    },
+    {
+      "id": "tachwire-es-dgt-001055",
+      "kind": "phone",
+      "start": {
+        "lat": 36.7309,
+        "lon": -4.36746
+      },
+      "name": "A-7 PK 978.95",
+      "direction": 263
+    },
+    {
+      "id": "tachwire-es-dgt-001056",
+      "kind": "phone",
+      "start": {
+        "lat": 36.50631,
+        "lon": -4.84932
+      },
+      "name": "A-7 PK 1040.3",
+      "direction": 286
+    },
+    {
+      "id": "tachwire-es-dgt-001057",
+      "kind": "phone",
+      "start": {
+        "lat": 36.49582,
+        "lon": -4.95077
+      },
+      "name": "A-7 PK 1049.8",
+      "direction": 17
+    },
+    {
+      "id": "tachwire-es-dgt-001058",
+      "kind": "phone",
+      "start": {
+        "lat": 36.43532,
+        "lon": -5.1118
+      },
+      "name": "A-7 PK 1066.2",
+      "direction": 247
+    },
+    {
+      "id": "tachwire-es-dgt-001059",
+      "kind": "phone",
+      "start": {
+        "lat": 36.43451,
+        "lon": -5.12589
+      },
+      "name": "A-7 PK 1067.5",
+      "direction": 114
+    },
+    {
+      "id": "tachwire-es-dgt-001060",
+      "kind": "phone",
+      "start": {
+        "lat": 36.41552,
+        "lon": -5.17967
+      },
+      "name": "A-7 PK 1073.1",
+      "direction": 38
+    },
+    {
+      "id": "tachwire-es-dgt-001061",
+      "kind": "phone",
+      "start": {
+        "lat": 38.3002,
+        "lon": -0.65659
+      },
+      "name": "A-70 PK 29.56",
+      "direction": 269
+    },
+    {
+      "id": "tachwire-es-dgt-001062",
+      "kind": "phone",
+      "start": {
+        "lat": 37.04241,
+        "lon": -4.51344
+      },
+      "name": "A-7282 PK 7.7",
+      "direction": 45
+    },
+    {
+      "id": "tachwire-es-dgt-001063",
+      "kind": "phone",
+      "start": {
+        "lat": 43.39817,
+        "lon": -3.24652
+      },
+      "name": "A-8 PK 152.45",
+      "direction": 105
+    },
+    {
+      "id": "tachwire-es-dgt-001064",
+      "kind": "phone",
+      "start": {
+        "lat": 43.51859,
+        "lon": -5.71832
+      },
+      "name": "A-8 PK 385.125",
+      "direction": 247
+    },
+    {
+      "id": "tachwire-es-dgt-001065",
+      "kind": "phone",
+      "start": {
+        "lat": 43.53528,
+        "lon": -5.86918
+      },
+      "name": "A-8 PK 401.05",
+      "direction": 48
+    },
+    {
+      "id": "tachwire-es-dgt-001066",
+      "kind": "phone",
+      "start": {
+        "lat": 37.37546,
+        "lon": -5.91194
+      },
+      "name": "A-8028 PK 3.0",
+      "direction": 249
+    },
+    {
+      "id": "tachwire-es-dgt-001067",
+      "kind": "phone",
+      "start": {
+        "lat": 37.35788,
+        "lon": -6.1405
+      },
+      "name": "A-8059 PK 3.5",
+      "direction": 332
+    },
+    {
+      "id": "tachwire-es-dgt-001068",
+      "kind": "phone",
+      "start": {
+        "lat": 37.37824,
+        "lon": -6.08166
+      },
+      "name": "A-8062 PK 1.0",
+      "direction": 183
+    },
+    {
+      "id": "tachwire-es-dgt-001069",
+      "kind": "phone",
+      "start": {
+        "lat": 37.38607,
+        "lon": -5.9326
+      },
+      "name": "A-92 PK 0.8",
+      "direction": 273
+    },
+    {
+      "id": "tachwire-es-dgt-001070",
+      "kind": "phone",
+      "start": {
+        "lat": 37.38607,
+        "lon": -5.9326
+      },
+      "name": "A-92 PK 0.8",
+      "direction": 93
+    },
+    {
+      "id": "tachwire-es-dgt-001071",
+      "kind": "phone",
+      "start": {
+        "lat": 37.16498,
+        "lon": -4.18178
+      },
+      "name": "A-92 PK 188.15",
+      "direction": 262
+    },
+    {
+      "id": "tachwire-es-dgt-001072",
+      "kind": "phone",
+      "start": {
+        "lat": 43.33038,
+        "lon": -8.39515
+      },
+      "name": "AC-11 PK 3.14",
+      "direction": 82
+    },
+    {
+      "id": "tachwire-es-dgt-001073",
+      "kind": "phone",
+      "start": {
+        "lat": 43.32594,
+        "lon": -8.36309
+      },
+      "name": "AC-12 PK 6.1",
+      "direction": 133
+    },
+    {
+      "id": "tachwire-es-dgt-001074",
+      "kind": "phone",
+      "start": {
+        "lat": 43.32419,
+        "lon": -8.33792
+      },
+      "name": "AC-12 PK 8.48",
+      "direction": 252
+    },
+    {
+      "id": "tachwire-es-dgt-001075",
+      "kind": "phone",
+      "start": {
+        "lat": 43.55257,
+        "lon": -5.88464
+      },
+      "name": "AI-81 PK 1.9",
+      "direction": 273
+    },
+    {
+      "id": "tachwire-es-dgt-001076",
+      "kind": "phone",
+      "start": {
+        "lat": 36.81465,
+        "lon": -2.65297
+      },
+      "name": "AL-3301 PK 0.1",
+      "direction": 188
+    },
+    {
+      "id": "tachwire-es-dgt-001077",
+      "kind": "phone",
+      "start": {
+        "lat": 36.91815,
+        "lon": -5.96977
+      },
+      "name": "AP-4 PK 52.3",
+      "direction": 182
+    },
+    {
+      "id": "tachwire-es-dgt-001078",
+      "kind": "phone",
+      "start": {
+        "lat": 36.90995,
+        "lon": -5.97
+      },
+      "name": "AP-4 PK 53.2",
+      "direction": 3
+    },
+    {
+      "id": "tachwire-es-dgt-001079",
+      "kind": "phone",
+      "start": {
+        "lat": 42.58168,
+        "lon": -5.67358
+      },
+      "name": "AP-66 PK 140.85",
+      "direction": 135
+    },
+    {
+      "id": "tachwire-es-dgt-001080",
+      "kind": "phone",
+      "start": {
+        "lat": 42.43131,
+        "lon": -2.48022
+      },
+      "name": "AP-68 PK 126.0",
+      "direction": 81
+    },
+    {
+      "id": "tachwire-es-dgt-001081",
+      "kind": "phone",
+      "start": {
+        "lat": 42.43373,
+        "lon": -2.44477
+      },
+      "name": "AP-68 PK 128.925",
+      "direction": 263
+    },
+    {
+      "id": "tachwire-es-dgt-001082",
+      "kind": "phone",
+      "start": {
+        "lat": 42.03737,
+        "lon": -1.64565
+      },
+      "name": "AP-68 PK 218.2",
+      "direction": 135
+    },
+    {
+      "id": "tachwire-es-dgt-001083",
+      "kind": "phone",
+      "start": {
+        "lat": 42.02283,
+        "lon": -1.62212
+      },
+      "name": "AP-68 PK 220.75",
+      "direction": 317
+    },
+    {
+      "id": "tachwire-es-dgt-001084",
+      "kind": "phone",
+      "start": {
+        "lat": 39.97677,
+        "lon": -0.10772
+      },
+      "name": "AP-7 PK 434.8",
+      "direction": 46
+    },
+    {
+      "id": "tachwire-es-dgt-001085",
+      "kind": "phone",
+      "start": {
+        "lat": 43.50405,
+        "lon": -8.20583
+      },
+      "name": "AP-9F PK 35.5",
+      "direction": 89
+    },
+    {
+      "id": "tachwire-es-dgt-001086",
+      "kind": "phone",
+      "start": {
+        "lat": 36.70067,
+        "lon": -6.1676
+      },
+      "name": "CA-3101 PK 0.0",
+      "direction": 314
+    },
+    {
+      "id": "tachwire-es-dgt-001087",
+      "kind": "phone",
+      "start": {
+        "lat": 36.61708,
+        "lon": -6.06878
+      },
+      "name": "CA-3109 PK 7.6",
+      "direction": 76
+    },
+    {
+      "id": "tachwire-es-dgt-001088",
+      "kind": "phone",
+      "start": {
+        "lat": 36.46874,
+        "lon": -6.17707
+      },
+      "name": "CA-33 PK 12.2",
+      "direction": 107
+    },
+    {
+      "id": "tachwire-es-dgt-001089",
+      "kind": "phone",
+      "start": {
+        "lat": 36.52764,
+        "lon": -6.211
+      },
+      "name": "CA-35 PK 0.85",
+      "direction": 53
+    },
+    {
+      "id": "tachwire-es-dgt-001090",
+      "kind": "phone",
+      "start": {
+        "lat": 36.52489,
+        "lon": -6.21741
+      },
+      "name": "CA-35 PK 1.5",
+      "direction": 245
+    },
+    {
+      "id": "tachwire-es-dgt-001091",
+      "kind": "phone",
+      "start": {
+        "lat": 42.96521,
+        "lon": -7.498
+      },
+      "name": "CG-2.2 PK 0.308",
+      "direction": 144
+    },
+    {
+      "id": "tachwire-es-dgt-001092",
+      "kind": "phone",
+      "start": {
+        "lat": 40.87411,
+        "lon": -4.02096
+      },
+      "name": "CL-601 PK 10.8",
+      "direction": 195
+    },
+    {
+      "id": "tachwire-es-dgt-001093",
+      "kind": "phone",
+      "start": {
+        "lat": 40.68821,
+        "lon": -3.17301
+      },
+      "name": "CM-101 PK 4.764",
+      "direction": 186
+    },
+    {
+      "id": "tachwire-es-dgt-001095",
+      "kind": "phone",
+      "start": {
+        "lat": 39.14372,
+        "lon": -3.51197
+      },
+      "name": "CM-420 PK 9.85",
+      "direction": 5
+    },
+    {
+      "id": "tachwire-es-dgt-001096",
+      "kind": "phone",
+      "start": {
+        "lat": 39.9739,
+        "lon": -6.07975
+      },
+      "name": "EXA-1 PK 44.975",
+      "direction": 266
+    },
+    {
+      "id": "tachwire-es-dgt-001097",
+      "kind": "phone",
+      "start": {
+        "lat": 37.28541,
+        "lon": -6.94062
+      },
+      "name": "H-30 PK 8.585",
+      "direction": 311
+    },
+    {
+      "id": "tachwire-es-dgt-001098",
+      "kind": "phone",
+      "start": {
+        "lat": 42.45886,
+        "lon": -2.3947
+      },
+      "name": "LO-20 PK 4.1",
+      "direction": 263
+    },
+    {
+      "id": "tachwire-es-dgt-001099",
+      "kind": "phone",
+      "start": {
+        "lat": 42.44514,
+        "lon": -2.51699
+      },
+      "name": "LO-20 PK 14.95",
+      "direction": 58
+    },
+    {
+      "id": "tachwire-es-dgt-001100",
+      "kind": "phone",
+      "start": {
+        "lat": 42.97278,
+        "lon": -7.50888
+      },
+      "name": "LU-11 PK 1.0",
+      "direction": 128
+    },
+    {
+      "id": "tachwire-es-dgt-001101",
+      "kind": "phone",
+      "start": {
+        "lat": 43.0121,
+        "lon": -7.52776
+      },
+      "name": "LU-530 PK 2.6",
+      "direction": 80
+    },
+    {
+      "id": "tachwire-es-dgt-001102",
+      "kind": "phone",
+      "start": {
+        "lat": 40.68788,
+        "lon": -3.67153
+      },
+      "name": "M-104 PK 6.65",
+      "direction": 269
+    },
+    {
+      "id": "tachwire-es-dgt-001104",
+      "kind": "phone",
+      "start": {
+        "lat": 40.39958,
+        "lon": -4.02968
+      },
+      "name": "M-501 PK 20.59",
+      "direction": 266
+    },
+    {
+      "id": "tachwire-es-dgt-001105",
+      "kind": "phone",
+      "start": {
+        "lat": 40.36876,
+        "lon": -4.30472
+      },
+      "name": "M-501 PK 49.92",
+      "direction": 33
+    },
+    {
+      "id": "tachwire-es-dgt-001106",
+      "kind": "phone",
+      "start": {
+        "lat": 40.57909,
+        "lon": -4.08925
+      },
+      "name": "M-505 PK 24.175",
+      "direction": 300
+    },
+    {
+      "id": "tachwire-es-dgt-001107",
+      "kind": "phone",
+      "start": {
+        "lat": 40.30908,
+        "lon": -4.16197
+      },
+      "name": "M-507 PK 13.325",
+      "direction": 112
+    },
+    {
+      "id": "tachwire-es-dgt-001108",
+      "kind": "phone",
+      "start": {
+        "lat": 40.69873,
+        "lon": -3.92787
+      },
+      "name": "M-607 PK 48.57",
+      "direction": 105
+    },
+    {
+      "id": "tachwire-es-dgt-001109",
+      "kind": "phone",
+      "start": {
+        "lat": 40.78376,
+        "lon": -3.70903
+      },
+      "name": "M-608 PK 9.0",
+      "direction": 72
+    },
+    {
+      "id": "tachwire-es-dgt-001110",
+      "kind": "phone",
+      "start": {
+        "lat": 39.59401,
+        "lon": 2.67094
+      },
+      "name": "MA-13 PK 0.85",
+      "direction": 37
+    },
+    {
+      "id": "tachwire-es-dgt-001111",
+      "kind": "phone",
+      "start": {
+        "lat": 36.69157,
+        "lon": -4.46122
+      },
+      "name": "MA-20 PK 6.05",
+      "direction": 197
+    },
+    {
+      "id": "tachwire-es-dgt-001112",
+      "kind": "phone",
+      "start": {
+        "lat": 39.59073,
+        "lon": 2.63856
+      },
+      "name": "MA-20 PK 6.15",
+      "direction": 52
+    },
+    {
+      "id": "tachwire-es-dgt-001113",
+      "kind": "phone",
+      "start": {
+        "lat": 36.73122,
+        "lon": -4.45404
+      },
+      "name": "MA-20 PK 10.745",
+      "direction": 1
+    },
+    {
+      "id": "tachwire-es-dgt-001114",
+      "kind": "phone",
+      "start": {
+        "lat": 42.35448,
+        "lon": -7.85015
+      },
+      "name": "N-120 PK 565.5",
+      "direction": 26
+    },
+    {
+      "id": "tachwire-es-dgt-001115",
+      "kind": "phone",
+      "start": {
+        "lat": 42.35055,
+        "lon": -7.85277
+      },
+      "name": "N-120 PK 566.0",
+      "direction": 243
+    },
+    {
+      "id": "tachwire-es-dgt-001116",
+      "kind": "phone",
+      "start": {
+        "lat": 42.35573,
+        "lon": -7.89245
+      },
+      "name": "N-120 PK 572.3",
+      "direction": 271
+    },
+    {
+      "id": "tachwire-es-dgt-001117",
+      "kind": "phone",
+      "start": {
+        "lat": 40.85377,
+        "lon": -1.90242
+      },
+      "name": "N-211 PK 57.9",
+      "direction": 107
+    },
+    {
+      "id": "tachwire-es-dgt-001118",
+      "kind": "phone",
+      "start": {
+        "lat": 41.21102,
+        "lon": -0.46699
+      },
+      "name": "N-232 PK 169.825",
+      "direction": 165
+    },
+    {
+      "id": "tachwire-es-dgt-001119",
+      "kind": "phone",
+      "start": {
+        "lat": 41.54092,
+        "lon": -0.68654
+      },
+      "name": "N-232 PK 216.3",
+      "direction": 300
+    },
+    {
+      "id": "tachwire-es-dgt-001120",
+      "kind": "phone",
+      "start": {
+        "lat": 41.54931,
+        "lon": -0.70729
+      },
+      "name": "N-232 PK 218.4",
+      "direction": 123
+    },
+    {
+      "id": "tachwire-es-dgt-001121",
+      "kind": "phone",
+      "start": {
+        "lat": 42.29675,
+        "lon": -1.97295
+      },
+      "name": "N-232 PK 359.975",
+      "direction": 289
+    },
+    {
+      "id": "tachwire-es-dgt-001122",
+      "kind": "phone",
+      "start": {
+        "lat": 39.29304,
+        "lon": -2.37126
+      },
+      "name": "N-301 PK 191.165",
+      "direction": 118
+    },
+    {
+      "id": "tachwire-es-dgt-001123",
+      "kind": "phone",
+      "start": {
+        "lat": 40.48392,
+        "lon": -2.70453
+      },
+      "name": "N-320 PK 218.9",
+      "direction": 107
+    },
+    {
+      "id": "tachwire-es-dgt-001124",
+      "kind": "phone",
+      "start": {
+        "lat": 41.60489,
+        "lon": -0.93294
+      },
+      "name": "N-330 PK 489.49",
+      "direction": 217
+    },
+    {
+      "id": "tachwire-es-dgt-001125",
+      "kind": "phone",
+      "start": {
+        "lat": 41.6647,
+        "lon": -0.88067
+      },
+      "name": "N-330 PK 501.3",
+      "direction": 3
+    },
+    {
+      "id": "tachwire-es-dgt-001126",
+      "kind": "phone",
+      "start": {
+        "lat": 42.67225,
+        "lon": -0.54326
+      },
+      "name": "N-330 PK 657.54",
+      "direction": 37
+    },
+    {
+      "id": "tachwire-es-dgt-001127",
+      "kind": "phone",
+      "start": {
+        "lat": 42.73764,
+        "lon": -0.52201
+      },
+      "name": "N-330 PK 665.85",
+      "direction": 19
+    },
+    {
+      "id": "tachwire-es-dgt-001128",
+      "kind": "phone",
+      "start": {
+        "lat": 38.2931,
+        "lon": -0.56647
+      },
+      "name": "N-338 PK 2.94",
+      "direction": 290
+    },
+    {
+      "id": "tachwire-es-dgt-001129",
+      "kind": "phone",
+      "start": {
+        "lat": 38.25504,
+        "lon": -0.75764
+      },
+      "name": "N-340 PK 713.2",
+      "direction": 260
+    },
+    {
+      "id": "tachwire-es-dgt-001130",
+      "kind": "phone",
+      "start": {
+        "lat": 39.82179,
+        "lon": -0.166
+      },
+      "name": "N-340 PK 953.16",
+      "direction": 187
+    },
+    {
+      "id": "tachwire-es-dgt-001131",
+      "kind": "phone",
+      "start": {
+        "lat": 39.8998,
+        "lon": -0.11971
+      },
+      "name": "N-340 PK 962.9",
+      "direction": 28
+    },
+    {
+      "id": "tachwire-es-dgt-001132",
+      "kind": "phone",
+      "start": {
+        "lat": 40.39965,
+        "lon": 0.36781
+      },
+      "name": "N-340 PK 1038.8",
+      "direction": 54
+    },
+    {
+      "id": "tachwire-es-dgt-001133",
+      "kind": "phone",
+      "start": {
+        "lat": 40.41115,
+        "lon": 0.38151
+      },
+      "name": "N-340 PK 1040.65",
+      "direction": 212
+    },
+    {
+      "id": "tachwire-es-dgt-001134",
+      "kind": "phone",
+      "start": {
+        "lat": 36.85208,
+        "lon": -2.31593
+      },
+      "name": "N-344 PK 13.8",
+      "direction": 270
+    },
+    {
+      "id": "tachwire-es-dgt-001135",
+      "kind": "phone",
+      "start": {
+        "lat": 38.72867,
+        "lon": -0.94147
+      },
+      "name": "N-344 PK 118.136",
+      "direction": 38
+    },
+    {
+      "id": "tachwire-es-dgt-001136",
+      "kind": "phone",
+      "start": {
+        "lat": 36.72754,
+        "lon": -6.08786
+      },
+      "name": "N-349 PK 0.3",
+      "direction": 146
+    },
+    {
+      "id": "tachwire-es-dgt-001137",
+      "kind": "phone",
+      "start": {
+        "lat": 36.15748,
+        "lon": -5.35226
+      },
+      "name": "N-351 PK 6.8",
+      "direction": 141
+    },
+    {
+      "id": "tachwire-es-dgt-001138",
+      "kind": "phone",
+      "start": {
+        "lat": 39.46579,
+        "lon": -3.82866
+      },
+      "name": "N-401 PK 127.35",
+      "direction": 315
+    },
+    {
+      "id": "tachwire-es-dgt-001139",
+      "kind": "phone",
+      "start": {
+        "lat": 38.99258,
+        "lon": -6.09006
+      },
+      "name": "N-430 PK 84.5",
+      "direction": 266
+    },
+    {
+      "id": "tachwire-es-dgt-001140",
+      "kind": "phone",
+      "start": {
+        "lat": 40.08534,
+        "lon": -5.01696
+      },
+      "name": "N-502 PK 90.18",
+      "direction": 140
+    },
+    {
+      "id": "tachwire-es-dgt-001141",
+      "kind": "phone",
+      "start": {
+        "lat": 39.00214,
+        "lon": -6.86415
+      },
+      "name": "N-523 PK 69.5",
+      "direction": 36
+    },
+    {
+      "id": "tachwire-es-dgt-001142",
+      "kind": "phone",
+      "start": {
+        "lat": 42.36633,
+        "lon": -7.85625
+      },
+      "name": "N-525 PK 242.0",
+      "direction": 218
+    },
+    {
+      "id": "tachwire-es-dgt-001143",
+      "kind": "phone",
+      "start": {
+        "lat": 42.8494,
+        "lon": -8.52484
+      },
+      "name": "N-525 PK 336.7",
+      "direction": 343
+    },
+    {
+      "id": "tachwire-es-dgt-001144",
+      "kind": "phone",
+      "start": {
+        "lat": 42.9855,
+        "lon": -7.58856
+      },
+      "name": "N-540 PK 3.2",
+      "direction": 176
+    },
+    {
+      "id": "tachwire-es-dgt-001145",
+      "kind": "phone",
+      "start": {
+        "lat": 42.91733,
+        "lon": -8.49526
+      },
+      "name": "N-550 PK 56.125",
+      "direction": 231
+    },
+    {
+      "id": "tachwire-es-dgt-001146",
+      "kind": "phone",
+      "start": {
+        "lat": 42.91733,
+        "lon": -8.49526
+      },
+      "name": "N-550 PK 56.125",
+      "direction": 51
+    },
+    {
+      "id": "tachwire-es-dgt-001147",
+      "kind": "phone",
+      "start": {
+        "lat": 42.45216,
+        "lon": -8.63736
+      },
+      "name": "N-550 PK 116.74",
+      "direction": 341
+    },
+    {
+      "id": "tachwire-es-dgt-001148",
+      "kind": "phone",
+      "start": {
+        "lat": 42.40969,
+        "lon": -8.63885
+      },
+      "name": "N-550 PK 125.2",
+      "direction": 177
+    },
+    {
+      "id": "tachwire-es-dgt-001149",
+      "kind": "phone",
+      "start": {
+        "lat": 42.28239,
+        "lon": -8.65851
+      },
+      "name": "N-552 PK 4.35",
+      "direction": 232
+    },
+    {
+      "id": "tachwire-es-dgt-001150",
+      "kind": "phone",
+      "start": {
+        "lat": 42.25545,
+        "lon": -8.67878
+      },
+      "name": "N-552 PK 8.2",
+      "direction": 43
+    },
+    {
+      "id": "tachwire-es-dgt-001151",
+      "kind": "phone",
+      "start": {
+        "lat": 41.66169,
+        "lon": -4.76936
+      },
+      "name": "N-601 PK 194.7",
+      "direction": 99
+    },
+    {
+      "id": "tachwire-es-dgt-001152",
+      "kind": "phone",
+      "start": {
+        "lat": 37.63188,
+        "lon": -6.14275
+      },
+      "name": "N-630 PK 781.9",
+      "direction": 141
+    },
+    {
+      "id": "tachwire-es-dgt-001153",
+      "kind": "phone",
+      "start": {
+        "lat": 37.45454,
+        "lon": -6.0458
+      },
+      "name": "N-630 PK 805.4",
+      "direction": 323
+    },
+    {
+      "id": "tachwire-es-dgt-001154",
+      "kind": "phone",
+      "start": {
+        "lat": 37.4162,
+        "lon": -6.03526
+      },
+      "name": "N-630 PK 810.0",
+      "direction": 179
+    },
+    {
+      "id": "tachwire-es-dgt-001155",
+      "kind": "phone",
+      "start": {
+        "lat": 43.54513,
+        "lon": -5.92809
+      },
+      "name": "N-632 PK 98.738",
+      "direction": 106
+    },
+    {
+      "id": "tachwire-es-dgt-001156",
+      "kind": "phone",
+      "start": {
+        "lat": 43.18485,
+        "lon": -7.96319
+      },
+      "name": "N-634 PK 658.38",
+      "direction": 40
+    },
+    {
+      "id": "tachwire-es-dgt-001157",
+      "kind": "phone",
+      "start": {
+        "lat": 43.03628,
+        "lon": -7.52881
+      },
+      "name": "N-640 PK 88.78",
+      "direction": 48
+    },
+    {
+      "id": "tachwire-es-dgt-001158",
+      "kind": "phone",
+      "start": {
+        "lat": 43.45228,
+        "lon": -8.16629
+      },
+      "name": "N-651 PK 27.4",
+      "direction": 6
+    },
+    {
+      "id": "tachwire-es-dgt-001159",
+      "kind": "phone",
+      "start": {
+        "lat": 43.46594,
+        "lon": -8.16003
+      },
+      "name": "N-651 PK 29.19",
+      "direction": 171
+    },
+    {
+      "id": "tachwire-es-dgt-001160",
+      "kind": "phone",
+      "start": {
+        "lat": 42.3917,
+        "lon": -3.56494
+      },
+      "name": "N-I PK 251.3",
+      "direction": 234
+    },
+    {
+      "id": "tachwire-es-dgt-001161",
+      "kind": "phone",
+      "start": {
+        "lat": 42.62888,
+        "lon": -3.12584
+      },
+      "name": "N-I PK 301.0",
+      "direction": 99
+    },
+    {
+      "id": "tachwire-es-dgt-001162",
+      "kind": "phone",
+      "start": {
+        "lat": 41.5908,
+        "lon": -0.66769
+      },
+      "name": "NI-I PK 343.7",
+      "direction": 132
+    },
+    {
+      "id": "tachwire-es-dgt-001163",
+      "kind": "phone",
+      "start": {
+        "lat": 41.57459,
+        "lon": -0.64335
+      },
+      "name": "NI-I PK 346.4",
+      "direction": 311
+    },
+    {
+      "id": "tachwire-es-dgt-001164",
+      "kind": "phone",
+      "start": {
+        "lat": 37.26843,
+        "lon": -5.92743
+      },
+      "name": "NI-V PK 556.2",
+      "direction": 144
+    },
+    {
+      "id": "tachwire-es-dgt-001165",
+      "kind": "phone",
+      "start": {
+        "lat": 36.66105,
+        "lon": -6.16333
+      },
+      "name": "NI-V PK 643.1",
+      "direction": 222
+    },
+    {
+      "id": "tachwire-es-dgt-001167",
+      "kind": "phone",
+      "start": {
+        "lat": 42.61122,
+        "lon": -6.82014
+      },
+      "name": "NV-I PK 407.06",
+      "direction": 141
+    },
+    {
+      "id": "tachwire-es-dgt-001168",
+      "kind": "phone",
+      "start": {
+        "lat": 43.30885,
+        "lon": -8.27685
+      },
+      "name": "NV-I PK 580.82",
+      "direction": 137
+    },
+    {
+      "id": "tachwire-es-dgt-001169",
+      "kind": "phone",
+      "start": {
+        "lat": 42.41497,
+        "lon": -8.66967
+      },
+      "name": "PO-11 PK 1.56",
+      "direction": 69
+    },
+    {
+      "id": "tachwire-es-dgt-001170",
+      "kind": "phone",
+      "start": {
+        "lat": 42.8981,
+        "lon": -8.50966
+      },
+      "name": "SC-20 PK 1.3",
+      "direction": 163
+    },
+    {
+      "id": "tachwire-es-dgt-001171",
+      "kind": "phone",
+      "start": {
+        "lat": 42.85115,
+        "lon": -8.57231
+      },
+      "name": "SC-20 PK 10.12",
+      "direction": 187
+    },
+    {
+      "id": "tachwire-es-dgt-001172",
+      "kind": "phone",
+      "start": {
+        "lat": 37.29577,
+        "lon": -5.98375
+      },
+      "name": "SE-3206 PK 2.4",
+      "direction": 26
+    },
+    {
+      "id": "tachwire-es-dgt-001173",
+      "kind": "phone",
+      "start": {
+        "lat": 39.57956,
+        "lon": -0.2947
+      },
+      "name": "V-21 PK 5.85",
+      "direction": 5
+    },
+    {
+      "id": "tachwire-es-dgt-001174",
+      "kind": "phone",
+      "start": {
+        "lat": 39.51387,
+        "lon": -0.32232
+      },
+      "name": "V-21 PK 13.65",
+      "direction": 203
+    },
+    {
+      "id": "tachwire-es-dgt-001175",
+      "kind": "phone",
+      "start": {
+        "lat": 39.63917,
+        "lon": -0.29157
+      },
+      "name": "V-23 PK 1.6",
+      "direction": 210
+    },
+    {
+      "id": "tachwire-es-dgt-001176",
+      "kind": "phone",
+      "start": {
+        "lat": 39.46616,
+        "lon": -0.4187
+      },
+      "name": "V-30 PK 8.5",
+      "direction": 331
+    },
+    {
+      "id": "tachwire-es-dgt-001177",
+      "kind": "phone",
+      "start": {
+        "lat": 39.4936,
+        "lon": -0.44924
+      },
+      "name": "V-30 PK 12.8",
+      "direction": 321
+    },
+    {
+      "id": "tachwire-es-dgt-001178",
+      "kind": "phone",
+      "start": {
+        "lat": 39.42068,
+        "lon": -0.37503
+      },
+      "name": "V-31 PK 10.9",
+      "direction": 20
+    },
+    {
+      "id": "tachwire-es-dgt-001179",
+      "kind": "phone",
+      "start": {
+        "lat": 42.1861,
+        "lon": -8.67344
+      },
+      "name": "VG-20 PK 12.8",
+      "direction": 42
+    },
+    {
+      "id": "tachwire-es-dgt-001180",
+      "kind": "phone",
+      "start": {
+        "lat": 41.6569,
+        "lon": -0.84029
+      },
+      "name": "Z-40 PK 15.7",
+      "direction": 7
+    },
+    {
+      "id": "tachwire-es-dgt-001181",
+      "kind": "phone",
+      "start": {
+        "lat": 41.62894,
+        "lon": -0.84295
+      },
+      "name": "Z-40 PK 19.475",
+      "direction": 223
+    }
+  ]
+}

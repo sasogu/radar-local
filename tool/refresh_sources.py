@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import convert_catalonia
 import convert_madrid
 import convert_tachwire_dgt
+import convert_tachwire_equipos
 import merge_datasets
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,8 +51,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
+    tachwire = json.loads(download(SOURCES['dgt']))
     updates = {
-        'dgt': convert_tachwire_dgt.convert(json.loads(download(SOURCES['dgt']))),
+        'dgt': convert_tachwire_dgt.convert(tachwire),
+        'equipos': convert_tachwire_equipos.convert(tachwire),
         'catalonia': convert_catalonia.convert(download(SOURCES['catalonia']).decode('utf-8-sig')),
         'madrid': convert_madrid.convert(
             io.StringIO(download(SOURCES['madrid']).decode('utf-8-sig'))),
@@ -66,8 +69,8 @@ def main():
                     json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     if changed and not args.dry_run:
         merged = merge_datasets.merge([
-            DATA / 'dgt-radars.json', DATA / 'catalonia-radars.json',
-            DATA / 'madrid-radars.json',
+            DATA / 'madrid-radars.json', DATA / 'catalonia-radars.json',
+            DATA / 'dgt-radars.json', DATA / 'equipos-radars.json',
         ])
         (DATA / 'spain-radars.json').write_text(
             json.dumps(merged, ensure_ascii=False, indent=2) + '\n')

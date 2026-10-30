@@ -27,8 +27,9 @@ jobs:
           title: Review updated radar source data
           body: |
             This is a candidate update from the DGT/Tachwire, SCT and Madrid sources.
-            Review the official DGT PDF against Tachwire, coordinates, directions,
-            section endpoints, source licenses and count changes before merging.
+            Review the official DGT PDFs (radars and enforcement equipment) against
+            Tachwire, coordinates, directions, section endpoints, source licenses and
+            count changes before merging.
             The app's GitHub JSON changes only after this pull request is merged.
           add-paths: |
             assets/data/*-radars.json

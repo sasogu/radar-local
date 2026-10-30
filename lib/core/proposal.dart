@@ -1,6 +1,6 @@
 import 'radar.dart';
 
-enum ProposedRadarKind { unknown, fixed, section, redLight }
+enum ProposedRadarKind { unknown, fixed, section, redLight, phone }
 
 class RadarProposal {
   const RadarProposal({

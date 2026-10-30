@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-enum RadarKind { fixed, redLight, section }
+enum RadarKind { fixed, redLight, section, phone }
 
 class Point {
   const Point(this.lat, this.lon);

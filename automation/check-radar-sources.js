@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const statePath = '/home/node/.n8n/radar-sources-state.json';
 const sources = [
   ['DGT oficial', 'https://www.dgt.es/conoce-el-estado-del-trafico/vigilancia-y-control/equipos-y-tramos-de-vigilancia/'],
+  ['DGT equips', 'https://www.dgt.es/export/sites/web-DGT/.galleries/downloads/conoce-el-estado-del-trafico/informacion-e-incidencias-de-trafico/EQUIPOS.pdf'],
   ['DGT/Tachwire', 'https://tachwire.app/data/cameras/es.json'],
   ['Catalunya/SCT', 'https://transit.gencat.cat/web/.content/documents/seguretat_viaria/radars.txt'],
   ['Madrid', 'https://datos.madrid.es/dataset/300049-0-radares-fijos-moviles/resource/300049-1-radares-fijos-moviles-csv/download/300049-1-radares-fijos-moviles-csv.csv'],

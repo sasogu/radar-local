@@ -47,6 +47,8 @@ class AlertEngine {
   final RadarIndex _index;
   final Map<String, DateTime> _announced = {};
   GpsFix? _previous;
+  RadarAlert? _lastAlert;
+  DateTime? _lastAlertAt;
 
   RadarAlert? evaluate(GpsFix fix) {
     if (!fix.reliable ||
@@ -86,6 +88,13 @@ class AlertEngine {
           fix.time.difference(last) < const Duration(minutes: 5)) {
         continue;
       }
+      final lastAlert = _lastAlert;
+      if (lastAlert != null &&
+          _lastAlertAt != null &&
+          fix.time.difference(_lastAlertAt!) < const Duration(minutes: 5) &&
+          distanceMeters(radar.start, lastAlert.radar.start) < 80) {
+        continue;
+      }
       candidates.add(RadarAlert(radar, distance));
     }
     if (candidates.isEmpty) return null;
@@ -101,6 +110,8 @@ class AlertEngine {
     });
     final alert = candidates.first;
     _announced[alert.radar.id] = fix.time;
+    _lastAlert = alert;
+    _lastAlertAt = fix.time;
     _announced.removeWhere(
       (_, at) => fix.time.difference(at) > const Duration(hours: 1),
     );

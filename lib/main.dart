@@ -248,6 +248,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ? tr('radar de tram', 'radar de tramo')
           : alert.radar.kind == RadarKind.redLight
           ? tr('radar de semàfor', 'radar de semáforo')
+          : alert.radar.kind == RadarKind.phone
+          ? tr(
+              'càmera de control de cinturó i mòbil',
+              'cámara de control de cinturón y móvil',
+            )
           : tr('radar fix', 'radar fijo');
       final metres = (alert.distanceMeters / 50).round() * 50;
       await _tts.speak(tr('$kind a $metres metres', '$kind a $metres metros'));
@@ -502,7 +507,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(
                   _alert == null
                       ? tr('Sense avisos', 'Sin avisos')
-                      : '${_alert!.radar.kind == RadarKind.section ? tr('Radar de tram', 'Radar de tramo') : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
+                      : '${_alert!.radar.kind == RadarKind.section
+                            ? tr('Radar de tram', 'Radar de tramo')
+                            : _alert!.radar.kind == RadarKind.phone
+                            ? tr('Càmera de control', 'Cámara de control')
+                            : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
@@ -724,8 +733,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         const SizedBox(height: 16),
         Text(
           tr(
-            'Dades: DGT, IGN/CartoCiudad, Tachwire i OpenStreetMap (ODbL 1.0); Ajuntament de Madrid (CC BY 4.0); Servei Català de Trànsit. Vegeu DATA_SOURCES.md.',
-            'Datos: DGT, IGN/CartoCiudad, Tachwire y OpenStreetMap (ODbL 1.0); Ayuntamiento de Madrid (CC BY 4.0); Servei Català de Trànsit. Consulta DATA_SOURCES.md.',
+            'Dades: DGT, IGN/CartoCiudad, Tachwire i OpenStreetMap (ODbL 1.0), incloses les càmeres de cinturó i mòbil; Ajuntament de Madrid (CC BY 4.0); Servei Català de Trànsit. Vegeu DATA_SOURCES.md.',
+            'Datos: DGT, IGN/CartoCiudad, Tachwire y OpenStreetMap (ODbL 1.0), incluidas las cámaras de cinturón y móvil; Ayuntamiento de Madrid (CC BY 4.0); Servei Català de Trànsit. Consulta DATA_SOURCES.md.',
           ),
         ),
       ],
