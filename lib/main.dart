@@ -408,15 +408,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<bool> _import() async {
     if (_updating || _driving) return false;
-    final result = await FilePicker.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['json'],
-      withData: true,
     );
-    if (result == null) return false;
-    final bytes = result.files.single.bytes;
-    if (bytes == null) throw const FormatException('Cannot read file');
-    if (bytes.length > 10 * 1024 * 1024) {
+    if (file == null) return false;
+    const maxBytes = 10 * 1024 * 1024;
+    // Check the size before reading so a huge file is never loaded.
+    if ((await file.length() ?? 0) > maxBytes) {
+      throw const FormatException('Dataset too large');
+    }
+    final bytes = await file.readAsBytes();
+    if (bytes.length > maxBytes) {
       throw const FormatException('Dataset too large');
     }
     final candidate = await parseDataset(utf8.decode(bytes));

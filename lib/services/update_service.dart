@@ -26,7 +26,7 @@ class UpdateService {
           throw const FormatException('Invalid dataset signature');
         }
       }
-      return parseDataset(utf8.decode(bytes));
+      return await parseDataset(utf8.decode(bytes));
     } finally {
       client.close();
     }

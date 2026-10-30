@@ -1,6 +1,6 @@
 # Compilació i publicació
 
-Requisits: Flutter 3.35 o compatible, Dart 3.9, Android SDK per a APK i Android App Bundle. Executeu des d'aquest directori:
+Requisits: Flutter 3.47.9, Dart 3.13, Android SDK per a APK i Android App Bundle. Executeu des d'aquest directori:
 
 ```sh
 flutter pub get
@@ -12,7 +12,7 @@ flutter build apk --debug
 
 La variant de publicació necessita les variables `RADAR_RELEASE_STORE_FILE`, `RADAR_RELEASE_STORE_PASSWORD`, `RADAR_RELEASE_KEY_ALIAS` i `RADAR_RELEASE_KEY_PASSWORD`. Gradle no compila una variant `Release` sense aquestes variables. La clau de Radar Local està guardada fora del repositori, a `~/.local/share/radar-local/android-release.p12` (permís 600); la contrasenya i una còpia xifrada de la clau estan en `pass` sota `radar-local/android-release` i `radar-local/android-release-keystore`. El script local `tool/build_signed_android.sh` carrega la contrasenya en memòria i compila l'APK. No es guarda cap clau al repositori.
 
-En publicar una release, adjunteu l'APK i un fitxer `SHA256SUMS` (`sha256sum app-release.apk > SHA256SUMS`). Si canvia `assets/data/spain-radars.json`, signeu-lo abans amb `./tool/sign_dataset.sh` (vegeu DATA_SOURCES.md). Les accions de GitHub estan fixades per hash de commit i Dependabot proposa actualitzacions mensuals; les dependències directes de pub són les darreres compatibles amb Flutter 3.35.
+En publicar una release, adjunteu l'APK i un fitxer `SHA256SUMS` (`sha256sum app-release.apk > SHA256SUMS`). Si canvia `assets/data/spain-radars.json`, signeu-lo abans amb `./tool/sign_dataset.sh` (vegeu DATA_SOURCES.md). Les accions de GitHub estan fixades per hash de commit i Dependabot proposa actualitzacions mensuals; Flutter 3.47.9 (Dart 3.13), Gradle 9.3.1, AGP 9.1.0, Kotlin 2.4.0 i Java 17; pub queda fora de Dependabot perquè no té en compte el SDK fixat.
 
 Els icones d'Android i iOS es regeneren amb `./tool/make_icons.sh` (requereix Inkscape i ImageMagick) a partir de `assets/icon/icon.svg` i `assets/icon/icon-foreground.svg`.
 
