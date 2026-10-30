@@ -41,7 +41,7 @@ dependencies:
   file_picker: ^11.0.3
   http: ^1.6.0
   url_launcher: ^6.3.2
-  wakelock_plus: ^1.4.0
+  wakelock_plus: ^1.5.2
   cryptography: ^2.9.0
 
 dev_dependencies:
