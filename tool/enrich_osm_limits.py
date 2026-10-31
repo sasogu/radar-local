@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Complete section radar limits from OpenStreetMap maxspeed tags.
+"""Complete radar speed limits from OpenStreetMap maxspeed tags.
 
-Tachwire only publishes a limit for 45 of the 129 section radars. This tool
-queries the OSM API around each section endpoint, picks the nearest main road
+Tachwire leaves many DGT radars without a limit. This tool queries the OSM API
+around each fixed radar or section endpoint, picks the nearest main road
 (maxspeed tags) and stores the value in a committed overlay that the refresh
 pipeline applies on every merge. Results are never invented: ambiguous or
 distant matches are skipped for manual review.
 
 Usage:
-    tool/enrich_section_limits.py [--dataset assets/data/spain-radars.json]
-                                  [--overlay assets/data/section-limits-osm.json]
-                                  [--dry-run] [--limit N]
+    tool/enrich_osm_limits.py [--dataset assets/data/spain-radars.json]
+                              [--dry-run] [--limit N]
 """
 import argparse
 import json
@@ -25,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-import section_limits
+import osm_limits
 
 ROOT = Path(__file__).resolve().parents[1]
 API = 'https://api.openstreetmap.org/api/0.6/map'
@@ -150,11 +149,12 @@ def choose(found, road):
 def enrich(dataset, overlay, dry_run, max_items):
     pending = [
         radar for radar in dataset['radars']
-        if radar.get('kind') == 'section'
+        if radar.get('kind') in ('section', 'fixed')
         and radar.get('speed_limit') is None
         and radar['id'] not in overlay['limits']
+        and radar['id'] not in overlay.get('skip', [])
     ]
-    print(f'{len(pending)} sections without limit or cached value', file=sys.stderr)
+    print(f'{len(pending)} radars without limit or cached value', file=sys.stderr)
     added = skipped = 0
     for index, radar in enumerate(pending[:max_items], start=1):
         road = road_key(radar.get('name', ''))
@@ -188,7 +188,7 @@ def enrich(dataset, overlay, dry_run, max_items):
 def write(overlay):
     overlay['updated_at'] = datetime.now(timezone.utc).isoformat(timespec='seconds')
     overlay['limits'] = dict(sorted(overlay['limits'].items()))
-    section_limits.OVERLAY.write_text(
+    osm_limits.OVERLAY.write_text(
         json.dumps(overlay, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
@@ -200,7 +200,7 @@ def main():
     args = parser.parse_args()
     dataset = json.loads(Path(args.dataset).read_text(encoding='utf-8'))
     try:
-        overlay = section_limits.load()
+        overlay = osm_limits.load()
     except FileNotFoundError:
         overlay = {
             'schema': 1,
@@ -211,7 +211,7 @@ def main():
     added, skipped = enrich(dataset, overlay, args.dry_run, args.limit)
     if not args.dry_run:
         write(overlay)
-        print(f'Wrote {section_limits.OVERLAY} ({added} added, {skipped} skipped)')
+        print(f'Wrote {osm_limits.OVERLAY} ({added} added, {skipped} skipped)')
     else:
         print(f'Dry run: {added} would be added, {skipped} skipped')
 

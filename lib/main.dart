@@ -274,14 +274,18 @@ class _HomeScreenState extends State<HomeScreen> {
         _alertAt = null;
       }
     });
-    if (alert != null) unawaited(_announce(alert));
+    if (alert != null) {
+      unawaited(_announce(alert));
+    } else if (_engine?.passedRadar != null && widget.settings.sound) {
+      unawaited(_playBeep(asset: 'audio/passed.wav'));
+    }
   }
 
-  Future<void> _playBeep() async {
+  Future<void> _playBeep({String asset = 'audio/beep.wav'}) async {
     try {
       await _beep.stop();
       final completed = _beep.onPlayerComplete.first;
-      await _beep.play(AssetSource('audio/beep.wav'));
+      await _beep.play(AssetSource(asset));
       await completed.timeout(const Duration(seconds: 2), onTimeout: () {});
     } catch (_) {
       await SystemSound.play(SystemSoundType.alert);

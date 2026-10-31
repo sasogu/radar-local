@@ -85,6 +85,8 @@ class AlertEngine {
   RadarAlert? _lastAlert;
   DateTime? _lastAlertAt;
   Radar? _activeSection;
+  final Set<String> _approached = {};
+  Radar? _passedRadar;
   SectionProgress? _sectionProgress;
   double _lastEndDistance = double.infinity;
   DateTime? _sectionStartedAt;
@@ -93,6 +95,9 @@ class AlertEngine {
   bool _sectionAverageWarned = false;
 
   SectionProgress? get sectionProgress => _sectionProgress;
+
+  /// Radar the vehicle has just passed during the last [evaluate] call.
+  Radar? get passedRadar => _passedRadar;
 
   Radar? limitAhead(GpsFix fix, {double maxDistance = 1200}) {
     if (!fix.reliable) return null;
@@ -129,11 +134,12 @@ class AlertEngine {
       final projection = projectOnSegment(fix.point, radar.start, end);
       if (projection.fraction < 0 || projection.fraction > 1) continue;
       if (projection.distanceMeters > corridor) continue;
-      if (radar.direction != null &&
-          bearingDifference(fix.heading, radar.direction!) > 35) {
-        continue;
-      }
-      if (bearingDifference(fix.heading, bearingDegrees(radar.start, end)) >
+      if (radar.direction != null) {
+        if (bearingDifference(fix.heading, radar.direction!) > 35) continue;
+      } else if (bearingDifference(
+            fix.heading,
+            bearingDegrees(radar.start, end),
+          ) >
           50) {
         continue;
       }
@@ -242,6 +248,7 @@ class AlertEngine {
   }
 
   RadarAlert? evaluate(GpsFix fix) {
+    _passedRadar = null;
     if (!fix.reliable ||
         fix.speed < 3 ||
         DateTime.now().difference(fix.time).inSeconds.abs() > 15) {
@@ -257,6 +264,23 @@ class AlertEngine {
           (dt < 10 && displacement / dt > math.max(65, fix.speed * 2.5))) {
         return null;
       }
+    }
+    for (final radar in _index.near(fix.point, 120)) {
+      if (!_approached.contains(radar.id) ||
+          radar.kind == RadarKind.section) {
+        continue;
+      }
+      if (distanceMeters(fix.point, radar.start) > 70) continue;
+      if (bearingDifference(
+            fix.heading,
+            bearingDegrees(fix.point, radar.start),
+          ) <=
+          90) {
+        continue;
+      }
+      _approached.remove(radar.id);
+      _passedRadar = radar;
+      break;
     }
     final sectionEnd = _updateSection(fix);
     if (sectionEnd != null) {
@@ -307,6 +331,7 @@ class AlertEngine {
     });
     final alert = candidates.first;
     _announced[alert.radar.id] = fix.time;
+    _approached.add(alert.radar.id);
     _lastAlert = alert;
     _lastAlertAt = fix.time;
     _announced.removeWhere(

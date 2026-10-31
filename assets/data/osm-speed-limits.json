@@ -1,8 +1,41 @@
 {
   "schema": 1,
   "source": "OpenStreetMap maxspeed via API, ODbL 1.0",
-  "updated_at": "2026-10-31T17:51:35+00:00",
+  "updated_at": "2026-10-31T20:31:00+00:00",
   "limits": {
+    "tachwire-es-dgt-000047": 120,
+    "tachwire-es-dgt-000071": 70,
+    "tachwire-es-dgt-000083": 60,
+    "tachwire-es-dgt-000119": 120,
+    "tachwire-es-dgt-000123": 80,
+    "tachwire-es-dgt-000218": 120,
+    "tachwire-es-dgt-000283": 50,
+    "tachwire-es-dgt-000317": 80,
+    "tachwire-es-dgt-000318": 60,
+    "tachwire-es-dgt-000339": 80,
+    "tachwire-es-dgt-000380": 90,
+    "tachwire-es-dgt-000392": 90,
+    "tachwire-es-dgt-000395": 80,
+    "tachwire-es-dgt-000396": 80,
+    "tachwire-es-dgt-000453": 70,
+    "tachwire-es-dgt-000466": 70,
+    "tachwire-es-dgt-000548": 90,
+    "tachwire-es-dgt-000586": 100,
+    "tachwire-es-dgt-000597": 90,
+    "tachwire-es-dgt-000602": 120,
+    "tachwire-es-dgt-000604": 70,
+    "tachwire-es-dgt-000627": 90,
+    "tachwire-es-dgt-000667": 40,
+    "tachwire-es-dgt-000713": 60,
+    "tachwire-es-dgt-000730": 50,
+    "tachwire-es-dgt-000754": 60,
+    "tachwire-es-dgt-000792": 60,
+    "tachwire-es-dgt-000845": 90,
+    "tachwire-es-dgt-000859": 70,
+    "tachwire-es-dgt-000905": 90,
+    "tachwire-es-dgt-000906": 100,
+    "tachwire-es-dgt-000911": 70,
+    "tachwire-es-dgt-000918": 70,
     "tachwire-es-dgt-sec-0001": 70,
     "tachwire-es-dgt-sec-0002": 90,
     "tachwire-es-dgt-sec-0003": 90,
@@ -73,5 +106,9 @@
     "tachwire-es-dgt-sec-0112": 100,
     "tachwire-es-dgt-sec-0113": 80,
     "tachwire-es-dgt-sec-0117": 90
-  }
+  },
+  "skip": [
+    "tachwire-es-dgt-sec-0061",
+    "tachwire-es-dgt-sec-0062"
+  ]
 }

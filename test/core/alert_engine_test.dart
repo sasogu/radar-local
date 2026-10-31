@@ -125,6 +125,27 @@ void main() {
     expect(engine.evaluate(fix())?.radar.kind, RadarKind.phone);
     expect(RadarKind.values.byName('phone'), RadarKind.phone);
   });
+  test('reports passing an alerted radar once', () {
+    final engine = AlertEngine(dataset);
+    final now = DateTime.now();
+    String? passed;
+    for (final (index, lat) in [39.4665, 39.4680, 39.4692, 39.4699, 39.4704]
+        .indexed) {
+      engine.evaluate(
+        fix(
+          lat: lat,
+          speed: 40,
+          time: now.add(Duration(seconds: 2 + index * 2)),
+        ),
+      );
+      if (engine.passedRadar != null) passed = engine.passedRadar!.id;
+    }
+    expect(passed, 'A');
+    engine.evaluate(
+      fix(lat: 39.471, speed: 40, time: now.add(const Duration(seconds: 14))),
+    );
+    expect(engine.passedRadar, isNull);
+  });
   test('does not repeat an alert at the same site', () {
     final phone = Radar(
       id: 'P',
@@ -215,6 +236,20 @@ void main() {
       fix(lat: lat, time: now.add(const Duration(seconds: 15))),
     );
     expect(later?.phase, isNot(AlertPhase.sectionAverage));
+  });
+  test('activates a curved section using its entry direction', () {
+    final section = Radar(
+      id: 'S',
+      kind: RadarKind.section,
+      start: const Point(39.4700, -0.3700),
+      end: const Point(39.4700, -0.3400),
+      direction: 0,
+    );
+    final engine = AlertEngine(
+      RadarDataset([section], source: 'test', updatedAt: DateTime.now()),
+    );
+    engine.evaluate(fix(lat: 39.4701, lon: -0.3700, heading: 0));
+    expect(engine.sectionProgress?.radar.id, 'S');
   });
   test('does not track a section in the opposite direction', () {
     final section = Radar(
