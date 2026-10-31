@@ -155,6 +155,81 @@ void main() {
     );
     expect(engine.evaluate(fix(lat: 39.4695))?.radar.id, 'A');
   });
+  test('tracks a section and announces its end once', () {
+    final section = Radar(
+      id: 'S',
+      kind: RadarKind.section,
+      start: const Point(39.4700, -0.37),
+      end: const Point(39.4709, -0.37),
+      direction: 0,
+      speedLimit: 90,
+    );
+    final engine = AlertEngine(
+      RadarDataset([section], source: 'test', updatedAt: DateTime.now()),
+    );
+    final now = DateTime.now();
+    engine.evaluate(fix(lat: 39.4701, time: now.add(const Duration(seconds: 2))));
+    expect(engine.sectionProgress?.radar.id, 'S');
+    expect(engine.sectionProgress!.remainingMeters, closeTo(89, 15));
+    expect(engine.sectionProgress!.radar.speedLimit, 90);
+    final end = engine.evaluate(
+      fix(lat: 39.4710, time: now.add(const Duration(seconds: 4))),
+    );
+    expect(end?.phase, AlertPhase.sectionEnd);
+    expect(engine.sectionProgress, isNull);
+    expect(
+      engine.evaluate(
+        fix(lat: 39.4711, time: now.add(const Duration(seconds: 6))),
+      ),
+      isNull,
+    );
+  });
+  test('estimates the section average and warns only once', () {
+    final section = Radar(
+      id: 'S',
+      kind: RadarKind.section,
+      start: const Point(39.4700, -0.37),
+      end: const Point(39.4850, -0.37),
+      direction: 0,
+      speedLimit: 60,
+    );
+    final engine = AlertEngine(
+      RadarDataset([section], source: 'test', updatedAt: DateTime.now()),
+    );
+    final now = DateTime.now();
+    var lat = 39.4701;
+    engine.evaluate(fix(lat: lat, time: now.add(const Duration(seconds: 2))));
+    AlertPhase? warning;
+    for (var i = 4; i <= 14; i += 2) {
+      lat += 0.00036;
+      final alert = engine.evaluate(
+        fix(lat: lat, time: now.add(Duration(seconds: i))),
+      );
+      if (alert?.phase == AlertPhase.sectionAverage) warning = alert!.phase;
+    }
+    expect(engine.sectionProgress, isNotNull);
+    expect(engine.sectionProgress!.averageKmh, closeTo(72, 3));
+    expect(warning, AlertPhase.sectionAverage);
+    lat += 0.00036;
+    final later = engine.evaluate(
+      fix(lat: lat, time: now.add(const Duration(seconds: 15))),
+    );
+    expect(later?.phase, isNot(AlertPhase.sectionAverage));
+  });
+  test('does not track a section in the opposite direction', () {
+    final section = Radar(
+      id: 'S',
+      kind: RadarKind.section,
+      start: const Point(39.4700, -0.37),
+      end: const Point(39.4900, -0.37),
+      direction: 0,
+    );
+    final engine = AlertEngine(
+      RadarDataset([section], source: 'test', updatedAt: DateTime.now()),
+    );
+    engine.evaluate(fix(lat: 39.475, heading: 180));
+    expect(engine.sectionProgress, isNull);
+  });
   test('validates dataset and duplicate ids', () {
     expect(
       () => RadarDataset.parse('{"schema":2,"radars":[]}'),

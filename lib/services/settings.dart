@@ -12,6 +12,8 @@ class AppSettings {
   bool get automaticUpdates => prefs.getBool('automatic_updates') ?? false;
   bool get keepScreenOn => prefs.getBool('keep_screen_on') ?? true;
   bool get autoStart => prefs.getBool('auto_start') ?? true;
+  bool get sectionAverageWarning =>
+      prefs.getBool('section_average_warning') ?? true;
   String get updateUrl {
     final configured = prefs.getString('update_url')?.trim();
     return configured == null || configured.isEmpty
@@ -38,6 +40,8 @@ class AppSettings {
   Future<void> setKeepScreenOn(bool value) =>
       prefs.setBool('keep_screen_on', value);
   Future<void> setAutoStart(bool value) => prefs.setBool('auto_start', value);
+  Future<void> setSectionAverageWarning(bool value) =>
+      prefs.setBool('section_average_warning', value);
   Future<void> setUpdateUrl(String value) async {
     final normalized = value.trim();
     final selected = normalized.isEmpty ? defaultRadarUpdateUrl : normalized;

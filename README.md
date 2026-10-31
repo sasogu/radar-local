@@ -8,7 +8,7 @@ Prototip funcional Android/iOS: importació manual JSON, actualització HTTPS de
 
 Durant la conducció, quan s'acosta a un radar amb límit conegut, mostra el senyal del límit i acoloreix la velocitat: verd dins del límit, taronja dins del marge de tolerància (7 km/h o 7 %, que no és una velocitat legal) i roig a partir del llindar de multa. Si no hi ha límit conegut, no inventa cap color.
 
-En obrir-se, l'app pot iniciar la conducció automàticament (opció activada per defecte) i demana el permís d'ubicació si cal. Mentre la conducció està activa, pot mantindre la pantalla encesa (també activat per defecte a Configuració) i la torna a alliberar en aturar. Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. Els càlculs de velocitat mitjana dels radars de tram encara no estan disponibles: s'avisa de l'entrada del tram amb prioritat.
+En obrir-se, l'app pot iniciar la conducció automàticament (opció activada per defecte) i demana el permís d'ubicació si cal. Mentre la conducció està activa, pot mantindre la pantalla encesa (també activat per defecte a Configuració) i la torna a alliberar en aturar. Android manté el GPS en un servei en primer pla mentre el procés de l'app continua viu. El sistema pot matar-lo; la persistència després de tancar l'app està pendent. iOS funciona amb l'app activa; el segon pla encara no està implementat ni validat. En els radars de tram, l'app manté visible el límit mentre el vehicle és dins del tram, mostra la distància que queda fins al final, calcula la mitjana estimada des de l'entrada (distància GPS acumulada entre temps) i avisa per veu «fi de tram», amb la mitjana final. També pot avisar una vegada si la mitjana supera el límit. Consulteu el [ROADMAP.md](ROADMAP.md) per a les millores pendents.
 
 ## Inici
 
@@ -24,4 +24,4 @@ El botó «Proposa un radar» permet guardar esborranys locals. Durant la conduc
 
 Un flux n8n diari vigila canvis en les fonts i avisa per Telegram; GitHub Actions prepara una pull request quan els convertidors detecten dades noves. La publicació de dades noves requereix revisió. Vegeu [DATA_SOURCES.md](DATA_SOURCES.md).
 
-Consulteu [PRIVACY.md](PRIVACY.md), [ARCHITECTURE.md](ARCHITECTURE.md), [BUILDING.md](BUILDING.md), [TESTING.md](TESTING.md) i [PLAN.md](PLAN.md).
+Consulteu [PRIVACY.md](PRIVACY.md), [ARCHITECTURE.md](ARCHITECTURE.md), [BUILDING.md](BUILDING.md), [TESTING.md](TESTING.md), [PLAN.md](PLAN.md) i [ROADMAP.md](ROADMAP.md).

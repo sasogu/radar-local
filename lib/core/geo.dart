@@ -29,6 +29,34 @@ double bearingDegrees(Point a, Point b) {
 double bearingDifference(double a, double b) =>
     ((a - b + 540) % 360 - 180).abs();
 
+class SegmentProjection {
+  const SegmentProjection(this.distanceMeters, this.fraction);
+
+  /// Distance from the point to the closest point on the segment.
+  final double distanceMeters;
+
+  /// Position along the segment: 0 at [a], 1 at [b]. Not clamped, so values
+  /// outside 0..1 mean the point lies before the start or past the end.
+  final double fraction;
+}
+
+/// Projects [p] onto the segment [a]–[b] using a local flat approximation.
+SegmentProjection projectOnSegment(Point p, Point a, Point b) {
+  final latRef = (a.lat + b.lat) / 2;
+  final kx = 111320 * math.cos(_radians(latRef));
+  const ky = 110540.0;
+  final bx = (b.lon - a.lon) * kx;
+  final by = (b.lat - a.lat) * ky;
+  final px = (p.lon - a.lon) * kx;
+  final py = (p.lat - a.lat) * ky;
+  final lengthSquared = bx * bx + by * by;
+  final fraction = lengthSquared == 0 ? 0.0 : (px * bx + py * by) / lengthSquared;
+  final t = fraction.clamp(0.0, 1.0);
+  final dx = px - bx * t;
+  final dy = py - by * t;
+  return SegmentProjection(math.sqrt(dx * dx + dy * dy), fraction);
+}
+
 /// A coarse grid. Exact distance is still checked after lookup.
 class RadarIndex {
   RadarIndex(Iterable<Radar> radars) {

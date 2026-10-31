@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'core/alert_engine.dart';
+import 'core/geo.dart';
 import 'core/proposal.dart';
 import 'core/radar.dart';
 import 'core/speed_limit.dart';
@@ -49,6 +51,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _store = DataStore();
   final _tts = FlutterTts();
+  final _beep = AudioPlayer(playerId: 'radar-alert');
   Timer? _updateTimer;
   RadarDataset? _dataset;
   RadarDataset? _pendingDataset;
@@ -60,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime? _alertAt;
   double? _speed;
   int? _speedLimit;
+  SectionProgress? _section;
   bool _busy = false;
   bool _updating = false;
   bool _pendingUpdate = false;
@@ -242,10 +246,13 @@ class _HomeScreenState extends State<HomeScreen> {
       headingAccuracy: position.headingAccuracy,
     );
     final alert = _engine?.evaluate(fix);
-    final limit = _engine?.limitAhead(fix)?.speedLimit;
+    final section = _engine?.sectionProgress;
+    final limit =
+        section?.radar.speedLimit ?? _engine?.limitAhead(fix)?.speedLimit;
     setState(() {
       _speed = position.speed * 3.6;
       _speedLimit = limit;
+      _section = section;
       _status = !_offlineVoiceAvailable
           ? tr(
               'Veu offline no disponible: només so',
@@ -270,27 +277,85 @@ class _HomeScreenState extends State<HomeScreen> {
     if (alert != null) unawaited(_announce(alert));
   }
 
-  Future<void> _announce(RadarAlert alert) async {
-    if (widget.settings.sound) await SystemSound.play(SystemSoundType.alert);
-    if (widget.settings.voice && _offlineVoiceAvailable) {
-      final kind = alert.radar.kind == RadarKind.section
-          ? tr('radar de tram', 'radar de tramo')
-          : alert.radar.kind == RadarKind.redLight
-          ? tr('radar de semàfor', 'radar de semáforo')
-          : alert.radar.kind == RadarKind.phone
-          ? tr(
-              'càmera de control de cinturó i mòbil',
-              'cámara de control de cinturón y móvil',
-            )
-          : alert.radar.kind == RadarKind.lineStop
-          ? tr(
-              'càmera de línia contínua o stop',
-              'cámara de línea continua o stop',
-            )
-          : tr('radar fix', 'radar fijo');
-      final metres = (alert.distanceMeters / 50).round() * 50;
-      await _tts.speak(tr('$kind a $metres metres', '$kind a $metres metros'));
+  Future<void> _playBeep() async {
+    try {
+      await _beep.stop();
+      final completed = _beep.onPlayerComplete.first;
+      await _beep.play(AssetSource('audio/beep.wav'));
+      await completed.timeout(const Duration(seconds: 2), onTimeout: () {});
+    } catch (_) {
+      await SystemSound.play(SystemSoundType.alert);
     }
+  }
+
+  Future<void> _announce(RadarAlert alert) async {
+    final average = alert.averageKmh?.round();
+    if (alert.phase == AlertPhase.sectionAverage &&
+        !widget.settings.sectionAverageWarning) {
+      return;
+    }
+    if (widget.settings.sound) await _playBeep();
+    if (!widget.settings.voice || !_offlineVoiceAvailable) return;
+    if (alert.phase == AlertPhase.sectionEnd) {
+      await _tts.speak(
+        average == null
+            ? tr('Fi de tram', 'Fin de tramo')
+            : tr(
+                'Fi de tram. Mitjana $average quilòmetres per hora',
+                'Fin de tramo. Media $average kilómetros por hora',
+              ),
+      );
+      return;
+    }
+    if (alert.phase == AlertPhase.sectionAverage) {
+      final limit = alert.radar.speedLimit;
+      await _tts.speak(
+        tr(
+          'Mitjana del tram $average quilòmetres per hora${limit == null ? '' : ', límit $limit'}',
+          'Media del tramo $average kilómetros por hora${limit == null ? '' : ', límite $limit'}',
+        ),
+      );
+      return;
+    }
+    final kind = alert.radar.kind == RadarKind.section
+        ? tr('radar de tram', 'radar de tramo')
+        : alert.radar.kind == RadarKind.redLight
+        ? tr('radar de semàfor', 'radar de semáforo')
+        : alert.radar.kind == RadarKind.phone
+        ? tr(
+            'càmera de control de cinturó i mòbil',
+            'cámara de control de cinturón y móvil',
+          )
+        : alert.radar.kind == RadarKind.lineStop
+        ? tr(
+            'càmera de línia contínua o stop',
+            'cámara de línea continua o stop',
+          )
+        : tr('radar fix', 'radar fijo');
+    final metres = (alert.distanceMeters / 50).round() * 50;
+    final limit = alert.radar.speedLimit;
+    final suffix = limit == null ? '' : tr(', límit $limit', ', límite $limit');
+    await _tts.speak(
+      tr('$kind a $metres metres$suffix', '$kind a $metres metros$suffix'),
+    );
+  }
+
+  String _alertLabel(RadarAlert alert) => switch (alert.radar.kind) {
+    RadarKind.section => tr('Radar de tram', 'Radar de tramo'),
+    RadarKind.redLight => tr('Radar de semàfor', 'Radar de semáforo'),
+    RadarKind.phone || RadarKind.lineStop => tr(
+      'Càmera de control',
+      'Cámara de control',
+    ),
+    RadarKind.fixed => tr('Radar', 'Radar'),
+  };
+
+  String _distanceText(double metres) {
+    if (metres >= 1000) {
+      final km = (metres / 100).round() / 10;
+      return '${km.toStringAsFixed(1).replaceAll('.', ',')} km';
+    }
+    return '${(metres / 10).round() * 10} m';
   }
 
   Future<bool> _stop() async {
@@ -310,6 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _pendingDataset = null;
         _speed = null;
         _speedLimit = null;
+        _section = null;
         _alert = null;
         _alertAt = null;
         _status = tr('Conducció finalitzada', 'Conducción finalizada');
@@ -544,6 +610,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _updateTimer?.cancel();
     _positions?.cancel();
     _tts.stop();
+    _beep.dispose();
     unawaited(WakelockPlus.disable());
     super.dispose();
   }
@@ -553,6 +620,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final data = _dataset;
     final speed = _speed?.round();
     final limit = _speedLimit;
+    final average = _section?.averageKmh;
+    final averageColor = average == null || limit == null
+        ? null
+        : _speedColor(context, SpeedLimit.zone(average.round(), limit));
     final zone = speed == null || limit == null
         ? null
         : SpeedLimit.zone(speed, limit);
@@ -652,17 +723,57 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text(
                           _alert == null
                               ? tr('Sense avisos', 'Sin avisos')
-                              : '${_alert!.radar.kind == RadarKind.section
-                                    ? tr('Radar de tram', 'Radar de tramo')
-                                    : _alert!.radar.kind == RadarKind.redLight
-                                    ? tr('Radar de semàfor', 'Radar de semáforo')
-                                    : _alert!.radar.kind == RadarKind.phone || _alert!.radar.kind == RadarKind.lineStop
-                                    ? tr('Càmera de control', 'Cámara de control')
-                                    : tr('Radar', 'Radar')} · ${_alert!.distanceMeters.round()} m',
+                              : _alert!.phase == AlertPhase.sectionEnd
+                              ? _alert!.averageKmh == null
+                                    ? tr('Fi de tram', 'Fin de tramo')
+                                    : tr(
+                                        'Fi de tram · mitjana ${_alert!.averageKmh!.round()} km/h',
+                                        'Fin de tramo · media ${_alert!.averageKmh!.round()} km/h',
+                                      )
+                              : _alert!.phase == AlertPhase.sectionAverage
+                              ? tr(
+                                  'Mitjana ${_alert!.averageKmh?.round() ?? 0} km/h · límit ${_alert!.radar.speedLimit ?? '—'}',
+                                  'Media ${_alert!.averageKmh?.round() ?? 0} km/h · límite ${_alert!.radar.speedLimit ?? '—'}',
+                                )
+                              : '${_alertLabel(_alert!)} · ${_alert!.distanceMeters.round()} m',
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ),
+                      if (_section != null)
+                        Text(
+                          tr(
+                            'Tram actiu · queden ${_distanceText(_section!.remainingMeters)}',
+                            'Tramo activo · quedan ${_distanceText(_section!.remainingMeters)}',
+                          ),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      if (average != null)
+                        Text(
+                          tr(
+                            'Mitjana del tram · ${average.round()} km/h',
+                            'Media del tramo · ${average.round()} km/h',
+                          ),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            color:
+                                averageColor ??
+                                Theme.of(context).colorScheme.onSurface,
+                          ),
+                        ),
+                      if (_alert != null &&
+                          _alert!.phase == AlertPhase.approach &&
+                          _alert!.radar.kind == RadarKind.section &&
+                          _alert!.radar.end != null)
+                        Text(
+                          tr(
+                            'Tram de ${_distanceText(distanceMeters(_alert!.radar.start, _alert!.radar.end!))}',
+                            'Tramo de ${_distanceText(distanceMeters(_alert!.radar.start, _alert!.radar.end!))}',
+                          ),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       const Spacer(),
                       if (_pendingUpdate)
                         Padding(
@@ -839,6 +950,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
           value: widget.settings.sound,
           onChanged: (v) async {
             await widget.settings.setSound(v);
+            setState(() {});
+          },
+        ),
+        SwitchListTile(
+          title: Text(
+            tr(
+              'Avís de veu si la mitjana del tram supera el límit',
+              'Aviso de voz si la media del tramo supera el límite',
+            ),
+          ),
+          subtitle: Text(
+            tr(
+              'Un sol avís per tram, quan ja hi ha prou recorregut',
+              'Un solo aviso por tramo, cuando ya hay suficiente recorrido',
+            ),
+          ),
+          value: widget.settings.sectionAverageWarning,
+          onChanged: (v) async {
+            await widget.settings.setSectionAverageWarning(v);
             setState(() {});
           },
         ),
