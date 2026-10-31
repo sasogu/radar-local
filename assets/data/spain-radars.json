@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "source": "Ayuntamiento de Madrid, radares fijos, CC BY 4.0 + Servei Català de Trànsit, radars fixos, reutilització amb atribució + DGT 2026 via Tachwire/IGN, ODbL 1.0 + DGT 2024 via Tachwire/IGN, ODbL 1.0, speed limits from OSM maxspeed (ODbL 1.0)",
-  "updated_at": "2026-10-31T20:31:11+00:00",
+  "source": "Ayuntamiento de Madrid, radares fijos, CC BY 4.0 + Servei Català de Trànsit, radars fixos, reutilització amb atribució + DGT 2026 via Tachwire/IGN, ODbL 1.0 + DGT 2024 via Tachwire/IGN, ODbL 1.0, manual corrections, directions from OSM way geometry (ODbL 1.0), speed limits from OSM maxspeed (ODbL 1.0)",
+  "updated_at": "2026-10-31T21:33:12+00:00",
   "radars": [
     {
       "id": "madrid-1",
@@ -11,7 +11,8 @@
         "lon": -3.67433808
       },
       "name": "M-30, ENTRADA DE LA A-1, SENTIDO PUENTE DE VENTAS P.K. 0,500",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 188.2
     },
     {
       "id": "madrid-2",
@@ -21,7 +22,8 @@
         "lon": -3.67429089
       },
       "name": "M-30, ENTRADA DE LA A-1, SENTIDO PUENTE DE VENTAS P.K. 0,500",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 188.2
     },
     {
       "id": "madrid-3",
@@ -31,7 +33,8 @@
         "lon": -3.66880283
       },
       "name": "PASO INFERIOR COSTA RICA, SENTIDO PRÍNCIPE DE VERGARA",
-      "speed_limit": 50
+      "speed_limit": 50,
+      "direction": 68.8
     },
     {
       "id": "madrid-4",
@@ -41,7 +44,8 @@
         "lon": -3.66014384
       },
       "name": "M-30, PTE. DE VENTAS. SENTIDO SUR A O´DONNELL P.K. 6,700",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 169.4
     },
     {
       "id": "madrid-5",
@@ -51,7 +55,8 @@
         "lon": -3.66006141
       },
       "name": "M-30, PTE. DE VENTAS. SENTIDO SUR A O´DONNELL P.K. 6,700",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 169.4
     },
     {
       "id": "madrid-6",
@@ -61,7 +66,8 @@
         "lon": -3.65926082
       },
       "name": "M-30, ENLACE O´DONNELL SENTIDO NORTE A PTE. DE VENTAS PK 7,800",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 23.9
     },
     {
       "id": "madrid-7",
@@ -71,7 +77,8 @@
         "lon": -3.65929627
       },
       "name": "M-30, ENLACE O´DONNELL SENTIDO NORTE A PTE. DE VENTAS PK 7,800",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 23.9
     },
     {
       "id": "madrid-8",
@@ -81,7 +88,8 @@
         "lon": -3.670048
       },
       "name": "TÚNEL BAIPÁS, SENTIDO NORTE A PTE. DE VENTAS (MÉNDEZ ÁLVARO-AVDA. DEL METITARRÁNEO)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 32.8
     },
     {
       "id": "madrid-9",
@@ -91,7 +99,8 @@
         "lon": -3.669973
       },
       "name": "TÚNEL BAIPÁS, SENTIDO NORTE A PTE. DE VENTAS (MÉNDEZ ÁLVARO-AVDA. DEL METITARRÁNEO)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 32.8
     },
     {
       "id": "madrid-10",
@@ -101,7 +110,8 @@
         "lon": -3.69499826
       },
       "name": "ENTRADA TÚNEL M-30, DESDE NUDO SUR HACIA PTE. DE LOS FRANCESES",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 317.4
     },
     {
       "id": "madrid-11",
@@ -111,7 +121,8 @@
         "lon": -3.699691
       },
       "name": "TÚNEL M-30, SENTIDO NUDO SUR - PTE. DE LOS FRANCESES, (GTA. LEGAZPI - Pº STA. Mª DE LA CABEZA)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 324.8
     },
     {
       "id": "madrid-12",
@@ -121,7 +132,8 @@
         "lon": -3.703274
       },
       "name": "TÚNEL BYPASS, SENTIDO A-3 A PTE. FRANCESES, (GTA. LEGAZPI - Pº STA. Mª DE LA CABEZA)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 299.0
     },
     {
       "id": "madrid-13",
@@ -131,7 +143,8 @@
         "lon": -3.71017703
       },
       "name": "PASEO DE STA. Mª DE LA CABEZA Nº 115, ENTRADA",
-      "speed_limit": 50
+      "speed_limit": 50,
+      "direction": 62.6
     },
     {
       "id": "madrid-14",
@@ -141,7 +154,8 @@
         "lon": -3.708108
       },
       "name": "TÚNEL BYPASS, SENTIDO A3 A PTE. DE LOS FRANCESES, (ENLACE Pº STA. Mª DE LA CABEZA)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 294.9
     },
     {
       "id": "madrid-15",
@@ -151,7 +165,8 @@
         "lon": -3.709684
       },
       "name": "TÚNEL BYPASS, SENTIDO A3 A PTE. DE LOS FRANCESES, (Pº STA. Mª DE LA CABEZA - GTA. PIRÁMIDES)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 299.3
     },
     {
       "id": "madrid-16",
@@ -161,7 +176,8 @@
         "lon": -3.722988
       },
       "name": "TÚNEL M-30, SENTIDO PTE. DE LOS FRANCESES - A3 (PTE. SAN ISIDRO - GTA. MARQUÉS DE VADILLO)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 169.1
     },
     {
       "id": "madrid-17",
@@ -171,7 +187,8 @@
         "lon": -3.721414
       },
       "name": "TÚNEL M-30, SENTIDO NUDO SUR - PTE. DE LOS FRANCESES, (PASADA SALIDA VIRGEN DEL PUERTO)",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 342.8
     },
     {
       "id": "madrid-18",
@@ -181,7 +198,8 @@
         "lon": -3.731092
       },
       "name": "TÚNEL AVDA. DE PORTUGAL, SENTIDO M-30",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 63.8
     },
     {
       "id": "madrid-19",
@@ -191,7 +209,8 @@
         "lon": -3.73102
       },
       "name": "TÚNEL AVDA. DE PORTUGAL, SENTIDO M-30",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 64.0
     },
     {
       "id": "madrid-20",
@@ -201,7 +220,8 @@
         "lon": -3.74545156
       },
       "name": "A-5 PK 4,000, SALIDA",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 242.5
     },
     {
       "id": "madrid-21",
@@ -211,7 +231,8 @@
         "lon": -3.727663
       },
       "name": "ENTRADA TÚNEL EN MARQUÉS DE MONISTROL, P.K. 19,060",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 115.5
     },
     {
       "id": "madrid-22",
@@ -221,7 +242,8 @@
         "lon": -3.727724
       },
       "name": "ENTRADA TÚNEL EN MARQUÉS DE MONISTROL, P.K. 19,060",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 115.5
     },
     {
       "id": "madrid-23",
@@ -231,7 +253,8 @@
         "lon": -3.73482875
       },
       "name": "M-30  MARQUÉS DE MONISTROL, SENTIDO PTE. DE LOS FRANCESES (PTE. DEL REY - PTE. FRANCESES) P.K. 19,800",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 327.9
     },
     {
       "id": "madrid-24",
@@ -241,7 +264,8 @@
         "lon": -3.73482875
       },
       "name": "M-30  MARQUÉS DE MONISTROL, SENTIDO PTE. DE LOS FRANCESES (PTE. DEL REY - PTE. FRANCESES) P.K. 19,800",
-      "speed_limit": 70
+      "speed_limit": 70,
+      "direction": 327.9
     },
     {
       "id": "madrid-25",
@@ -251,7 +275,8 @@
         "lon": -3.74530618
       },
       "name": "M-30 SENTIDO AVDA. DE LA ILUSTRACIÓN (CTRA. DEL PARDO - AVDA. DE LA ILUSTRACIÓN) P.K. 25,700",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 91.7
     },
     {
       "id": "madrid-26",
@@ -261,7 +286,8 @@
         "lon": -3.73089695
       },
       "name": "M-30  SENTIDO CTRA DEL PARDO (AVDA. DE LA ILUSTRACIÓN - CTRA. DEL PARDO) P.K. 27,300",
-      "speed_limit": 90
+      "speed_limit": 90,
+      "direction": 268.7
     },
     {
       "id": "madrid-27",
@@ -436,7 +462,8 @@
         "lon": 1.16662769
       },
       "speed_limit": 120,
-      "name": "A-2 PK 510"
+      "name": "A-2 PK 510",
+      "direction": 79.4
     },
     {
       "id": "sct-4",
@@ -556,7 +583,8 @@
         "lon": 2.78437645
       },
       "speed_limit": 120,
-      "name": "A-2 PK 707,467"
+      "name": "A-2 PK 707,467",
+      "direction": 11.9
     },
     {
       "id": "sct-16",
@@ -906,7 +934,8 @@
         "lon": 1.1223878
       },
       "speed_limit": 70,
-      "name": "C-14 PK 4,35"
+      "name": "C-14 PK 4,35",
+      "direction": 353.3
     },
     {
       "id": "sct-51",
@@ -1026,7 +1055,8 @@
         "lon": 1.69011853
       },
       "speed_limit": 100,
-      "name": "C-15 PK 24,238"
+      "name": "C-15 PK 24,238",
+      "direction": 301.4
     },
     {
       "id": "sct-63",
@@ -1046,7 +1076,8 @@
         "lon": 2.25179039
       },
       "speed_limit": 90,
-      "name": "C-155 PK 14,7"
+      "name": "C-155 PK 14,7",
+      "direction": 255.5
     },
     {
       "id": "sct-65",
@@ -1056,7 +1087,8 @@
         "lon": 1.86515476
       },
       "speed_limit": 120,
-      "name": "C-16 PK 51,088"
+      "name": "C-16 PK 51,088",
+      "direction": 7.9
     },
     {
       "id": "sct-66",
@@ -1066,7 +1098,8 @@
         "lon": 1.86531809
       },
       "speed_limit": 120,
-      "name": "C-16 PK 51,183"
+      "name": "C-16 PK 51,183",
+      "direction": 11.6
     },
     {
       "id": "sct-67",
@@ -1096,7 +1129,8 @@
         "lon": 1.87743833
       },
       "speed_limit": 120,
-      "name": "C-16 PK 78"
+      "name": "C-16 PK 78",
+      "direction": 7.3
     },
     {
       "id": "sct-70",
@@ -1126,7 +1160,8 @@
         "lon": 2.2032536
       },
       "speed_limit": 100,
-      "name": "C-17 PK 7,9"
+      "name": "C-17 PK 7,9",
+      "direction": 210.4
     },
     {
       "id": "sct-73",
@@ -1136,7 +1171,8 @@
         "lon": 2.24384879
       },
       "speed_limit": 80,
-      "name": "C-17 PK 42,662"
+      "name": "C-17 PK 42,662",
+      "direction": 314.7
     },
     {
       "id": "sct-74",
@@ -1206,7 +1242,8 @@
         "lon": 2.07229409
       },
       "speed_limit": 120,
-      "name": "C-25 PK 162,76"
+      "name": "C-25 PK 162,76",
+      "direction": 73.9
     },
     {
       "id": "sct-81",
@@ -1226,7 +1263,8 @@
         "lon": 2.71017113
       },
       "speed_limit": 120,
-      "name": "C-25 PK 230,075"
+      "name": "C-25 PK 230,075",
+      "direction": 84.1
     },
     {
       "id": "sct-83",
@@ -1336,7 +1374,8 @@
         "lon": 3.03428903
       },
       "speed_limit": 80,
-      "name": "C-31 PK 312,787"
+      "name": "C-31 PK 312,787",
+      "direction": 243.2
     },
     {
       "id": "sct-94",
@@ -1346,7 +1385,8 @@
         "lon": 3.07286633
       },
       "speed_limit": 100,
-      "name": "C-31 PK 319,775"
+      "name": "C-31 PK 319,775",
+      "direction": 23.2
     },
     {
       "id": "sct-95",
@@ -1366,7 +1406,8 @@
         "lon": 3.01731898
       },
       "speed_limit": 90,
-      "name": "C-31 PK 376,51"
+      "name": "C-31 PK 376,51",
+      "direction": 123.2
     },
     {
       "id": "sct-97",
@@ -1376,7 +1417,8 @@
         "lon": 3.06741774
       },
       "speed_limit": 90,
-      "name": "C-31a PK 366"
+      "name": "C-31a PK 366",
+      "direction": 279.7
     },
     {
       "id": "sct-98",
@@ -1406,7 +1448,8 @@
         "lon": 2.01823757
       },
       "speed_limit": 80,
-      "name": "C-32 PK 50,07"
+      "name": "C-32 PK 50,07",
+      "direction": 50.3
     },
     {
       "id": "sct-101",
@@ -1436,7 +1479,8 @@
         "lon": 2.29500702
       },
       "speed_limit": 120,
-      "name": "C-32 nord PK 85"
+      "name": "C-32 nord PK 85",
+      "direction": 27.3
     },
     {
       "id": "sct-104",
@@ -1456,7 +1500,8 @@
         "lon": 2.18323506
       },
       "speed_limit": 120,
-      "name": "C-33 PK 80,048"
+      "name": "C-33 PK 80,048",
+      "direction": 207.6
     },
     {
       "id": "sct-106",
@@ -1466,7 +1511,8 @@
         "lon": 2.25331651
       },
       "speed_limit": 90,
-      "name": "C-35 PK 29,15"
+      "name": "C-35 PK 29,15",
+      "direction": 198.6
     },
     {
       "id": "sct-107",
@@ -1486,7 +1532,8 @@
         "lon": 2.63225313
       },
       "speed_limit": 90,
-      "name": "C-35 PK 69,887"
+      "name": "C-35 PK 69,887",
+      "direction": 351.5
     },
     {
       "id": "sct-109",
@@ -1496,7 +1543,8 @@
         "lon": 2.83720812
       },
       "speed_limit": 100,
-      "name": "C-35 PK 91,2"
+      "name": "C-35 PK 91,2",
+      "direction": 249.3
     },
     {
       "id": "sct-110",
@@ -1566,7 +1614,8 @@
         "lon": 1.84162265
       },
       "speed_limit": 80,
-      "name": "C-55 PK 25,5"
+      "name": "C-55 PK 25,5",
+      "direction": 354.6
     },
     {
       "id": "sct-117",
@@ -1606,7 +1655,8 @@
         "lon": 1.6213203
       },
       "speed_limit": 90,
-      "name": "C-55 PK 68,193"
+      "name": "C-55 PK 68,193",
+      "direction": 68.9
     },
     {
       "id": "sct-121",
@@ -1656,7 +1706,8 @@
         "lon": 1.96042607
       },
       "speed_limit": 80,
-      "name": "C-58 PK 29,27"
+      "name": "C-58 PK 29,27",
+      "direction": 0.8
     },
     {
       "id": "sct-126",
@@ -1676,7 +1727,8 @@
         "lon": 1.92876138
       },
       "speed_limit": 80,
-      "name": "C-58 PK 30,95"
+      "name": "C-58 PK 30,95",
+      "direction": 107.6
     },
     {
       "id": "sct-128",
@@ -1916,7 +1968,8 @@
         "lon": 1.17179077
       },
       "speed_limit": 70,
-      "name": "L-310 PK 5,403"
+      "name": "L-310 PK 5,403",
+      "direction": 65.6
     },
     {
       "id": "sct-152",
@@ -1946,7 +1999,8 @@
         "lon": 2.15694056
       },
       "speed_limit": 40,
-      "name": "N-150 PK 3,318"
+      "name": "N-150 PK 3,318",
+      "direction": 320.8
     },
     {
       "id": "sct-155",
@@ -2026,7 +2080,8 @@
         "lon": 1.24848805
       },
       "speed_limit": 80,
-      "name": "N-240 PK 15,7"
+      "name": "N-240 PK 15,7",
+      "direction": 357.3
     },
     {
       "id": "sct-163",
@@ -2246,7 +2301,8 @@
         "lon": 1.99745863
       },
       "speed_limit": 60,
-      "name": "N-340 PK 1242,245"
+      "name": "N-340 PK 1242,245",
+      "direction": 283.7
     },
     {
       "id": "sct-185",
@@ -2256,7 +2312,8 @@
         "lon": 0.6567658
       },
       "speed_limit": 90,
-      "name": "N-420 PK 825,428"
+      "name": "N-420 PK 825,428",
+      "direction": 52.4
     },
     {
       "id": "sct-186",
@@ -2306,7 +2363,8 @@
         "lon": 2.34490364
       },
       "speed_limit": 80,
-      "name": "N-II PK 636,415"
+      "name": "N-II PK 636,415",
+      "direction": 69.7
     },
     {
       "id": "sct-191",
@@ -2406,7 +2464,8 @@
         "lon": 1.55232817
       },
       "speed_limit": 90,
-      "name": "TP-2125 PK 4,795"
+      "name": "TP-2125 PK 4,795",
+      "direction": 206.5
     },
     {
       "id": "sct-201",
@@ -3645,7 +3704,7 @@
       "kind": "fixed",
       "start": {
         "lat": 39.98639,
-        "lon": -3.86466
+        "lon": -3.96466
       },
       "name": "A-42 PK 55.7"
     },
@@ -10054,6 +10113,7 @@
         "lon": -0.44824
       },
       "name": "A-3 PK 347.104",
+      "length": 2046,
       "direction": 75,
       "speed_limit": 100
     },
@@ -10069,6 +10129,7 @@
         "lon": -0.76698
       },
       "name": "A-31 PK 211.704",
+      "length": 7709,
       "direction": 346,
       "speed_limit": 120
     },
@@ -10084,6 +10145,7 @@
         "lon": -0.71686
       },
       "name": "A-31 PK 216.52",
+      "length": 2380,
       "direction": 114,
       "speed_limit": 120
     },
@@ -10099,6 +10161,7 @@
         "lon": -4.70088
       },
       "name": "A-355 PK 4.401",
+      "length": 3411,
       "direction": 15,
       "speed_limit": 90
     },
@@ -10114,6 +10177,7 @@
         "lon": -4.72255
       },
       "name": "A-355 PK 1.049",
+      "length": 3401,
       "direction": 224,
       "speed_limit": 90
     },
@@ -10129,6 +10193,7 @@
         "lon": -1.83306
       },
       "name": "A-370 PK 8.329",
+      "length": 1071,
       "direction": 58,
       "speed_limit": 80
     },
@@ -10144,6 +10209,7 @@
         "lon": -1.84216
       },
       "name": "A-370 PK 9.471",
+      "length": 1071,
       "direction": 227,
       "speed_limit": 80
     },
@@ -10159,6 +10225,7 @@
         "lon": -5.27402
       },
       "name": "A-377 PK 8.97",
+      "length": 3370,
       "direction": 168,
       "speed_limit": 60
     },
@@ -10174,6 +10241,7 @@
         "lon": -5.06722
       },
       "name": "A-397 PK 27.995",
+      "length": 2055,
       "direction": 173,
       "speed_limit": 60
     },
@@ -10189,6 +10257,7 @@
         "lon": -5.07015
       },
       "name": "A-397 PK 30.079",
+      "length": 2059,
       "direction": 4,
       "speed_limit": 60
     },
@@ -10204,6 +10273,7 @@
         "lon": -3.49822
       },
       "name": "A-4 PK 248.359",
+      "length": 3130,
       "direction": 16,
       "speed_limit": 100
     },
@@ -10219,6 +10289,7 @@
         "lon": -5.88834
       },
       "name": "A-4 PK 532.68",
+      "length": 1680,
       "direction": 59,
       "speed_limit": 120
     },
@@ -10234,6 +10305,7 @@
         "lon": -4.43753
       },
       "name": "A-45 PK 125.958",
+      "length": 2822,
       "direction": 188,
       "speed_limit": 80
     },
@@ -10249,6 +10321,7 @@
         "lon": -6.13527
       },
       "name": "A-48 PK 5.764",
+      "length": 1764,
       "direction": 318,
       "speed_limit": 120
     },
@@ -10264,6 +10337,7 @@
         "lon": -4.48883
       },
       "name": "A-5 PK 83.698",
+      "length": 1652,
       "direction": 258,
       "speed_limit": 120
     },
@@ -10279,6 +10353,7 @@
         "lon": -0.73894
       },
       "name": "A-7 PK 523.361",
+      "length": 4161,
       "direction": 44,
       "speed_limit": 120
     },
@@ -10294,6 +10369,7 @@
         "lon": -4.63734
       },
       "name": "A-7 PK 1024.917",
+      "length": 5217,
       "direction": 40,
       "speed_limit": 80
     },
@@ -10309,6 +10385,7 @@
         "lon": -5.39292
       },
       "name": "A-7 PK 1106.386",
+      "length": 1154,
       "direction": 234,
       "speed_limit": 80
     },
@@ -10324,6 +10401,7 @@
         "lon": -5.39069
       },
       "name": "A-7 PK 1109.221",
+      "length": 1881,
       "direction": 65,
       "speed_limit": 100
     },
@@ -10339,6 +10417,7 @@
         "lon": -3.1642
       },
       "name": "A-8 PK 146.264",
+      "length": 5839,
       "direction": 169,
       "speed_limit": 100
     },
@@ -10354,6 +10433,7 @@
         "lon": -3.21793
       },
       "name": "A-8 PK 140.612",
+      "length": 6368,
       "direction": 318,
       "speed_limit": 100
     },
@@ -10369,6 +10449,7 @@
         "lon": -7.02717
       },
       "name": "A-8 PK 506.132",
+      "length": 1082,
       "direction": 85,
       "speed_limit": 120
     },
@@ -10384,6 +10465,7 @@
         "lon": -7.04189
       },
       "name": "A-8 PK 505.098",
+      "length": 1182,
       "direction": 269,
       "speed_limit": 120
     },
@@ -10399,6 +10481,7 @@
         "lon": -7.34922
       },
       "name": "A-8 PK 550.231",
+      "length": 5116,
       "direction": 65,
       "speed_limit": 100
     },
@@ -10414,6 +10497,7 @@
         "lon": -8.64215
       },
       "name": "AC-552 PK 27.289",
+      "length": 1014,
       "direction": 65
     },
     {
@@ -10428,6 +10512,7 @@
         "lon": -8.65169
       },
       "name": "AC-552 PK 26.282",
+      "length": 1018,
       "direction": 225
     },
     {
@@ -10442,6 +10527,7 @@
         "lon": -8.49861
       },
       "name": "AG-55 PK 14.743",
+      "length": 3030,
       "direction": 39,
       "speed_limit": 100
     },
@@ -10457,6 +10543,7 @@
         "lon": -4.10756
       },
       "name": "AP-6 PK 56.847",
+      "length": 7584,
       "direction": 95,
       "speed_limit": 100
     },
@@ -10472,6 +10559,7 @@
         "lon": -4.16072
       },
       "name": "AP-6 PK 53.126",
+      "length": 3482,
       "direction": 313,
       "speed_limit": 100
     },
@@ -10487,6 +10575,7 @@
         "lon": -8.66477
       },
       "name": "AP-9 PK 154.921",
+      "length": 5441,
       "direction": 265,
       "speed_limit": 100
     },
@@ -10502,6 +10591,7 @@
         "lon": -8.65473
       },
       "name": "AP-9 PK 155.318",
+      "length": 3662,
       "direction": 121
     },
     {
@@ -10516,6 +10606,7 @@
         "lon": -8.15692
       },
       "name": "AP-9F PK 29.915",
+      "length": 1222,
       "direction": 1,
       "speed_limit": 90
     },
@@ -10531,6 +10622,7 @@
         "lon": -5.78225
       },
       "name": "AS-112 PK 2.271",
+      "length": 1421,
       "direction": 319,
       "speed_limit": 60
     },
@@ -10546,6 +10638,7 @@
         "lon": -5.66744
       },
       "name": "AS-117 PK 4.456",
+      "length": 2144,
       "direction": 115,
       "speed_limit": 90
     },
@@ -10561,6 +10654,7 @@
         "lon": -5.68991
       },
       "name": "AS-117 PK 6.698",
+      "length": 2148,
       "direction": 288,
       "speed_limit": 90
     },
@@ -10576,6 +10670,7 @@
         "lon": -4.36754
       },
       "name": "AV-562 PK 11.407",
+      "length": 2217,
       "direction": 310
     },
     {
@@ -10590,6 +10685,7 @@
         "lon": -4.34947
       },
       "name": "AV-562 PK 9.222",
+      "length": 2213,
       "direction": 106
     },
     {
@@ -10604,6 +10700,7 @@
         "lon": -6.17609
       },
       "name": "CA-33 PK 9.052",
+      "length": 3148,
       "direction": 45,
       "speed_limit": 80
     },
@@ -10619,6 +10716,7 @@
         "lon": -6.20537
       },
       "name": "CA-33 PK 12.772",
+      "length": 3612,
       "direction": 287,
       "speed_limit": 80
     },
@@ -10634,6 +10732,7 @@
         "lon": -5.76578
       },
       "name": "CL-517 PK 16.311",
+      "length": 11931,
       "direction": 93,
       "speed_limit": 90
     },
@@ -10649,6 +10748,7 @@
         "lon": -5.89941
       },
       "name": "CL-517 PK 4.413",
+      "length": 11937,
       "direction": 292,
       "speed_limit": 90
     },
@@ -10664,6 +10764,7 @@
         "lon": -4.6457
       },
       "name": "CL-613 PK 15.409",
+      "length": 3489,
       "direction": 152,
       "speed_limit": 90
     },
@@ -10679,6 +10780,7 @@
         "lon": -4.6731
       },
       "name": "CL-613 PK 11.923",
+      "length": 3487,
       "direction": 295,
       "speed_limit": 90
     },
@@ -10694,6 +10796,7 @@
         "lon": -4.8479
       },
       "name": "CL-613 PK 15.246",
+      "length": 17454,
       "direction": 332,
       "speed_limit": 90
     },
@@ -10709,6 +10812,7 @@
         "lon": -4.67132
       },
       "name": "CL-613 PK 32.866",
+      "length": 17456,
       "direction": 112,
       "speed_limit": 90
     },
@@ -10724,6 +10828,7 @@
         "lon": -4.5596
       },
       "name": "CL-615 PK 24.842",
+      "length": 23136,
       "direction": 174,
       "speed_limit": 50
     },
@@ -10739,6 +10844,7 @@
         "lon": -4.6042
       },
       "name": "CL-615 PK 1.715",
+      "length": 32895,
       "direction": 339,
       "speed_limit": 50
     },
@@ -10754,6 +10860,7 @@
         "lon": -2.37582
       },
       "name": "CM-412 PK 208.138",
+      "length": 5638,
       "direction": 247,
       "speed_limit": 70
     },
@@ -10769,6 +10876,7 @@
         "lon": -2.32062
       },
       "name": "CM-412 PK 202.814",
+      "length": 5336,
       "direction": 96,
       "speed_limit": 90
     },
@@ -10784,6 +10892,7 @@
         "lon": -0.42521
       },
       "name": "CV-30 PK 4.134",
+      "length": 2509,
       "direction": 248,
       "speed_limit": 80
     },
@@ -10799,6 +10908,7 @@
         "lon": -0.41511
       },
       "name": "CV-35 PK 5.602",
+      "length": 1882,
       "direction": 148,
       "speed_limit": 100
     },
@@ -10814,6 +10924,7 @@
         "lon": -0.32483
       },
       "name": "CV-500 PK 14.528",
+      "length": 5440,
       "direction": 330,
       "speed_limit": 60
     },
@@ -10829,6 +10940,7 @@
         "lon": -0.29863
       },
       "name": "CV-500 PK 9.19",
+      "length": 5440,
       "direction": 165,
       "speed_limit": 60
     },
@@ -10844,6 +10956,7 @@
         "lon": -0.32884
       },
       "name": "CV-60 PK 16.813",
+      "length": 5987,
       "direction": 73,
       "speed_limit": 80
     },
@@ -10859,6 +10972,7 @@
         "lon": -0.3907
       },
       "name": "CV-60 PK 22.814",
+      "length": 5989,
       "direction": 266,
       "speed_limit": 80
     },
@@ -10874,6 +10988,7 @@
         "lon": -6.67507
       },
       "name": "EX-109 PK 54.356",
+      "length": 2066,
       "direction": 197,
       "speed_limit": 90
     },
@@ -10889,6 +11004,7 @@
         "lon": -6.99667
       },
       "name": "EX-110 PK 36.745",
+      "length": 1519,
       "direction": 354,
       "speed_limit": 90
     },
@@ -10904,6 +11020,7 @@
         "lon": -6.61189
       },
       "name": "EX-327 PK 21.932",
+      "length": 1668,
       "direction": 130,
       "speed_limit": 90
     },
@@ -10919,6 +11036,7 @@
         "lon": -15.44755
       },
       "name": "GC-23 PK 1.439",
+      "length": 2591,
       "direction": 189,
       "speed_limit": 80
     },
@@ -10934,6 +11052,7 @@
         "lon": -13.7572
       },
       "name": "LZ-67 PK 14.67",
+      "length": 5490,
       "direction": 212,
       "speed_limit": 60
     },
@@ -10949,6 +11068,7 @@
         "lon": -4.25162
       },
       "name": "M-501 PK 46.187",
+      "length": 3812,
       "direction": 55,
       "speed_limit": 60
     },
@@ -10964,6 +11084,7 @@
         "lon": -4.27887
       },
       "name": "M-501 PK 42.406",
+      "length": 3818,
       "direction": 340,
       "speed_limit": 60
     },
@@ -10979,6 +11100,7 @@
         "lon": -4.20851
       },
       "name": "M-521 PK 27.885",
+      "length": 970,
       "direction": 70
     },
     {
@@ -10993,6 +11115,7 @@
         "lon": -4.21605
       },
       "name": "M-521 PK 26.915",
+      "length": 970,
       "direction": 345
     },
     {
@@ -11007,6 +11130,7 @@
         "lon": -4.45416
       },
       "name": "MA-20 PK 9.306",
+      "length": 994,
       "direction": 18,
       "speed_limit": 80
     },
@@ -11022,6 +11146,7 @@
         "lon": 2.74605
       },
       "name": "Ma-13A PK 10.946",
+      "length": 1304,
       "direction": 38,
       "speed_limit": 90
     },
@@ -11037,6 +11162,7 @@
         "lon": 2.73988
       },
       "name": "Ma-13A PK 12.256",
+      "length": 1306,
       "direction": 204,
       "speed_limit": 90
     },
@@ -11052,6 +11178,7 @@
         "lon": 2.71538
       },
       "name": "Ma-15 PK 6.476",
+      "length": 1366,
       "direction": 265,
       "speed_limit": 100
     },
@@ -11067,6 +11194,7 @@
         "lon": 2.75438
       },
       "name": "Ma-6014 PK 2.287",
+      "length": 1012,
       "direction": 9
     },
     {
@@ -11081,6 +11209,7 @@
         "lon": -3.82451
       },
       "name": "N-110 PK 158.679",
+      "length": 2621,
       "direction": 233,
       "speed_limit": 70
     },
@@ -11096,6 +11225,7 @@
         "lon": -3.80261
       },
       "name": "N-110 PK 161.32",
+      "length": 2620,
       "direction": 78,
       "speed_limit": 70
     },
@@ -11111,6 +11241,7 @@
         "lon": -3.30593
       },
       "name": "N-120 PK 74.56",
+      "length": 2290,
       "direction": 251,
       "speed_limit": 80
     },
@@ -11126,6 +11257,7 @@
         "lon": -3.28598
       },
       "name": "N-120 PK 76.918",
+      "length": 2298,
       "direction": 34,
       "speed_limit": 50
     },
@@ -11141,6 +11273,7 @@
         "lon": -5.91638
       },
       "name": "N-122 PK 479.988",
+      "length": 5263,
       "direction": 100,
       "speed_limit": 90
     },
@@ -11156,6 +11289,7 @@
         "lon": -5.97671
       },
       "name": "N-122 PK 474.731",
+      "length": 5259,
       "direction": 257,
       "speed_limit": 90
     },
@@ -11171,6 +11305,7 @@
         "lon": -0.98268
       },
       "name": "N-125 PK 7.771",
+      "length": 2071,
       "direction": 284,
       "speed_limit": 90
     },
@@ -11186,6 +11321,7 @@
         "lon": -0.9579
       },
       "name": "N-125 PK 5.729",
+      "length": 2071,
       "direction": 90,
       "speed_limit": 90
     },
@@ -11201,6 +11337,7 @@
         "lon": -2.32662
       },
       "name": "N-234 PK 340.38",
+      "length": 2815,
       "direction": 117,
       "speed_limit": 90
     },
@@ -11216,6 +11353,7 @@
         "lon": -2.35702
       },
       "name": "N-234 PK 337.575",
+      "length": 2815,
       "direction": 296,
       "speed_limit": 90
     },
@@ -11231,6 +11369,7 @@
         "lon": -3.34711
       },
       "name": "N-301 PK 70.685",
+      "length": 6395,
       "direction": 113,
       "speed_limit": 90
     },
@@ -11246,6 +11385,7 @@
         "lon": -3.41549
       },
       "name": "N-301 PK 77.152",
+      "length": 6387,
       "direction": 288,
       "speed_limit": 90
     },
@@ -11261,6 +11401,7 @@
         "lon": -3.05305
       },
       "name": "N-320 PK 263.933",
+      "length": 4773,
       "direction": 90,
       "speed_limit": 90
     },
@@ -11276,6 +11417,7 @@
         "lon": -3.08462
       },
       "name": "N-320 PK 259.332",
+      "length": 4778,
       "direction": 27,
       "speed_limit": 90
     },
@@ -11291,6 +11433,7 @@
         "lon": -3.45563
       },
       "name": "N-320 PK 329.828",
+      "length": 11823,
       "direction": 164,
       "speed_limit": 90
     },
@@ -11306,6 +11449,7 @@
         "lon": -3.53507
       },
       "name": "N-320 PK 318.148",
+      "length": 11822,
       "direction": 296,
       "speed_limit": 90
     },
@@ -11321,6 +11465,7 @@
         "lon": -5.64466
       },
       "name": "N-340 PK 80.589",
+      "length": 1189,
       "direction": 303
     },
     {
@@ -11335,6 +11480,7 @@
         "lon": -5.63335
       },
       "name": "N-340 PK 79.463",
+      "length": 1187,
       "direction": 128
     },
     {
@@ -11349,6 +11495,7 @@
         "lon": -0.1308
       },
       "name": "N-340 PK 960.027",
+      "length": 973,
       "direction": 36,
       "speed_limit": 90
     },
@@ -11364,6 +11511,7 @@
         "lon": -0.13732
       },
       "name": "N-340 PK 961.014",
+      "length": 964,
       "direction": 212,
       "speed_limit": 90
     },
@@ -11379,6 +11527,7 @@
         "lon": 0.33984
       },
       "name": "N-340 PK 1032.921",
+      "length": 2879,
       "direction": 61,
       "speed_limit": 90
     },
@@ -11394,6 +11543,7 @@
         "lon": 0.31654
       },
       "name": "N-340 PK 1035.928",
+      "length": 2878,
       "direction": 224,
       "speed_limit": 90
     },
@@ -11409,6 +11559,7 @@
         "lon": -4.40198
       },
       "name": "N-403 PK 48.886",
+      "length": 2494,
       "direction": 18,
       "speed_limit": 90
     },
@@ -11424,6 +11575,7 @@
         "lon": -4.40522
       },
       "name": "N-403 PK 51.488",
+      "length": 2498,
       "direction": 190,
       "speed_limit": 60
     },
@@ -11439,6 +11591,7 @@
         "lon": -4.44536
       },
       "name": "N-403 PK 86.139",
+      "length": 2819,
       "direction": 119,
       "speed_limit": 70
     },
@@ -11454,6 +11607,7 @@
         "lon": -4.46677
       },
       "name": "N-403 PK 83.439",
+      "length": 2811,
       "direction": 313,
       "speed_limit": 70
     },
@@ -11469,6 +11623,7 @@
         "lon": -4.67584
       },
       "name": "N-403 PK 117.629",
+      "length": 4469,
       "direction": 206
     },
     {
@@ -11483,6 +11638,7 @@
         "lon": -4.65403
       },
       "name": "N-403 PK 113.578",
+      "length": 4472,
       "direction": 351,
       "speed_limit": 90
     },
@@ -11498,6 +11654,7 @@
         "lon": -2.00439
       },
       "name": "N-430 PK 486.558",
+      "length": 16387,
       "direction": 98,
       "speed_limit": 90
     },
@@ -11513,6 +11670,7 @@
         "lon": -2.19101
       },
       "name": "N-430 PK 502.967",
+      "length": 16387,
       "direction": 274,
       "speed_limit": 90
     },
@@ -11528,6 +11686,7 @@
         "lon": -6.17765
       },
       "name": "N-432 PK 80.782",
+      "length": 14708,
       "direction": 104,
       "speed_limit": 50
     },
@@ -11543,6 +11702,7 @@
         "lon": -6.33182
       },
       "name": "N-432 PK 95.688",
+      "length": 14708,
       "direction": 273,
       "speed_limit": 80
     },
@@ -11558,6 +11718,7 @@
         "lon": -6.85724
       },
       "name": "N-433 PK 122.952",
+      "length": 4620,
       "direction": 93,
       "speed_limit": 90
     },
@@ -11573,6 +11734,7 @@
         "lon": -6.90538
       },
       "name": "N-433 PK 118.346",
+      "length": 4615,
       "direction": 305,
       "speed_limit": 90
     },
@@ -11588,6 +11750,7 @@
         "lon": -7.85027
       },
       "name": "N-525 PK 242.359",
+      "length": 3626,
       "direction": 38
     },
     {
@@ -11602,6 +11765,7 @@
         "lon": -8.49536
       },
       "name": "N-550 PK 54.671",
+      "length": 1445,
       "direction": 225,
       "speed_limit": 80
     },
@@ -11617,6 +11781,7 @@
         "lon": -8.63543
       },
       "name": "N-550 PK 129.383",
+      "length": 2453,
       "direction": 352
     },
     {
@@ -11631,6 +11796,7 @@
         "lon": -5.0133
       },
       "name": "N-601 PK 226.352",
+      "length": 1848,
       "direction": 333,
       "speed_limit": 80
     },
@@ -11646,6 +11812,7 @@
         "lon": -5.0108
       },
       "name": "N-601 PK 228.248",
+      "length": 1848,
       "direction": 145,
       "speed_limit": 80
     },
@@ -11661,6 +11828,7 @@
         "lon": -3.4144
       },
       "name": "N-629 PK 83.71",
+      "length": 2560,
       "direction": 122,
       "speed_limit": 80
     },
@@ -11676,6 +11844,7 @@
         "lon": -3.4225
       },
       "name": "N-629 PK 81.437",
+      "length": 1933,
       "direction": 338,
       "speed_limit": 80
     },
@@ -11691,6 +11860,7 @@
         "lon": -7.59084
       },
       "name": "OU-536 PK 25.864",
+      "length": 2176,
       "direction": 142
     },
     {
@@ -11705,6 +11875,7 @@
         "lon": -1.18999
       },
       "name": "RM-603 PK 1.315",
+      "length": 1335,
       "direction": 248,
       "speed_limit": 60
     },
@@ -11720,6 +11891,7 @@
         "lon": -1.17598
       },
       "name": "RM-603 PK 2.737",
+      "length": 1337,
       "direction": 79,
       "speed_limit": 60
     },
@@ -11735,6 +11907,7 @@
         "lon": -16.42673
       },
       "name": "TF-5 PK 22.38",
+      "length": 1720,
       "direction": 63,
       "speed_limit": 80
     },
@@ -11750,6 +11923,7 @@
         "lon": -16.43921
       },
       "name": "TF-5 PK 20.8",
+      "length": 1640,
       "direction": 266,
       "speed_limit": 80
     },
@@ -11765,6 +11939,7 @@
         "lon": -16.63263
       },
       "name": "TF-655 PK 3.123",
+      "length": 958,
       "direction": 91,
       "speed_limit": 50
     },
@@ -11780,6 +11955,7 @@
         "lon": -16.64186
       },
       "name": "TF-655 PK 2.175",
+      "length": 957,
       "direction": 288,
       "speed_limit": 50
     },
@@ -11795,6 +11971,7 @@
         "lon": -0.29157
       },
       "name": "V-23 PK 3.306",
+      "length": 1706,
       "direction": 197,
       "speed_limit": 100
     },
@@ -11810,6 +11987,7 @@
         "lon": -0.42071
       },
       "name": "V-30 PK 4.764",
+      "length": 4086,
       "direction": 286,
       "speed_limit": 80
     },
@@ -11825,6 +12003,7 @@
         "lon": -0.39791
       },
       "name": "V-31 PK 2.48",
+      "length": 3870,
       "direction": 359,
       "speed_limit": 100
     },

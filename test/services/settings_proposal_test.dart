@@ -51,6 +51,13 @@ void main() {
     await settings.setAutoStart(false);
     expect(settings.autoStart, isFalse);
   });
+  test('disclaimer starts unread and can be accepted', () async {
+    SharedPreferences.setMockInitialValues({});
+    final settings = AppSettings(await SharedPreferences.getInstance());
+    expect(settings.disclaimerAccepted, isFalse);
+    await settings.setDisclaimerAccepted(true);
+    expect(settings.disclaimerAccepted, isTrue);
+  });
   test('keep screen on defaults to true and can be disabled', () async {
     SharedPreferences.setMockInitialValues({});
     final settings = AppSettings(await SharedPreferences.getInstance());

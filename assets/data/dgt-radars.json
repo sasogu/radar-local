@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "source": "DGT 2026 via Tachwire/IGN, ODbL 1.0",
-  "updated_at": "2026-10-04T17:30:34Z",
+  "updated_at": "2026-10-29T23:40:09Z",
   "radars": [
     {
       "id": "tachwire-es-dgt-000001",
@@ -7606,6 +7606,7 @@
         "lon": -0.44824
       },
       "name": "A-3 PK 347.104",
+      "length": 2046,
       "direction": 75
     },
     {
@@ -7620,6 +7621,7 @@
         "lon": -0.76698
       },
       "name": "A-31 PK 211.704",
+      "length": 7709,
       "direction": 346
     },
     {
@@ -7634,6 +7636,7 @@
         "lon": -0.71686
       },
       "name": "A-31 PK 216.52",
+      "length": 2380,
       "direction": 114
     },
     {
@@ -7648,6 +7651,7 @@
         "lon": -4.70088
       },
       "name": "A-355 PK 4.401",
+      "length": 3411,
       "direction": 15
     },
     {
@@ -7662,6 +7666,7 @@
         "lon": -4.72255
       },
       "name": "A-355 PK 1.049",
+      "length": 3401,
       "direction": 224
     },
     {
@@ -7676,6 +7681,7 @@
         "lon": -1.83306
       },
       "name": "A-370 PK 8.329",
+      "length": 1071,
       "direction": 58
     },
     {
@@ -7690,6 +7696,7 @@
         "lon": -1.84216
       },
       "name": "A-370 PK 9.471",
+      "length": 1071,
       "direction": 227
     },
     {
@@ -7704,6 +7711,7 @@
         "lon": -5.27402
       },
       "name": "A-377 PK 8.97",
+      "length": 3370,
       "direction": 168
     },
     {
@@ -7718,6 +7726,7 @@
         "lon": -5.06722
       },
       "name": "A-397 PK 27.995",
+      "length": 2055,
       "direction": 173,
       "speed_limit": 60
     },
@@ -7733,6 +7742,7 @@
         "lon": -5.07015
       },
       "name": "A-397 PK 30.079",
+      "length": 2059,
       "direction": 4
     },
     {
@@ -7747,6 +7757,7 @@
         "lon": -3.49822
       },
       "name": "A-4 PK 248.359",
+      "length": 3130,
       "direction": 16,
       "speed_limit": 100
     },
@@ -7762,6 +7773,7 @@
         "lon": -5.88834
       },
       "name": "A-4 PK 532.68",
+      "length": 1680,
       "direction": 59,
       "speed_limit": 120
     },
@@ -7777,6 +7789,7 @@
         "lon": -4.43753
       },
       "name": "A-45 PK 125.958",
+      "length": 2822,
       "direction": 188,
       "speed_limit": 80
     },
@@ -7792,6 +7805,7 @@
         "lon": -6.13527
       },
       "name": "A-48 PK 5.764",
+      "length": 1764,
       "direction": 318
     },
     {
@@ -7806,6 +7820,7 @@
         "lon": -4.48883
       },
       "name": "A-5 PK 83.698",
+      "length": 1652,
       "direction": 258,
       "speed_limit": 120
     },
@@ -7821,6 +7836,7 @@
         "lon": -0.73894
       },
       "name": "A-7 PK 523.361",
+      "length": 4161,
       "direction": 44
     },
     {
@@ -7835,6 +7851,7 @@
         "lon": -4.63734
       },
       "name": "A-7 PK 1024.917",
+      "length": 5217,
       "direction": 40,
       "speed_limit": 80
     },
@@ -7850,6 +7867,7 @@
         "lon": -5.39292
       },
       "name": "A-7 PK 1106.386",
+      "length": 1154,
       "direction": 234
     },
     {
@@ -7864,6 +7882,7 @@
         "lon": -5.39069
       },
       "name": "A-7 PK 1109.221",
+      "length": 1881,
       "direction": 65
     },
     {
@@ -7878,6 +7897,7 @@
         "lon": -3.1642
       },
       "name": "A-8 PK 146.264",
+      "length": 5839,
       "direction": 169
     },
     {
@@ -7892,6 +7912,7 @@
         "lon": -3.21793
       },
       "name": "A-8 PK 140.612",
+      "length": 6368,
       "direction": 318
     },
     {
@@ -7906,6 +7927,7 @@
         "lon": -7.02717
       },
       "name": "A-8 PK 506.132",
+      "length": 1082,
       "direction": 85,
       "speed_limit": 120
     },
@@ -7921,6 +7943,7 @@
         "lon": -7.04189
       },
       "name": "A-8 PK 505.098",
+      "length": 1182,
       "direction": 269,
       "speed_limit": 120
     },
@@ -7936,6 +7959,7 @@
         "lon": -7.34922
       },
       "name": "A-8 PK 550.231",
+      "length": 5116,
       "direction": 65,
       "speed_limit": 100
     },
@@ -7951,6 +7975,7 @@
         "lon": -8.64215
       },
       "name": "AC-552 PK 27.289",
+      "length": 1014,
       "direction": 65
     },
     {
@@ -7965,6 +7990,7 @@
         "lon": -8.65169
       },
       "name": "AC-552 PK 26.282",
+      "length": 1018,
       "direction": 225
     },
     {
@@ -7979,6 +8005,7 @@
         "lon": -8.49861
       },
       "name": "AG-55 PK 14.743",
+      "length": 3030,
       "direction": 39,
       "speed_limit": 100
     },
@@ -7994,6 +8021,7 @@
         "lon": -4.10756
       },
       "name": "AP-6 PK 56.847",
+      "length": 7584,
       "direction": 95,
       "speed_limit": 100
     },
@@ -8009,6 +8037,7 @@
         "lon": -4.16072
       },
       "name": "AP-6 PK 53.126",
+      "length": 3482,
       "direction": 313,
       "speed_limit": 100
     },
@@ -8024,6 +8053,7 @@
         "lon": -8.66477
       },
       "name": "AP-9 PK 154.921",
+      "length": 5441,
       "direction": 265
     },
     {
@@ -8038,6 +8068,7 @@
         "lon": -8.65473
       },
       "name": "AP-9 PK 155.318",
+      "length": 3662,
       "direction": 121
     },
     {
@@ -8052,6 +8083,7 @@
         "lon": -8.15692
       },
       "name": "AP-9F PK 29.915",
+      "length": 1222,
       "direction": 1,
       "speed_limit": 90
     },
@@ -8067,6 +8099,7 @@
         "lon": -5.78225
       },
       "name": "AS-112 PK 2.271",
+      "length": 1421,
       "direction": 319
     },
     {
@@ -8081,6 +8114,7 @@
         "lon": -5.66744
       },
       "name": "AS-117 PK 4.456",
+      "length": 2144,
       "direction": 115
     },
     {
@@ -8095,6 +8129,7 @@
         "lon": -5.68991
       },
       "name": "AS-117 PK 6.698",
+      "length": 2148,
       "direction": 288
     },
     {
@@ -8109,6 +8144,7 @@
         "lon": -4.36754
       },
       "name": "AV-562 PK 11.407",
+      "length": 2217,
       "direction": 310
     },
     {
@@ -8123,6 +8159,7 @@
         "lon": -4.34947
       },
       "name": "AV-562 PK 9.222",
+      "length": 2213,
       "direction": 106
     },
     {
@@ -8137,6 +8174,7 @@
         "lon": -6.17609
       },
       "name": "CA-33 PK 9.052",
+      "length": 3148,
       "direction": 45,
       "speed_limit": 80
     },
@@ -8152,6 +8190,7 @@
         "lon": -6.20537
       },
       "name": "CA-33 PK 12.772",
+      "length": 3612,
       "direction": 287,
       "speed_limit": 80
     },
@@ -8167,6 +8206,7 @@
         "lon": -5.76578
       },
       "name": "CL-517 PK 16.311",
+      "length": 11931,
       "direction": 93
     },
     {
@@ -8181,6 +8221,7 @@
         "lon": -5.89941
       },
       "name": "CL-517 PK 4.413",
+      "length": 11937,
       "direction": 292
     },
     {
@@ -8195,6 +8236,7 @@
         "lon": -4.6457
       },
       "name": "CL-613 PK 15.409",
+      "length": 3489,
       "direction": 152,
       "speed_limit": 90
     },
@@ -8210,6 +8252,7 @@
         "lon": -4.6731
       },
       "name": "CL-613 PK 11.923",
+      "length": 3487,
       "direction": 295,
       "speed_limit": 90
     },
@@ -8225,6 +8268,7 @@
         "lon": -4.8479
       },
       "name": "CL-613 PK 15.246",
+      "length": 17454,
       "direction": 332,
       "speed_limit": 90
     },
@@ -8240,6 +8284,7 @@
         "lon": -4.67132
       },
       "name": "CL-613 PK 32.866",
+      "length": 17456,
       "direction": 112,
       "speed_limit": 90
     },
@@ -8255,6 +8300,7 @@
         "lon": -4.5596
       },
       "name": "CL-615 PK 24.842",
+      "length": 23136,
       "direction": 174
     },
     {
@@ -8269,6 +8315,7 @@
         "lon": -4.6042
       },
       "name": "CL-615 PK 1.715",
+      "length": 32895,
       "direction": 339
     },
     {
@@ -8283,6 +8330,7 @@
         "lon": -2.37582
       },
       "name": "CM-412 PK 208.138",
+      "length": 5638,
       "direction": 247
     },
     {
@@ -8297,6 +8345,7 @@
         "lon": -2.32062
       },
       "name": "CM-412 PK 202.814",
+      "length": 5336,
       "direction": 96
     },
     {
@@ -8311,6 +8360,7 @@
         "lon": -0.42521
       },
       "name": "CV-30 PK 4.134",
+      "length": 2509,
       "direction": 248
     },
     {
@@ -8325,6 +8375,7 @@
         "lon": -0.41511
       },
       "name": "CV-35 PK 5.602",
+      "length": 1882,
       "direction": 148
     },
     {
@@ -8339,6 +8390,7 @@
         "lon": -0.32483
       },
       "name": "CV-500 PK 14.528",
+      "length": 5440,
       "direction": 330
     },
     {
@@ -8353,6 +8405,7 @@
         "lon": -0.29863
       },
       "name": "CV-500 PK 9.19",
+      "length": 5440,
       "direction": 165
     },
     {
@@ -8367,6 +8420,7 @@
         "lon": -0.32884
       },
       "name": "CV-60 PK 16.813",
+      "length": 5987,
       "direction": 73
     },
     {
@@ -8381,6 +8435,7 @@
         "lon": -0.3907
       },
       "name": "CV-60 PK 22.814",
+      "length": 5989,
       "direction": 266
     },
     {
@@ -8395,6 +8450,7 @@
         "lon": -6.67507
       },
       "name": "EX-109 PK 54.356",
+      "length": 2066,
       "direction": 197
     },
     {
@@ -8409,6 +8465,7 @@
         "lon": -6.99667
       },
       "name": "EX-110 PK 36.745",
+      "length": 1519,
       "direction": 354
     },
     {
@@ -8423,6 +8480,7 @@
         "lon": -6.61189
       },
       "name": "EX-327 PK 21.932",
+      "length": 1668,
       "direction": 130
     },
     {
@@ -8437,6 +8495,7 @@
         "lon": -15.44755
       },
       "name": "GC-23 PK 1.439",
+      "length": 2591,
       "direction": 189
     },
     {
@@ -8451,6 +8510,7 @@
         "lon": -13.7572
       },
       "name": "LZ-67 PK 14.67",
+      "length": 5490,
       "direction": 212
     },
     {
@@ -8465,6 +8525,7 @@
         "lon": -4.25162
       },
       "name": "M-501 PK 46.187",
+      "length": 3812,
       "direction": 55
     },
     {
@@ -8479,6 +8540,7 @@
         "lon": -4.27887
       },
       "name": "M-501 PK 42.406",
+      "length": 3818,
       "direction": 340
     },
     {
@@ -8493,6 +8555,7 @@
         "lon": -4.20851
       },
       "name": "M-521 PK 27.885",
+      "length": 970,
       "direction": 70
     },
     {
@@ -8507,6 +8570,7 @@
         "lon": -4.21605
       },
       "name": "M-521 PK 26.915",
+      "length": 970,
       "direction": 345
     },
     {
@@ -8521,6 +8585,7 @@
         "lon": -4.45416
       },
       "name": "MA-20 PK 9.306",
+      "length": 994,
       "direction": 18
     },
     {
@@ -8535,6 +8600,7 @@
         "lon": 2.74605
       },
       "name": "Ma-13A PK 10.946",
+      "length": 1304,
       "direction": 38
     },
     {
@@ -8549,6 +8615,7 @@
         "lon": 2.73988
       },
       "name": "Ma-13A PK 12.256",
+      "length": 1306,
       "direction": 204
     },
     {
@@ -8563,6 +8630,7 @@
         "lon": 2.71538
       },
       "name": "Ma-15 PK 6.476",
+      "length": 1366,
       "direction": 265
     },
     {
@@ -8577,6 +8645,7 @@
         "lon": 2.75438
       },
       "name": "Ma-6014 PK 2.287",
+      "length": 1012,
       "direction": 9
     },
     {
@@ -8591,6 +8660,7 @@
         "lon": -3.82451
       },
       "name": "N-110 PK 158.679",
+      "length": 2621,
       "direction": 233
     },
     {
@@ -8605,6 +8675,7 @@
         "lon": -3.80261
       },
       "name": "N-110 PK 161.32",
+      "length": 2620,
       "direction": 78
     },
     {
@@ -8619,6 +8690,7 @@
         "lon": -3.30593
       },
       "name": "N-120 PK 74.56",
+      "length": 2290,
       "direction": 251
     },
     {
@@ -8633,6 +8705,7 @@
         "lon": -3.28598
       },
       "name": "N-120 PK 76.918",
+      "length": 2298,
       "direction": 34
     },
     {
@@ -8647,6 +8720,7 @@
         "lon": -5.91638
       },
       "name": "N-122 PK 479.988",
+      "length": 5263,
       "direction": 100
     },
     {
@@ -8661,6 +8735,7 @@
         "lon": -5.97671
       },
       "name": "N-122 PK 474.731",
+      "length": 5259,
       "direction": 257,
       "speed_limit": 90
     },
@@ -8676,6 +8751,7 @@
         "lon": -0.98268
       },
       "name": "N-125 PK 7.771",
+      "length": 2071,
       "direction": 284,
       "speed_limit": 90
     },
@@ -8691,6 +8767,7 @@
         "lon": -0.9579
       },
       "name": "N-125 PK 5.729",
+      "length": 2071,
       "direction": 90,
       "speed_limit": 90
     },
@@ -8706,6 +8783,7 @@
         "lon": -2.32662
       },
       "name": "N-234 PK 340.38",
+      "length": 2815,
       "direction": 117,
       "speed_limit": 90
     },
@@ -8721,6 +8799,7 @@
         "lon": -2.35702
       },
       "name": "N-234 PK 337.575",
+      "length": 2815,
       "direction": 296,
       "speed_limit": 90
     },
@@ -8736,6 +8815,7 @@
         "lon": -3.34711
       },
       "name": "N-301 PK 70.685",
+      "length": 6395,
       "direction": 113,
       "speed_limit": 90
     },
@@ -8751,6 +8831,7 @@
         "lon": -3.41549
       },
       "name": "N-301 PK 77.152",
+      "length": 6387,
       "direction": 288
     },
     {
@@ -8765,6 +8846,7 @@
         "lon": -3.05305
       },
       "name": "N-320 PK 263.933",
+      "length": 4773,
       "direction": 90
     },
     {
@@ -8779,6 +8861,7 @@
         "lon": -3.08462
       },
       "name": "N-320 PK 259.332",
+      "length": 4778,
       "direction": 27
     },
     {
@@ -8793,6 +8876,7 @@
         "lon": -3.45563
       },
       "name": "N-320 PK 329.828",
+      "length": 11823,
       "direction": 164
     },
     {
@@ -8807,6 +8891,7 @@
         "lon": -3.53507
       },
       "name": "N-320 PK 318.148",
+      "length": 11822,
       "direction": 296
     },
     {
@@ -8821,6 +8906,7 @@
         "lon": -5.64466
       },
       "name": "N-340 PK 80.589",
+      "length": 1189,
       "direction": 303
     },
     {
@@ -8835,6 +8921,7 @@
         "lon": -5.63335
       },
       "name": "N-340 PK 79.463",
+      "length": 1187,
       "direction": 128
     },
     {
@@ -8849,6 +8936,7 @@
         "lon": -0.1308
       },
       "name": "N-340 PK 960.027",
+      "length": 973,
       "direction": 36,
       "speed_limit": 90
     },
@@ -8864,6 +8952,7 @@
         "lon": -0.13732
       },
       "name": "N-340 PK 961.014",
+      "length": 964,
       "direction": 212,
       "speed_limit": 90
     },
@@ -8879,6 +8968,7 @@
         "lon": 0.33984
       },
       "name": "N-340 PK 1032.921",
+      "length": 2879,
       "direction": 61,
       "speed_limit": 90
     },
@@ -8894,6 +8984,7 @@
         "lon": 0.31654
       },
       "name": "N-340 PK 1035.928",
+      "length": 2878,
       "direction": 224,
       "speed_limit": 90
     },
@@ -8909,6 +9000,7 @@
         "lon": -4.40198
       },
       "name": "N-403 PK 48.886",
+      "length": 2494,
       "direction": 18
     },
     {
@@ -8923,6 +9015,7 @@
         "lon": -4.40522
       },
       "name": "N-403 PK 51.488",
+      "length": 2498,
       "direction": 190
     },
     {
@@ -8937,6 +9030,7 @@
         "lon": -4.44536
       },
       "name": "N-403 PK 86.139",
+      "length": 2819,
       "direction": 119
     },
     {
@@ -8951,6 +9045,7 @@
         "lon": -4.46677
       },
       "name": "N-403 PK 83.439",
+      "length": 2811,
       "direction": 313
     },
     {
@@ -8965,6 +9060,7 @@
         "lon": -4.67584
       },
       "name": "N-403 PK 117.629",
+      "length": 4469,
       "direction": 206
     },
     {
@@ -8979,6 +9075,7 @@
         "lon": -4.65403
       },
       "name": "N-403 PK 113.578",
+      "length": 4472,
       "direction": 351
     },
     {
@@ -8993,6 +9090,7 @@
         "lon": -2.00439
       },
       "name": "N-430 PK 486.558",
+      "length": 16387,
       "direction": 98
     },
     {
@@ -9007,6 +9105,7 @@
         "lon": -2.19101
       },
       "name": "N-430 PK 502.967",
+      "length": 16387,
       "direction": 274
     },
     {
@@ -9021,6 +9120,7 @@
         "lon": -6.17765
       },
       "name": "N-432 PK 80.782",
+      "length": 14708,
       "direction": 104
     },
     {
@@ -9035,6 +9135,7 @@
         "lon": -6.33182
       },
       "name": "N-432 PK 95.688",
+      "length": 14708,
       "direction": 273
     },
     {
@@ -9049,6 +9150,7 @@
         "lon": -6.85724
       },
       "name": "N-433 PK 122.952",
+      "length": 4620,
       "direction": 93
     },
     {
@@ -9063,6 +9165,7 @@
         "lon": -6.90538
       },
       "name": "N-433 PK 118.346",
+      "length": 4615,
       "direction": 305
     },
     {
@@ -9077,6 +9180,7 @@
         "lon": -7.85027
       },
       "name": "N-525 PK 242.359",
+      "length": 3626,
       "direction": 38
     },
     {
@@ -9091,6 +9195,7 @@
         "lon": -8.49536
       },
       "name": "N-550 PK 54.671",
+      "length": 1445,
       "direction": 225
     },
     {
@@ -9105,6 +9210,7 @@
         "lon": -8.63543
       },
       "name": "N-550 PK 129.383",
+      "length": 2453,
       "direction": 352
     },
     {
@@ -9119,6 +9225,7 @@
         "lon": -5.0133
       },
       "name": "N-601 PK 226.352",
+      "length": 1848,
       "direction": 333,
       "speed_limit": 80
     },
@@ -9134,6 +9241,7 @@
         "lon": -5.0108
       },
       "name": "N-601 PK 228.248",
+      "length": 1848,
       "direction": 145,
       "speed_limit": 80
     },
@@ -9149,6 +9257,7 @@
         "lon": -3.4144
       },
       "name": "N-629 PK 83.71",
+      "length": 2560,
       "direction": 122
     },
     {
@@ -9163,6 +9272,7 @@
         "lon": -3.4225
       },
       "name": "N-629 PK 81.437",
+      "length": 1933,
       "direction": 338
     },
     {
@@ -9177,6 +9287,7 @@
         "lon": -7.59084
       },
       "name": "OU-536 PK 25.864",
+      "length": 2176,
       "direction": 142
     },
     {
@@ -9191,6 +9302,7 @@
         "lon": -1.18999
       },
       "name": "RM-603 PK 1.315",
+      "length": 1335,
       "direction": 248,
       "speed_limit": 60
     },
@@ -9206,6 +9318,7 @@
         "lon": -1.17598
       },
       "name": "RM-603 PK 2.737",
+      "length": 1337,
       "direction": 79
     },
     {
@@ -9220,6 +9333,7 @@
         "lon": -16.42673
       },
       "name": "TF-5 PK 22.38",
+      "length": 1720,
       "direction": 63
     },
     {
@@ -9234,6 +9348,7 @@
         "lon": -16.43921
       },
       "name": "TF-5 PK 20.8",
+      "length": 1640,
       "direction": 266,
       "speed_limit": 80
     },
@@ -9249,6 +9364,7 @@
         "lon": -16.63263
       },
       "name": "TF-655 PK 3.123",
+      "length": 958,
       "direction": 91,
       "speed_limit": 50
     },
@@ -9264,6 +9380,7 @@
         "lon": -16.64186
       },
       "name": "TF-655 PK 2.175",
+      "length": 957,
       "direction": 288,
       "speed_limit": 50
     },
@@ -9279,6 +9396,7 @@
         "lon": -0.29157
       },
       "name": "V-23 PK 3.306",
+      "length": 1706,
       "direction": 197
     },
     {
@@ -9293,6 +9411,7 @@
         "lon": -0.42071
       },
       "name": "V-30 PK 4.764",
+      "length": 4086,
       "direction": 286
     },
     {
@@ -9307,6 +9426,7 @@
         "lon": -0.39791
       },
       "name": "V-31 PK 2.48",
+      "length": 3870,
       "direction": 359,
       "speed_limit": 100
     }

@@ -251,6 +251,46 @@ void main() {
     engine.evaluate(fix(lat: 39.4701, lon: -0.3700, heading: 0));
     expect(engine.sectionProgress?.radar.id, 'S');
   });
+  test('uses official length, interpolated entry and needed average', () {
+    final section = Radar(
+      id: 'S',
+      kind: RadarKind.section,
+      start: const Point(39.4700, -0.37),
+      end: const Point(39.4790, -0.37),
+      direction: 0,
+      speedLimit: 50,
+      length: 1000,
+    );
+    final engine = AlertEngine(
+      RadarDataset([section], source: 'test', updatedAt: DateTime.now()),
+    );
+    final now = DateTime.now();
+    engine.evaluate(
+      fix(lat: 39.4695, speed: 60, time: now.add(const Duration(seconds: 1))),
+    );
+    engine.evaluate(
+      fix(lat: 39.4701, speed: 60, time: now.add(const Duration(seconds: 2))),
+    );
+    final entry = engine.sectionProgress!;
+    expect(entry.lengthMeters, 1000);
+    expect(entry.traveledMeters, closeTo(11, 6));
+    expect(
+      entry.remainingMeters,
+      closeTo(1000 - entry.traveledMeters, 1),
+    );
+    var lat = 39.4701;
+    for (var second = 4; second <= 14; second += 2) {
+      lat += 0.0009;
+      engine.evaluate(
+        fix(lat: lat, speed: 60, time: now.add(Duration(seconds: second))),
+      );
+    }
+    final progress = engine.sectionProgress!;
+    expect(progress.traveledMeters, closeTo(611, 20));
+    expect(progress.remainingMeters, closeTo(1000 - progress.traveledMeters, 1));
+    expect(progress.averageKmh, greaterThan(50));
+    expect(progress.neededAverageKmh, closeTo(23, 6));
+  });
   test('does not track a section in the opposite direction', () {
     final section = Radar(
       id: 'S',

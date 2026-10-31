@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "source": "Manual review of Tachwire/DGT coordinates",
+  "updated_at": "2026-10-31T00:00:00+00:00",
+  "remove": [],
+  "override": {
+    "tachwire-es-dgt-000137": {
+      "start": {
+        "lat": 39.98639,
+        "lon": -3.96466
+      }
+    }
+  }
+}

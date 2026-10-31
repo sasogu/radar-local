@@ -20,6 +20,7 @@ class Radar {
     this.end,
     this.direction,
     this.speedLimit,
+    this.length,
     this.name = '',
   });
   final String id;
@@ -30,6 +31,9 @@ class Radar {
   /// Direction of vehicle travel in degrees clockwise from north.
   final double? direction;
   final int? speedLimit;
+
+  /// Official section length in metres, when the source provides it.
+  final int? length;
   final String name;
 
   factory Radar.fromJson(Map<String, dynamic> json) {
@@ -43,6 +47,7 @@ class Radar {
           : Point.fromJson(json['end'] as Map<String, dynamic>),
       direction: (json['direction'] as num?)?.toDouble(),
       speedLimit: (json['speed_limit'] as num?)?.toInt(),
+      length: (json['length'] as num?)?.toInt(),
       name: (json['name'] as String?) ?? '',
     );
     radar.validate();
@@ -65,7 +70,8 @@ class Radar {
         (kind == RadarKind.section && end == null) ||
         (direction != null &&
             (!direction!.isFinite || direction! < 0 || direction! >= 360)) ||
-        (speedLimit != null && (speedLimit! < 10 || speedLimit! > 180))) {
+        (speedLimit != null && (speedLimit! < 10 || speedLimit! > 180)) ||
+        (length != null && (length! < 50 || length! > 200000))) {
       throw const FormatException('Invalid radar entry');
     }
   }
@@ -77,6 +83,7 @@ class Radar {
     if (end != null) 'end': end!.toJson(),
     if (direction != null) 'direction': direction,
     if (speedLimit != null) 'speed_limit': speedLimit,
+    if (length != null) 'length': length,
     if (name.isNotEmpty) 'name': name,
   };
 }

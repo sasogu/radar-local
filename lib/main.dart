@@ -113,11 +113,20 @@ class _HomeScreenState extends State<HomeScreen> {
         }
       });
       _maybeAutomaticUpdate();
-      if (widget.settings.autoStart) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) unawaited(_start());
-        });
-      }
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted) return;
+        if (!await _ensureDisclaimer()) {
+          if (!mounted) return;
+          setState(
+            () => _status = tr(
+              'Cal acceptar l’avís per iniciar la conducció',
+              'Debes aceptar el aviso para iniciar la conducción',
+            ),
+          );
+          return;
+        }
+        if (widget.settings.autoStart) unawaited(_start());
+      });
     } catch (e) {
       if (mounted) setState(() => _status = '$e');
     }
@@ -135,7 +144,64 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<bool> _ensureDisclaimer() async {
+    if (widget.settings.disclaimerAccepted) return true;
+    final accepted = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        var checked = false;
+        return StatefulBuilder(
+          builder: (context, setDialogState) => AlertDialog(
+            title: Text(tr('Avís important', 'Aviso importante')),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(_disclaimerBody(_va)),
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.zero,
+                    controlAffinity: ListTileControlAffinity.leading,
+                    value: checked,
+                    onChanged: (value) =>
+                        setDialogState(() => checked = value ?? false),
+                    title: Text(
+                      tr(
+                        'He llegit i entenc l’avís',
+                        'He leído y entiendo el aviso',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(tr('No accepte', 'No acepto')),
+              ),
+              FilledButton(
+                onPressed: checked
+                    ? () => Navigator.of(context).pop(true)
+                    : null,
+                child: Text(tr('Continuar', 'Continuar')),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+    if (accepted == true) {
+      await widget.settings.setDisclaimerAccepted(true);
+      return true;
+    }
+    return false;
+  }
+
   Future<void> _start() async {
+    if (_driving || _busy) return;
+    if (!await _ensureDisclaimer()) return;
     if (_driving || _busy) return;
     setState(() => _busy = true);
     try {
@@ -353,6 +419,25 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     RadarKind.fixed => tr('Radar', 'Radar'),
   };
+
+  String _neededAverageText(double needed) {
+    if (needed > 160) {
+      return tr(
+        'Ja no es pot compensar amb seguretat',
+        'Ya no se puede compensar con seguridad',
+      );
+    }
+    if (needed <= 0) {
+      return tr(
+        'Ja vas per davall de la mitjana del límit',
+        'Ya vas por debajo de la media del límite',
+      );
+    }
+    return tr(
+      'Per acabar dins del límit: ≤ ${needed.round()} km/h',
+      'Para acabar dentro del límite: ≤ ${needed.round()} km/h',
+    );
+  }
 
   String _distanceText(double metres) {
     if (metres >= 1000) {
@@ -766,6 +851,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
+                      if (_section?.neededAverageKmh != null)
+                        Text(
+                          _neededAverageText(_section!.neededAverageKmh!),
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                        ),
                       if (_alert != null &&
                           _alert!.phase == AlertPhase.approach &&
                           _alert!.radar.kind == RadarKind.section &&
@@ -1099,6 +1192,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
           },
         ),
         const Divider(height: 32),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.gavel),
+          title: Text(
+            tr('Avís legal i responsabilitat', 'Aviso legal y responsabilidad'),
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (_) => LegalScreen(widget.settings),
+            ),
+          ),
+        ),
+        const Divider(height: 32),
         Text(
           tr('Colors de velocitat', 'Colores de velocidad'),
           style: Theme.of(context).textTheme.titleMedium,
@@ -1129,6 +1236,125 @@ class _SettingsScreenState extends State<SettingsScreen> {
           tr(
             'Dades: DGT, IGN/CartoCiudad, Tachwire i OpenStreetMap (ODbL 1.0), incloses les càmeres de cinturó i mòbil; Ajuntament de Madrid (CC BY 4.0); Servei Català de Trànsit. Vegeu DATA_SOURCES.md.',
             'Datos: DGT, IGN/CartoCiudad, Tachwire y OpenStreetMap (ODbL 1.0), incluidas las cámaras de cinturón y móvil; Ayuntamiento de Madrid (CC BY 4.0); Servei Català de Trànsit. Consulta DATA_SOURCES.md.',
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+String _disclaimerBody(bool va) => va
+    ? 'Radar Local és una ajuda orientativa per a la conducció. No és un '
+          'sistema oficial de seguretat ni substitueix la senyalització, el '
+          'velocímetre ni les normes de trànsit.\n\n'
+          '- Les dades poden estar incompletes, desactualitzades o ser '
+          'incorrectes. Els límits de la DGT són estimats; la mitjana del '
+          'tram també és una estimació.\n'
+          '- L’app pot fallar, retardar-se o perdre el senyal GPS. No '
+          'garantix que s’eviten sancions.\n'
+          '- No manipules el telèfon mentre conduïx.\n'
+          '- La responsabilitat de conduir dins dels límits i de respectar '
+          'les normes és del conductor.\n\n'
+          'El GPS es processa al dispositiu. No hi ha servidor ni analítica '
+          'de l’app.'
+    : 'Radar Local es una ayuda orientativa para la conducción. No es un '
+          'sistema oficial de seguridad ni sustituye la señalización, el '
+          'velocímetro ni las normas de tráfico.\n\n'
+          '- Los datos pueden estar incompletos, desactualizados o ser '
+          'incorrectos. Los límites de la DGT son estimados; la media del '
+          'tramo también es una estimación.\n'
+          '- La app puede fallar, retrasarse o perder la señal GPS. No '
+          'garantiza evitar sanciones.\n'
+          '- No manipules el teléfono mientras conduces.\n'
+          '- La responsabilidad de conducir dentro de los límites y de '
+          'respetar las normas es del conductor.\n\n'
+          'El GPS se procesa en el dispositivo. No hay servidor ni analítica '
+          'de la app.';
+
+class LegalScreen extends StatelessWidget {
+  const LegalScreen(this.settings, {super.key});
+  final AppSettings settings;
+
+  bool get va => settings.language == 'va';
+  String tr(String a, String b) => va ? a : b;
+
+  Widget _heading(BuildContext context, String text) => Padding(
+    padding: const EdgeInsets.only(top: 18, bottom: 6),
+    child: Text(text, style: Theme.of(context).textTheme.titleMedium),
+  );
+
+  Widget _body(BuildContext context, String text) => Text(
+    text,
+    style: Theme.of(context).textTheme.bodyMedium,
+  );
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: Text(tr('Avís legal', 'Aviso legal'))),
+    body: ListView(
+      padding: const EdgeInsets.all(20),
+      children: [
+        Text(
+          tr('Avís important', 'Aviso importante'),
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(height: 8),
+        _body(context, _disclaimerBody(va)),
+        _heading(context, tr('Privacitat', 'Privacidad')),
+        _body(
+          context,
+          tr(
+            'El GPS i les propostes es queden al dispositiu. L’app no envia '
+                'la ubicació a cap servidor propi. Més detall a PRIVACY.md.',
+            'El GPS y las propuestas se quedan en el dispositivo. La app no '
+                'envía la ubicación a ningún servidor propio. Más detalle en '
+                'PRIVACY.md.',
+          ),
+        ),
+        _heading(
+          context,
+          tr('Llicències i atribucions', 'Licencias y atribuciones'),
+        ),
+        _body(
+          context,
+          tr(
+            'El codi és MIT. Les dades provenen de la DGT, IGN/CartoCiudad, '
+                'Tachwire i col·laboradors d’OpenStreetMap (ODbL 1.0), '
+                'l’Ajuntament de Madrid (CC BY 4.0) i el Servei Català de '
+                'Trànsit. Vegeu DATA_SOURCES.md.',
+            'El código es MIT. Los datos provienen de la DGT, IGN/CartoCiudad, '
+                'Tachwire y colaboradores de OpenStreetMap (ODbL 1.0), el '
+                'Ayuntamiento de Madrid (CC BY 4.0) y el Servei Català de '
+                'Trànsit. Consulta DATA_SOURCES.md.',
+          ),
+        ),
+        _heading(
+          context,
+          tr('Limitació de responsabilitat', 'Limitación de responsabilidad'),
+        ),
+        _body(
+          context,
+          tr(
+            'L’app es proporciona «tal qual», sense garanties expresses ni '
+                'implícites de funcionament, exactitud o disponibilitat. En la '
+                'mesura permesa per la llei, l’autor no respon de danys '
+                'derivats de l’ús o de la impossibilitat d’usar l’app. Este '
+                'avís no exclou les responsabilitats que la llei no permet '
+                'excloure ni els drets que t’assistisquen com a consumidor.',
+            'La app se proporciona «tal cual», sin garantías expresas ni '
+                'implícitas de funcionamiento, exactitud o disponibilidad. En '
+                'la medida permitida por la ley, el autor no responde de daños '
+                'derivados del uso o de la imposibilidad de usar la app. Este '
+                'aviso no excluye las responsabilidades que la ley no permite '
+                'excluir ni los derechos que te asistan como consumidor.',
+          ),
+        ),
+        _heading(context, tr('Contacte', 'Contacto')),
+        _body(
+          context,
+          tr(
+            'Incidències i suggeriments: github.com/sasogu/radar-local/issues',
+            'Incidencias y sugerencias: github.com/sasogu/radar-local/issues',
           ),
         ),
       ],

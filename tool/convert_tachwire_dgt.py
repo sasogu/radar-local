@@ -67,6 +67,10 @@ def convert(data):
             raise ValueError(f'Section endpoints identical: {section_id}')
         radar = {'id': 'tachwire-' + section_id, 'kind': 'section',
                  'start': point(start), 'end': point(end), 'name': camera_name(start)}
+        if start.get('pk') is not None and end.get('pk') is not None:
+            length = round(abs(end['pk'] - start['pk']) * 1000)
+            if 50 <= length <= 200000:
+                radar['length'] = length
         heading = direction(start)
         if heading is not None:
             radar['direction'] = heading

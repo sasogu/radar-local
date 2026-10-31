@@ -58,18 +58,33 @@ class SectionProgress {
     this.radar, {
     required this.remainingMeters,
     required this.fraction,
+    required this.traveledMeters,
+    required this.elapsedSeconds,
+    this.lengthMeters,
     this.averageKmh,
+    this.neededAverageKmh,
   });
   final Radar radar;
 
-  /// Straight-line distance to the section end.
+  /// Remaining distance: official length minus GPS travel when known.
   final double remainingMeters;
 
   /// Position along the start–end chord, 0 at the start and 1 at the end.
   final double fraction;
 
+  /// GPS distance accumulated since the interpolated entry.
+  final double traveledMeters;
+
+  final double elapsedSeconds;
+
+  /// Official DGT length in metres, when available.
+  final double? lengthMeters;
+
   /// Estimated average since entering, once there is enough distance/time.
   final double? averageKmh;
+
+  /// Average needed over the remaining distance to end at the limit.
+  final double? neededAverageKmh;
 }
 
 class AlertEngine {
@@ -92,6 +107,7 @@ class AlertEngine {
   DateTime? _sectionStartedAt;
   double _sectionTraveled = 0;
   Point? _sectionLastPoint;
+  DateTime? _sectionLastTime;
   bool _sectionAverageWarned = false;
 
   SectionProgress? get sectionProgress => _sectionProgress;
@@ -147,6 +163,8 @@ class AlertEngine {
         radar,
         remainingMeters: distanceMeters(fix.point, end),
         fraction: projection.fraction,
+        traveledMeters: 0,
+        elapsedSeconds: 0,
       );
       if (best == null || progress.fraction > best.fraction) best = progress;
     }
@@ -167,82 +185,199 @@ class AlertEngine {
     _sectionStartedAt = null;
     _sectionTraveled = 0;
     _sectionLastPoint = null;
+    _sectionLastTime = null;
     _sectionAverageWarned = false;
   }
 
-  /// Tracks the active section and returns one-off end or average alerts.
-  RadarAlert? _updateSection(GpsFix fix) {
-    final active = _activeSection;
-    if (active != null) {
-      final lastPoint = _sectionLastPoint;
-      if (lastPoint != null) {
-        final step = distanceMeters(lastPoint, fix.point);
-        if (step <= 300) _sectionTraveled += step;
-      }
-      _sectionLastPoint = fix.point;
-      final average = _averageKmh(fix);
-      final end = active.end!;
-      final remaining = distanceMeters(fix.point, end);
-      final startDistance = distanceMeters(fix.point, active.start);
-      final endBehind =
-          bearingDifference(fix.heading, bearingDegrees(fix.point, end)) > 120;
-      final passed =
-          remaining <= 60 ||
-          (endBehind && startDistance > 300) ||
-          (_lastEndDistance < 250 &&
-              remaining > _lastEndDistance &&
-              startDistance > remaining);
-      if (passed) {
-        RadarAlert? alert;
-        final key = '${active.id}:end';
-        final last = _announced[key];
-        if (last == null ||
-            fix.time.difference(last) >= const Duration(minutes: 5)) {
-          _announced[key] = fix.time;
-          alert = RadarAlert(
-            active,
-            0,
-            phase: AlertPhase.sectionEnd,
-            averageKmh: average,
-          );
+  static Point _lerpPoint(Point a, Point b, double t) => Point(
+    a.lat + (b.lat - a.lat) * t,
+    a.lon + (b.lon - a.lon) * t,
+  );
+
+  static DateTime _lerpTime(DateTime a, DateTime b, double t) => a.add(
+    Duration(
+      microseconds: (b.difference(a).inMicroseconds * t).round(),
+    ),
+  );
+
+  double? _neededAverage(
+    Radar radar,
+    double traveled,
+    double remaining,
+    double elapsed,
+    double? average,
+  ) {
+    final limit = radar.speedLimit;
+    if (limit == null || average == null || average <= limit) return null;
+    final total = radar.length?.toDouble() ?? (traveled + remaining);
+    if (total <= 0) return null;
+    final remainingRoad = math.max(0, total - traveled);
+    final budget = total / (limit / 3.6) - elapsed;
+    if (budget <= 0 || remainingRoad <= 0) return 0;
+    return remainingRoad / budget * 3.6;
+  }
+
+  double _remainingFor(Radar radar, double traveled, GpsFix fix) {
+    final distanceToEnd = distanceMeters(fix.point, radar.end!);
+    final length = radar.length;
+    if (length == null) return distanceToEnd;
+    // GPS distance can overestimate over long sections; never show less than
+    // the straight-line distance to the end.
+    return math.max(math.max(0, length - traveled), distanceToEnd);
+  }
+
+  /// Interpolates the crossing of the section start between the last accepted
+  /// fix and the current one, so the average does not lose the first metres.
+  void _startSection(SectionProgress found, GpsFix fix, GpsFix? previous) {
+    var startedAt = fix.time;
+    var entryPoint = fix.point;
+    final end = found.radar.end!;
+    if (previous != null && fix.time.isAfter(previous.time)) {
+      final before = projectOnSegment(previous.point, found.radar.start, end);
+      if (before.fraction < 0 && found.fraction >= 0) {
+        final span = found.fraction - before.fraction;
+        if (span > 0) {
+          final t = (-before.fraction / span).clamp(0.0, 1.0);
+          entryPoint = _lerpPoint(previous.point, fix.point, t);
+          startedAt = _lerpTime(previous.time, fix.time, t);
         }
-        _activeSection = null;
-        _sectionProgress = null;
-        _lastEndDistance = double.infinity;
-        _resetSectionTracking();
-        return alert;
       }
-      _lastEndDistance = remaining;
-      _sectionProgress = SectionProgress(
-        active,
-        remainingMeters: remaining,
-        fraction: _sectionAt(fix)?.fraction ?? _sectionProgress?.fraction ?? 0,
-        averageKmh: average,
-      );
-      final limit = active.speedLimit;
-      if (!_sectionAverageWarned &&
-          average != null &&
-          limit != null &&
-          average > limit) {
-        _sectionAverageWarned = true;
-        return RadarAlert(
-          active,
-          0,
-          phase: AlertPhase.sectionAverage,
-          averageKmh: average,
-        );
-      }
+    }
+    _activeSection = found.radar;
+    _sectionStartedAt = startedAt;
+    _sectionTraveled = distanceMeters(entryPoint, fix.point);
+    _sectionLastPoint = fix.point;
+    _sectionLastTime = fix.time;
+    _sectionAverageWarned = false;
+    _lastEndDistance = distanceMeters(fix.point, end);
+    _sectionProgress = SectionProgress(
+      found.radar,
+      remainingMeters: _remainingFor(
+        found.radar,
+        _sectionTraveled,
+        fix,
+      ),
+      fraction:
+          (found.radar.length == null
+                  ? found.fraction
+                  : _sectionTraveled / found.radar.length!)
+              .clamp(0.0, 1.0),
+      traveledMeters: _sectionTraveled,
+      elapsedSeconds: 0,
+      lengthMeters: found.radar.length?.toDouble(),
+    );
+  }
+
+  /// Tracks the active section and returns one-off end or average alerts.
+  RadarAlert? _updateSection(GpsFix fix, GpsFix? previous) {
+    final active = _activeSection;
+    if (active == null) {
+      final found = _sectionAt(fix);
+      if (found != null) _startSection(found, fix, previous);
       return null;
     }
-    final found = _sectionAt(fix);
-    if (found != null) {
-      _activeSection = found.radar;
-      _sectionProgress = found;
-      _lastEndDistance = found.remainingMeters;
-      _sectionStartedAt = fix.time;
-      _sectionTraveled = 0;
-      _sectionLastPoint = fix.point;
-      _sectionAverageWarned = false;
+    final end = active.end!;
+    final startedAt = _sectionStartedAt;
+    final lastPoint = _sectionLastPoint;
+    final lastTime = _sectionLastTime;
+    final step = lastPoint == null ? 0.0 : distanceMeters(lastPoint, fix.point);
+    final before = _sectionTraveled;
+    final traveled = before + (step <= 300 ? step : 0);
+    final distanceToEnd = distanceMeters(fix.point, end);
+    final startDistance = distanceMeters(fix.point, active.start);
+    final endBehind =
+        bearingDifference(fix.heading, bearingDegrees(fix.point, end)) > 120;
+    final crossed =
+        projectOnSegment(fix.point, active.start, end).fraction >= 1.0;
+    final passed =
+        (crossed && distanceToEnd <= 60) ||
+        distanceToEnd <= 10 ||
+        (_lastEndDistance < 150 && distanceToEnd > _lastEndDistance + 2) ||
+        (endBehind && startDistance > 300);
+    final elapsed = startedAt == null
+        ? 0.0
+        : math.max(
+            0.0,
+            fix.time.difference(startedAt).inMilliseconds / 1000,
+          );
+    if (passed) {
+      var exitTraveled = traveled;
+      var exitElapsed = elapsed;
+      if (lastPoint != null && lastTime != null) {
+        final t = projectOnSegment(end, lastPoint, fix.point).fraction.clamp(
+          0.0,
+          1.0,
+        );
+        final exitPoint = _lerpPoint(lastPoint, fix.point, t);
+        final exitTime = _lerpTime(lastTime, fix.time, t);
+        final exitStep = distanceMeters(lastPoint, exitPoint);
+        exitTraveled = before + (exitStep <= 300 ? exitStep : 0);
+        if (startedAt != null && exitTime.isAfter(startedAt)) {
+          exitElapsed = exitTime.difference(startedAt).inMilliseconds / 1000;
+        }
+      }
+      final finalDistance = active.length?.toDouble() ?? exitTraveled;
+      final finalAverage = exitElapsed >= 3
+          ? finalDistance / exitElapsed * 3.6
+          : _averageKmh(fix);
+      RadarAlert? alert;
+      final key = '${active.id}:end';
+      final last = _announced[key];
+      if (last == null ||
+          fix.time.difference(last) >= const Duration(minutes: 5)) {
+        _announced[key] = fix.time;
+        alert = RadarAlert(
+          active,
+          0,
+          phase: AlertPhase.sectionEnd,
+          averageKmh: finalAverage,
+        );
+      }
+      _activeSection = null;
+      _sectionProgress = null;
+      _lastEndDistance = double.infinity;
+      _resetSectionTracking();
+      return alert;
+    }
+    _sectionTraveled = traveled;
+    _sectionLastPoint = fix.point;
+    _sectionLastTime = fix.time;
+    _lastEndDistance = distanceToEnd;
+    final average = _averageKmh(fix);
+    final remaining = _remainingFor(active, traveled, fix);
+    final needed = _neededAverage(
+      active,
+      traveled,
+      remaining,
+      elapsed,
+      average,
+    );
+    _sectionProgress = SectionProgress(
+      active,
+      remainingMeters: remaining,
+      fraction:
+          (active.length == null
+                  ? (_sectionAt(fix)?.fraction ?? _sectionProgress?.fraction ?? 0)
+                  : traveled / active.length!)
+              .clamp(0.0, 1.0),
+      traveledMeters: traveled,
+      elapsedSeconds: elapsed,
+      lengthMeters: active.length?.toDouble(),
+      averageKmh: average,
+      neededAverageKmh: needed,
+    );
+    final limit = active.speedLimit;
+    if (!_sectionAverageWarned &&
+        average != null &&
+        limit != null &&
+        average > limit) {
+      _sectionAverageWarned = true;
+      return RadarAlert(
+        active,
+        0,
+        phase: AlertPhase.sectionAverage,
+        averageKmh: average,
+      );
     }
     return null;
   }
@@ -282,7 +417,7 @@ class AlertEngine {
       _passedRadar = radar;
       break;
     }
-    final sectionEnd = _updateSection(fix);
+    final sectionEnd = _updateSection(fix, previous);
     if (sectionEnd != null) {
       _lastAlert = sectionEnd;
       _lastAlertAt = fix.time;
