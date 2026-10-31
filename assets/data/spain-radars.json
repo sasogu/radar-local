@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "source": "Ayuntamiento de Madrid, radares fijos, CC BY 4.0 + Servei Català de Trànsit, radars fixos, reutilització amb atribució + DGT 2026 via Tachwire/IGN, ODbL 1.0 + DGT 2024 via Tachwire/IGN, ODbL 1.0",
-  "updated_at": "2026-10-30T20:04:54+00:00",
+  "source": "Ayuntamiento de Madrid, radares fijos, CC BY 4.0 + Servei Català de Trànsit, radars fixos, reutilització amb atribució + DGT 2026 via Tachwire/IGN, ODbL 1.0 + DGT 2024 via Tachwire/IGN, ODbL 1.0, section limits from OSM maxspeed (ODbL 1.0)",
+  "updated_at": "2026-10-31T17:52:08+00:00",
   "radars": [
     {
       "id": "madrid-1",
@@ -10021,7 +10021,8 @@
         "lon": -0.44824
       },
       "name": "A-3 PK 347.104",
-      "direction": 75
+      "direction": 75,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0005",
@@ -10035,7 +10036,8 @@
         "lon": -0.76698
       },
       "name": "A-31 PK 211.704",
-      "direction": 346
+      "direction": 346,
+      "speed_limit": 120
     },
     {
       "id": "tachwire-es-dgt-sec-0006",
@@ -10049,7 +10051,8 @@
         "lon": -0.71686
       },
       "name": "A-31 PK 216.52",
-      "direction": 114
+      "direction": 114,
+      "speed_limit": 120
     },
     {
       "id": "tachwire-es-dgt-sec-0065",
@@ -10063,7 +10066,8 @@
         "lon": -4.70088
       },
       "name": "A-355 PK 4.401",
-      "direction": 15
+      "direction": 15,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0066",
@@ -10077,7 +10081,8 @@
         "lon": -4.72255
       },
       "name": "A-355 PK 1.049",
-      "direction": 224
+      "direction": 224,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0009",
@@ -10091,7 +10096,8 @@
         "lon": -1.83306
       },
       "name": "A-370 PK 8.329",
-      "direction": 58
+      "direction": 58,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0008",
@@ -10105,7 +10111,8 @@
         "lon": -1.84216
       },
       "name": "A-370 PK 9.471",
-      "direction": 227
+      "direction": 227,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0067",
@@ -10119,7 +10126,8 @@
         "lon": -5.27402
       },
       "name": "A-377 PK 8.97",
-      "direction": 168
+      "direction": 168,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0069",
@@ -10148,7 +10156,8 @@
         "lon": -5.07015
       },
       "name": "A-397 PK 30.079",
-      "direction": 4
+      "direction": 4,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0055",
@@ -10207,7 +10216,8 @@
         "lon": -6.13527
       },
       "name": "A-48 PK 5.764",
-      "direction": 318
+      "direction": 318,
+      "speed_limit": 120
     },
     {
       "id": "tachwire-es-dgt-sec-0100",
@@ -10236,7 +10246,8 @@
         "lon": -0.73894
       },
       "name": "A-7 PK 523.361",
-      "direction": 44
+      "direction": 44,
+      "speed_limit": 120
     },
     {
       "id": "tachwire-es-dgt-sec-0071",
@@ -10265,7 +10276,8 @@
         "lon": -5.39292
       },
       "name": "A-7 PK 1106.386",
-      "direction": 234
+      "direction": 234,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0032",
@@ -10279,7 +10291,8 @@
         "lon": -5.39069
       },
       "name": "A-7 PK 1109.221",
-      "direction": 65
+      "direction": 65,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0038",
@@ -10293,7 +10306,8 @@
         "lon": -3.1642
       },
       "name": "A-8 PK 146.264",
-      "direction": 169
+      "direction": 169,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0039",
@@ -10307,7 +10321,8 @@
         "lon": -3.21793
       },
       "name": "A-8 PK 140.612",
-      "direction": 318
+      "direction": 318,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0010",
@@ -10439,7 +10454,8 @@
         "lon": -8.66477
       },
       "name": "AP-9 PK 154.921",
-      "direction": 265
+      "direction": 265,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0086",
@@ -10482,7 +10498,8 @@
         "lon": -5.78225
       },
       "name": "AS-112 PK 2.271",
-      "direction": 319
+      "direction": 319,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0013",
@@ -10496,7 +10513,8 @@
         "lon": -5.66744
       },
       "name": "AS-117 PK 4.456",
-      "direction": 115
+      "direction": 115,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0012",
@@ -10510,7 +10528,8 @@
         "lon": -5.68991
       },
       "name": "AS-117 PK 6.698",
-      "direction": 288
+      "direction": 288,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0015",
@@ -10582,7 +10601,8 @@
         "lon": -5.76578
       },
       "name": "CL-517 PK 16.311",
-      "direction": 93
+      "direction": 93,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0088",
@@ -10596,7 +10616,8 @@
         "lon": -5.89941
       },
       "name": "CL-517 PK 4.413",
-      "direction": 292
+      "direction": 292,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0077",
@@ -10670,7 +10691,8 @@
         "lon": -4.5596
       },
       "name": "CL-615 PK 24.842",
-      "direction": 174
+      "direction": 174,
+      "speed_limit": 50
     },
     {
       "id": "tachwire-es-dgt-sec-0082",
@@ -10684,7 +10706,8 @@
         "lon": -4.6042
       },
       "name": "CL-615 PK 1.715",
-      "direction": 339
+      "direction": 339,
+      "speed_limit": 50
     },
     {
       "id": "tachwire-es-dgt-sec-0001",
@@ -10698,7 +10721,8 @@
         "lon": -2.37582
       },
       "name": "CM-412 PK 208.138",
-      "direction": 247
+      "direction": 247,
+      "speed_limit": 70
     },
     {
       "id": "tachwire-es-dgt-sec-0002",
@@ -10712,7 +10736,8 @@
         "lon": -2.32062
       },
       "name": "CM-412 PK 202.814",
-      "direction": 96
+      "direction": 96,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0106",
@@ -10726,7 +10751,8 @@
         "lon": -0.42521
       },
       "name": "CV-30 PK 4.134",
-      "direction": 248
+      "direction": 248,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0107",
@@ -10740,7 +10766,8 @@
         "lon": -0.41511
       },
       "name": "CV-35 PK 5.602",
-      "direction": 148
+      "direction": 148,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0109",
@@ -10754,7 +10781,8 @@
         "lon": -0.32483
       },
       "name": "CV-500 PK 14.528",
-      "direction": 330
+      "direction": 330,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0108",
@@ -10768,7 +10796,8 @@
         "lon": -0.29863
       },
       "name": "CV-500 PK 9.19",
-      "direction": 165
+      "direction": 165,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0111",
@@ -10782,7 +10811,8 @@
         "lon": -0.32884
       },
       "name": "CV-60 PK 16.813",
-      "direction": 73
+      "direction": 73,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0110",
@@ -10796,7 +10826,8 @@
         "lon": -0.3907
       },
       "name": "CV-60 PK 22.814",
-      "direction": 266
+      "direction": 266,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0030",
@@ -10810,7 +10841,8 @@
         "lon": -6.67507
       },
       "name": "EX-109 PK 54.356",
-      "direction": 197
+      "direction": 197,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0020",
@@ -10824,7 +10856,8 @@
         "lon": -6.99667
       },
       "name": "EX-110 PK 36.745",
-      "direction": 354
+      "direction": 354,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0021",
@@ -10838,7 +10871,8 @@
         "lon": -6.61189
       },
       "name": "EX-327 PK 21.932",
-      "direction": 130
+      "direction": 130,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0083",
@@ -10852,7 +10886,8 @@
         "lon": -15.44755
       },
       "name": "GC-23 PK 1.439",
-      "direction": 189
+      "direction": 189,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0084",
@@ -10866,7 +10901,8 @@
         "lon": -13.7572
       },
       "name": "LZ-67 PK 14.67",
-      "direction": 212
+      "direction": 212,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0059",
@@ -10880,7 +10916,8 @@
         "lon": -4.25162
       },
       "name": "M-501 PK 46.187",
-      "direction": 55
+      "direction": 55,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0060",
@@ -10894,7 +10931,8 @@
         "lon": -4.27887
       },
       "name": "M-501 PK 42.406",
-      "direction": 340
+      "direction": 340,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0061",
@@ -10936,7 +10974,8 @@
         "lon": -4.45416
       },
       "name": "MA-20 PK 9.306",
-      "direction": 18
+      "direction": 18,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0025",
@@ -10950,7 +10989,8 @@
         "lon": 2.74605
       },
       "name": "Ma-13A PK 10.946",
-      "direction": 38
+      "direction": 38,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0024",
@@ -10964,7 +11004,8 @@
         "lon": 2.73988
       },
       "name": "Ma-13A PK 12.256",
-      "direction": 204
+      "direction": 204,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0026",
@@ -10978,7 +11019,8 @@
         "lon": 2.71538
       },
       "name": "Ma-15 PK 6.476",
-      "direction": 265
+      "direction": 265,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0027",
@@ -11006,7 +11048,8 @@
         "lon": -3.82451
       },
       "name": "N-110 PK 158.679",
-      "direction": 233
+      "direction": 233,
+      "speed_limit": 70
     },
     {
       "id": "tachwire-es-dgt-sec-0095",
@@ -11020,7 +11063,8 @@
         "lon": -3.80261
       },
       "name": "N-110 PK 161.32",
-      "direction": 78
+      "direction": 78,
+      "speed_limit": 70
     },
     {
       "id": "tachwire-es-dgt-sec-0029",
@@ -11034,7 +11078,8 @@
         "lon": -3.30593
       },
       "name": "N-120 PK 74.56",
-      "direction": 251
+      "direction": 251,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0028",
@@ -11048,7 +11093,8 @@
         "lon": -3.28598
       },
       "name": "N-120 PK 76.918",
-      "direction": 34
+      "direction": 34,
+      "speed_limit": 50
     },
     {
       "id": "tachwire-es-dgt-sec-0117",
@@ -11062,7 +11108,8 @@
         "lon": -5.91638
       },
       "name": "N-122 PK 479.988",
-      "direction": 100
+      "direction": 100,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0118",
@@ -11166,7 +11213,8 @@
         "lon": -3.41549
       },
       "name": "N-301 PK 77.152",
-      "direction": 288
+      "direction": 288,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0051",
@@ -11180,7 +11228,8 @@
         "lon": -3.05305
       },
       "name": "N-320 PK 263.933",
-      "direction": 90
+      "direction": 90,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0052",
@@ -11194,7 +11243,8 @@
         "lon": -3.08462
       },
       "name": "N-320 PK 259.332",
-      "direction": 27
+      "direction": 27,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0063",
@@ -11208,7 +11258,8 @@
         "lon": -3.45563
       },
       "name": "N-320 PK 329.828",
-      "direction": 164
+      "direction": 164,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0064",
@@ -11222,7 +11273,8 @@
         "lon": -3.53507
       },
       "name": "N-320 PK 318.148",
-      "direction": 296
+      "direction": 296,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0036",
@@ -11324,7 +11376,8 @@
         "lon": -4.40198
       },
       "name": "N-403 PK 48.886",
-      "direction": 18
+      "direction": 18,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0103",
@@ -11338,7 +11391,8 @@
         "lon": -4.40522
       },
       "name": "N-403 PK 51.488",
-      "direction": 190
+      "direction": 190,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0018",
@@ -11352,7 +11406,8 @@
         "lon": -4.44536
       },
       "name": "N-403 PK 86.139",
-      "direction": 119
+      "direction": 119,
+      "speed_limit": 70
     },
     {
       "id": "tachwire-es-dgt-sec-0019",
@@ -11366,7 +11421,8 @@
         "lon": -4.46677
       },
       "name": "N-403 PK 83.439",
-      "direction": 313
+      "direction": 313,
+      "speed_limit": 70
     },
     {
       "id": "tachwire-es-dgt-sec-0016",
@@ -11394,7 +11450,8 @@
         "lon": -4.65403
       },
       "name": "N-403 PK 113.578",
-      "direction": 351
+      "direction": 351,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0004",
@@ -11408,7 +11465,8 @@
         "lon": -2.00439
       },
       "name": "N-430 PK 486.558",
-      "direction": 98
+      "direction": 98,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0003",
@@ -11422,7 +11480,8 @@
         "lon": -2.19101
       },
       "name": "N-430 PK 502.967",
-      "direction": 274
+      "direction": 274,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0023",
@@ -11436,7 +11495,8 @@
         "lon": -6.17765
       },
       "name": "N-432 PK 80.782",
-      "direction": 104
+      "direction": 104,
+      "speed_limit": 50
     },
     {
       "id": "tachwire-es-dgt-sec-0022",
@@ -11450,7 +11510,8 @@
         "lon": -6.33182
       },
       "name": "N-432 PK 95.688",
-      "direction": 273
+      "direction": 273,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0053",
@@ -11464,7 +11525,8 @@
         "lon": -6.85724
       },
       "name": "N-433 PK 122.952",
-      "direction": 93
+      "direction": 93,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0054",
@@ -11478,7 +11540,8 @@
         "lon": -6.90538
       },
       "name": "N-433 PK 118.346",
-      "direction": 305
+      "direction": 305,
+      "speed_limit": 90
     },
     {
       "id": "tachwire-es-dgt-sec-0075",
@@ -11506,7 +11569,8 @@
         "lon": -8.49536
       },
       "name": "N-550 PK 54.671",
-      "direction": 225
+      "direction": 225,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0087",
@@ -11564,7 +11628,8 @@
         "lon": -3.4144
       },
       "name": "N-629 PK 83.71",
-      "direction": 122
+      "direction": 122,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0041",
@@ -11578,7 +11643,8 @@
         "lon": -3.4225
       },
       "name": "N-629 PK 81.437",
-      "direction": 338
+      "direction": 338,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0076",
@@ -11621,7 +11687,8 @@
         "lon": -1.17598
       },
       "name": "RM-603 PK 2.737",
-      "direction": 79
+      "direction": 79,
+      "speed_limit": 60
     },
     {
       "id": "tachwire-es-dgt-sec-0090",
@@ -11635,7 +11702,8 @@
         "lon": -16.42673
       },
       "name": "TF-5 PK 22.38",
-      "direction": 63
+      "direction": 63,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0091",
@@ -11694,7 +11762,8 @@
         "lon": -0.29157
       },
       "name": "V-23 PK 3.306",
-      "direction": 197
+      "direction": 197,
+      "speed_limit": 100
     },
     {
       "id": "tachwire-es-dgt-sec-0113",
@@ -11708,7 +11777,8 @@
         "lon": -0.42071
       },
       "name": "V-30 PK 4.764",
-      "direction": 286
+      "direction": 286,
+      "speed_limit": 80
     },
     {
       "id": "tachwire-es-dgt-sec-0114",

@@ -13,6 +13,7 @@ import convert_madrid
 import convert_tachwire_dgt
 import convert_tachwire_equipos
 import merge_datasets
+import section_limits
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'assets/data'
@@ -72,6 +73,8 @@ def main():
             DATA / 'madrid-radars.json', DATA / 'catalonia-radars.json',
             DATA / 'dgt-radars.json', DATA / 'equipos-radars.json',
         ])
+        added = section_limits.apply(merged, section_limits.load())
+        print(f'Applied {added} OSM section limits')
         (DATA / 'spain-radars.json').write_text(
             json.dumps(merged, ensure_ascii=False, indent=2) + '\n')
     print('Changed sources: ' + (', '.join(changed) or 'none'))
