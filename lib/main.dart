@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'core/alert_engine.dart';
@@ -1300,6 +1301,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             'Los límites de la DGT son estimados a partir de OpenStreetMap; los de Cataluña y Madrid son oficiales.',
           ),
         ),
+        const SizedBox(height: 24),
+        const AppVersionLabel(),
         const SizedBox(height: 20),
         Text(
           tr(
@@ -1346,6 +1349,33 @@ String _disclaimerBody(bool va) => va
           'respetar las normas es del conductor.\n\n'
           'El GPS se procesa en el dispositivo. No hay servidor ni analítica '
           'de la app.';
+
+/// Discreet "Radar Local 0.2.0 (15)" footer read from the installed package.
+class AppVersionLabel extends StatelessWidget {
+  const AppVersionLabel({super.key});
+
+  static final Future<PackageInfo?> _info = PackageInfo.fromPlatform()
+      .then<PackageInfo?>((info) => info)
+      .catchError((_) => null);
+
+  @override
+  Widget build(BuildContext context) => FutureBuilder<PackageInfo?>(
+    future: _info,
+    builder: (context, snapshot) {
+      final info = snapshot.data;
+      if (info == null) return const SizedBox.shrink();
+      final build = info.buildNumber.isEmpty ? '' : ' (${info.buildNumber})';
+      return Center(
+        child: Text(
+          'Radar Local ${info.version}$build',
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Theme.of(context).colorScheme.outline,
+          ),
+        ),
+      );
+    },
+  );
+}
 
 class LegalScreen extends StatelessWidget {
   const LegalScreen(this.settings, {super.key});
