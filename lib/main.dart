@@ -246,7 +246,12 @@ class _HomeScreenState extends State<HomeScreen> {
           tr('Cal autoritzar la ubicació', 'Debes autorizar la ubicación'),
         );
       }
-      await _configureVoice();
+      // Voice setup must never block or break GPS start.
+      try {
+        await _configureVoice().timeout(const Duration(seconds: 4));
+      } catch (_) {
+        _voiceReady = true;
+      }
       final LocationSettings settings = Platform.isAndroid
           ? AndroidSettings(
               accuracy: LocationAccuracy.high,
@@ -331,7 +336,6 @@ class _HomeScreenState extends State<HomeScreen> {
           IosTextToSpeechAudioMode.voicePrompt,
         );
       }
-      await _tts.awaitSpeakCompletion(true);
       await _tts.setLanguage(language);
       final voices = ((await _tts.getVoices) as List?) ?? const [];
       final candidates = voices.whereType<Map>().where((voice) {
@@ -345,12 +349,13 @@ class _HomeScreenState extends State<HomeScreen> {
       candidates.sort((a, b) => score(a).compareTo(score(b)));
       if (candidates.isNotEmpty) {
         final voice = candidates.first;
-        await _tts.setVoice({
+        final ok = await _tts.setVoice({
           'name': '${voice['name']}',
           'locale': '${voice['locale']}',
         });
         _voiceReady = true;
-        _voiceNeedsNetwork = '${voice['network_required']}' == '1';
+        _voiceNeedsNetwork =
+            ok == 1 && '${voice['network_required']}' == '1';
       } else {
         final available = await _tts.isLanguageAvailable(language);
         _voiceReady = available == true || available == 1;
