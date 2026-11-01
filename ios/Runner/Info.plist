@@ -4,6 +4,13 @@
 <dict>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Radar Local uses your location only on this device to warn about nearby radars while driving.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Radar Local uses your location only on this device to keep warning about nearby radars while the app is in the background.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+        <string>location</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

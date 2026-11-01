@@ -68,7 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _updating = false;
   bool _pendingUpdate = false;
   bool _driving = false;
-  bool _offlineVoiceAvailable = true;
+  bool _voiceReady = true;
+  bool _voiceNeedsNetwork = false;
   bool get _va => widget.settings.language == 'va';
   String tr(String va, String es) => _va ? va : es;
   String sourceLabel(RadarDataset data) => data.source.contains('Tachwire/IGN')
@@ -90,6 +91,25 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Beeps are navigation prompts: duck other audio and keep playing in
+    // the background (Android usage + iOS playback session).
+    unawaited(
+      AudioPlayer.global
+          .setAudioContext(
+            AudioContext(
+              android: const AudioContextAndroid(
+                contentType: AndroidContentType.sonification,
+                usageType: AndroidUsageType.assistanceNavigationGuidance,
+                audioFocus: AndroidAudioFocus.gainTransientMayDuck,
+              ),
+              iOS: AudioContextIOS(
+                category: AVAudioSessionCategory.playback,
+                options: const {AVAudioSessionOptions.duckOthers},
+              ),
+            ),
+          )
+          .catchError((_) {}),
+    );
     _load();
     _updateTimer = Timer.periodic(
       const Duration(hours: 1),
@@ -226,35 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
           tr('Cal autoritzar la ubicació', 'Debes autorizar la ubicación'),
         );
       }
-      final language = _va ? 'ca-ES' : 'es-ES';
-      _offlineVoiceAvailable = true;
-      if (widget.settings.voice) {
-        try {
-          await _tts.setLanguage(language);
-          if (Platform.isAndroid) {
-            final voices = (await _tts.getVoices as List?) ?? const [];
-            final offline = voices.whereType<Map>().where(
-              (voice) =>
-                  voice['locale'] == language &&
-                  voice['network_required'] == '0' &&
-                  !(voice['features'] as String? ?? '').contains(
-                    'not_installed',
-                  ),
-            );
-            _offlineVoiceAvailable = offline.isNotEmpty;
-            if (_offlineVoiceAvailable) {
-              final voice = offline.first;
-              await _tts.setVoice({
-                'name': voice['name'] as String,
-                'locale': language,
-              });
-            }
-          }
-          if (_offlineVoiceAvailable) await _tts.setSpeechRate(0.48);
-        } catch (_) {
-          _offlineVoiceAvailable = false;
-        }
-      }
+      await _configureVoice();
       final LocationSettings settings = Platform.isAndroid
           ? AndroidSettings(
               accuracy: LocationAccuracy.high,
@@ -269,7 +261,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 notificationChannelName: 'Radar Local',
                 setOngoing: true,
+                // Keeps the CPU awake with the screen off so GPS fixes,
+                // beeps and speech keep flowing in the background.
+                enableWakeLock: true,
               ),
+            )
+          : Platform.isIOS
+          ? AppleSettings(
+              accuracy: LocationAccuracy.high,
+              distanceFilter: 15,
+              activityType: ActivityType.automotiveNavigation,
+              pauseLocationUpdatesAutomatically: false,
+              allowBackgroundLocationUpdates: true,
+              showBackgroundLocationIndicator: true,
             )
           : const LocationSettings(
               accuracy: LocationAccuracy.high,
@@ -299,6 +303,69 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  static String _normLocale(Object? locale) =>
+      '${locale ?? ''}'.toLowerCase().replaceAll('_', '-');
+
+  /// Picks a TTS voice for the current language and routes speech as
+  /// navigation audio so it keeps playing with the app in the background.
+  /// Prefers an installed offline voice; falls back to a network voice or
+  /// to the engine default for the language before giving up.
+  Future<void> _configureVoice() async {
+    final language = _va ? 'ca-ES' : 'es-ES';
+    final prefix = _va ? 'ca' : 'es';
+    _voiceReady = false;
+    _voiceNeedsNetwork = false;
+    if (!widget.settings.voice) return;
+    try {
+      if (Platform.isAndroid) {
+        await _tts.setAudioAttributesForNavigation();
+      } else if (Platform.isIOS) {
+        await _tts.setSharedInstance(true);
+        await _tts.setIosAudioCategory(
+          IosTextToSpeechAudioCategory.playback,
+          [
+            IosTextToSpeechAudioCategoryOptions.duckOthers,
+            IosTextToSpeechAudioCategoryOptions
+                .interruptSpokenAudioAndMixWithOthers,
+          ],
+          IosTextToSpeechAudioMode.voicePrompt,
+        );
+      }
+      await _tts.awaitSpeakCompletion(true);
+      await _tts.setLanguage(language);
+      final voices = ((await _tts.getVoices) as List?) ?? const [];
+      final candidates = voices.whereType<Map>().where((voice) {
+        final locale = _normLocale(voice['locale']);
+        return (locale == prefix || locale.startsWith('$prefix-')) &&
+            !'${voice['features'] ?? ''}'.contains('not_installed');
+      }).toList();
+      int score(Map voice) =>
+          ('${voice['network_required']}' == '1' ? 2 : 0) +
+          (_normLocale(voice['locale']) == language.toLowerCase() ? 0 : 1);
+      candidates.sort((a, b) => score(a).compareTo(score(b)));
+      if (candidates.isNotEmpty) {
+        final voice = candidates.first;
+        await _tts.setVoice({
+          'name': '${voice['name']}',
+          'locale': '${voice['locale']}',
+        });
+        _voiceReady = true;
+        _voiceNeedsNetwork = '${voice['network_required']}' == '1';
+      } else {
+        final available = await _tts.isLanguageAvailable(language);
+        _voiceReady = available == true || available == 1;
+      }
+      if (_voiceReady) await _tts.setSpeechRate(0.48);
+    } catch (_) {
+      _voiceReady = false;
+    }
+  }
+
+  String _voiceStatus() => tr(
+    'Veu catalana no instal·lada: només so. Instal·la-la en Ajustos > Text a veu',
+    'Voz en castellano no instalada: solo sonido. Instálala en Ajustes > Texto a voz',
+  );
+
   void _onPosition(Position position) {
     if (!mounted || !_driving) return;
     _latestPosition = position;
@@ -319,10 +386,12 @@ class _HomeScreenState extends State<HomeScreen> {
       _speed = position.speed * 3.6;
       _speedLimit = limit;
       _section = section;
-      _status = !_offlineVoiceAvailable
+      _status = widget.settings.voice && !_voiceReady
+          ? _voiceStatus()
+          : fix.reliable && _voiceNeedsNetwork
           ? tr(
-              'Veu offline no disponible: només so',
-              'Voz offline no disponible: solo sonido',
+              'GPS actiu · veu en línia (descarrega la veu offline)',
+              'GPS activo · voz en línea (descarga la voz offline)',
             )
           : fix.reliable
           ? tr('GPS actiu', 'GPS activo')
@@ -365,7 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return;
     }
     if (widget.settings.sound) await _playBeep();
-    if (!widget.settings.voice || !_offlineVoiceAvailable) return;
+    if (!widget.settings.voice || !_voiceReady) return;
     if (alert.phase == AlertPhase.sectionEnd) {
       await _tts.speak(
         average == null
@@ -691,6 +760,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+    // Language or voice may have changed: reconfigure TTS while driving.
+    if (_driving) await _configureVoice();
     if (mounted) setState(() {});
   }
 
