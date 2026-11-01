@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' as math;
 import 'package:audioplayers/audioplayers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,7 @@ import 'core/proposal.dart';
 import 'core/radar.dart';
 import 'core/speed_limit.dart';
 import 'proposal_screen.dart';
+import 'speed_gauge.dart';
 import 'services/data_store.dart';
 import 'services/proposal_store.dart';
 import 'services/settings.dart';
@@ -831,13 +833,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            speed?.toString() ?? '—',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 84,
-                              fontWeight: FontWeight.bold,
-                              color: speedColor,
+                          Flexible(
+                            child: SpeedGauge(
+                              speed: _speed,
+                              limit: limit,
+                              color: zone == null
+                                  ? Theme.of(context).colorScheme.primary
+                                  : speedColor,
+                              size: math.min(
+                                240,
+                                constraints.maxWidth -
+                                    (limit != null ? 120 : 40),
+                              ),
                             ),
                           ),
                           if (limit != null) ...[
@@ -868,11 +875,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ],
                         ],
-                      ),
-                      Text(
-                        'km/h',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                       if (limit != null)
                         Text(
