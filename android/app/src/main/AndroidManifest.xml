@@ -7,6 +7,10 @@
     <!-- Required by the geolocator foreground service (enableWakeLock). -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Optional: the app still works without a car head unit. -->
+    <uses-feature
+        android:name="android.software.car.app.library"
+        android:required="false" />
     <application
         android:label="Radar Local"
         android:name="${applicationName}"
@@ -42,6 +46,20 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+        <meta-data
+            android:name="androidx.car.app.minCarApiLevel"
+            android:value="1" />
+        <service
+            android:name="com.oguzhnatly.flutter_android_auto.AndroidAutoService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.car.app.CarAppService" />
+                <category android:name="androidx.car.app.category.NAVIGATION" />
+            </intent-filter>
+        </service>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

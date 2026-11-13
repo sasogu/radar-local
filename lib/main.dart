@@ -11,6 +11,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
+import 'car/android_auto_bridge.dart';
+import 'car/car_state.dart';
 import 'core/alert_engine.dart';
 import 'core/geo.dart';
 import 'core/proposal.dart';
@@ -25,7 +27,9 @@ import 'services/update_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(RadarApp(AppSettings(await SharedPreferences.getInstance())));
+  final settings = AppSettings(await SharedPreferences.getInstance());
+  AndroidAutoBridge.instance.initialize();
+  runApp(RadarApp(settings));
 }
 
 class RadarApp extends StatelessWidget {
@@ -113,6 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
           )
           .catchError((_) {}),
     );
+    CarDriveState.instance
+      ..onStart = _start
+      ..onStop = () async {
+        await _stop();
+      };
     _load();
     _updateTimer = Timer.periodic(
       const Duration(hours: 1),
@@ -135,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
       });
+      _publishCarState();
       _maybeAutomaticUpdate();
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         if (!mounted) return;
@@ -146,12 +156,16 @@ class _HomeScreenState extends State<HomeScreen> {
               'Debes aceptar el aviso para iniciar la conducción',
             ),
           );
+          _publishCarState();
           return;
         }
         if (widget.settings.autoStart) unawaited(_start());
       });
     } catch (e) {
-      if (mounted) setState(() => _status = '$e');
+      if (mounted) {
+        setState(() => _status = '$e');
+        _publishCarState();
+      }
     }
   }
 
@@ -291,7 +305,10 @@ class _HomeScreenState extends State<HomeScreen> {
           .listen(
             _onPosition,
             onError: (Object error) {
-              if (mounted) setState(() => _status = '$error');
+              if (mounted) {
+                setState(() => _status = '$error');
+                _publishCarState();
+              }
             },
           );
       setState(() {
@@ -299,13 +316,17 @@ class _HomeScreenState extends State<HomeScreen> {
         _speedLimit = null;
         _status = tr('Escoltant GPS', 'Escuchando GPS');
       });
+      _publishCarState();
       if (widget.settings.keepScreenOn) {
-        unawaited(WakelockPlus.enable());
+        unawaited(WakelockPlus.enable().catchError((_) {}));
       } else {
-        unawaited(WakelockPlus.disable());
+        unawaited(WakelockPlus.disable().catchError((_) {}));
       }
     } catch (e) {
-      if (mounted) setState(() => _status = '$e');
+      if (mounted) {
+        setState(() => _status = '$e');
+        _publishCarState();
+      }
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -417,6 +438,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _alertAt = null;
       }
     });
+    _publishCarState();
     if (alert != null) {
       unawaited(_announce(alert));
     } else if (_engine?.passedRadar != null && widget.settings.sound) {
@@ -524,9 +546,69 @@ class _HomeScreenState extends State<HomeScreen> {
     return '${(metres / 10).round() * 10} m';
   }
 
+  void _publishCarState() {
+    if (!mounted) return;
+    final data = _dataset;
+    final alert = _alert;
+    final section = _section;
+    final speed = _speed;
+    CarDriveState.instance.publish(
+      CarSnapshot(
+        language: widget.settings.language,
+        driving: _driving,
+        speed: speed == null ? '—' : '${speed.round()} km/h',
+        limit: _speedLimit == null ? '—' : '$_speedLimit km/h',
+        alert: alert == null
+            ? tr('Sense avisos', 'Sin avisos')
+            : _carAlertText(alert),
+        section: section == null ? '' : _carSectionText(section),
+        status: _status.isEmpty ? tr('Preparat', 'Preparado') : _status,
+        base: data == null ? '—' : '${data.radars.length} avisos',
+      ),
+    );
+  }
+
+  String _carAlertText(RadarAlert alert) {
+    final average = alert.averageKmh?.round();
+    return switch (alert.phase) {
+      AlertPhase.sectionEnd =>
+        average == null
+            ? tr('Fi de tram', 'Fin de tramo')
+            : tr(
+                'Fi de tram · mitjana $average km/h',
+                'Fin de tramo · media $average km/h',
+              ),
+      AlertPhase.sectionAverage => tr(
+        'Mitjana ${average ?? 0} km/h · límit ${alert.radar.speedLimit ?? '—'}',
+        'Media ${average ?? 0} km/h · límite ${alert.radar.speedLimit ?? '—'}',
+      ),
+      AlertPhase.approach =>
+        '${_alertLabel(alert)} · ${_distanceText(alert.distanceMeters)}',
+    };
+  }
+
+  String _carSectionText(SectionProgress section) {
+    final parts = <String>[
+      tr('Tram actiu', 'Tramo activo'),
+      tr(
+        'queden ${_distanceText(section.remainingMeters)}',
+        'quedan ${_distanceText(section.remainingMeters)}',
+      ),
+    ];
+    if (section.averageKmh != null) {
+      parts.add(
+        tr(
+          'mitjana ${section.averageKmh!.round()} km/h',
+          'media ${section.averageKmh!.round()} km/h',
+        ),
+      );
+    }
+    return parts.join(' · ');
+  }
+
   Future<bool> _stop() async {
     if (!mounted || _busy) return false;
-    unawaited(WakelockPlus.disable());
+    unawaited(WakelockPlus.disable().catchError((_) {}));
     setState(() => _busy = true);
     RadarDataset? pendingInMemory;
     try {
@@ -569,6 +651,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     } finally {
       if (mounted) setState(() => _busy = false);
+      _publishCarState();
     }
     return false;
   }
@@ -669,6 +752,7 @@ class _HomeScreenState extends State<HomeScreen> {
         '${data.radars.length} radares importados',
       );
     });
+    _publishCarState();
     return true;
   }
 
@@ -755,6 +839,7 @@ class _HomeScreenState extends State<HomeScreen> {
     } finally {
       _updating = false;
       if (!automatic && mounted) setState(() => _busy = false);
+      _publishCarState();
     }
   }
 
@@ -770,7 +855,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     // Language or voice may have changed: reconfigure TTS while driving.
     if (_driving) await _configureVoice();
-    if (mounted) setState(() {});
+    if (mounted) {
+      setState(() {});
+      _publishCarState();
+    }
   }
 
   @override
@@ -779,7 +867,9 @@ class _HomeScreenState extends State<HomeScreen> {
     _positions?.cancel();
     _tts.stop();
     _beep.dispose();
-    unawaited(WakelockPlus.disable());
+    CarDriveState.instance.onStart = null;
+    CarDriveState.instance.onStop = null;
+    unawaited(WakelockPlus.disable().catchError((_) {}));
     super.dispose();
   }
 

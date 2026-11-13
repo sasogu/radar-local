@@ -64,3 +64,8 @@ Ideas y mejoras pendientes, ordenadas por impacto. El estado validado está en
 19. **Modo nocturno / brillo reducido** para la pantalla de conducción.
 20. **Idioma**: revisar textos valencianos y castellanos; evitar mezclas.
 21. **F-Droid**: preparar metadatos y receta una vez cerrada la beta.
+
+22. **Android Auto**: pantalla de prova amb velocitat, límit, avís, estat i
+    inici/aturada. Pendent provar-la al DHU i en un cotxe real, decidir si es
+    manté com a extra per a instal·lació manual. No és publicable a Google Play
+    mentre no hi haja navegació giro a giro i mapa (categoria de navegació).

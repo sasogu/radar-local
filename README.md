@@ -25,3 +25,17 @@ El botó «Proposa un radar» permet guardar esborranys locals. Durant la conduc
 Un flux n8n diari vigila canvis en les fonts i avisa per Telegram; GitHub Actions prepara una pull request quan els convertidors detecten dades noves. La publicació de dades noves requereix revisió. Vegeu [DATA_SOURCES.md](DATA_SOURCES.md).
 
 Consulteu [PRIVACY.md](PRIVACY.md), [ARCHITECTURE.md](ARCHITECTURE.md), [BUILDING.md](BUILDING.md), [TESTING.md](TESTING.md), [PLAN.md](PLAN.md) i [ROADMAP.md](ROADMAP.md).
+
+## Android Auto (prova, instal·lació manual)
+
+L'app inclou una pantalla de només lectura per a Android Auto amb la velocitat, el
+límit, el pròxim avís, l'estat del GPS i l'acció d'iniciar o aturar la conducció.
+El motor, el GPS, la veu i les dades segueixen al telèfon; la pantalla del cotxe
+només rep l'estat. Per provar-la, activeu el mode desenvolupador d'Android Auto i
+permeteu-hi aplicacions d'orígens desconeguts; la prova d'escriptori es fa amb el
+Desktop Head Unit (DHU).
+
+No és una app aprovada per a Google Play: Google només admet la categoria de
+navegació per a este tipus d'ajuda i exigeix indicacions giro a giro i mapa, que
+Radar Local no té. La integració és, per tant, per a ús propi o distribució fora
+de Play. Vegeu [ROADMAP.md](ROADMAP.md) per a les limitacions i la prova pendent.
