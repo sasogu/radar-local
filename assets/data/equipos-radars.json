@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "source": "DGT 2024 via Tachwire/IGN, ODbL 1.0",
-  "updated_at": "2026-10-29T23:40:09Z",
+  "updated_at": "2026-11-17T22:10:17Z",
   "radars": [
     {
       "id": "tachwire-es-dgt-000940",
@@ -531,7 +531,7 @@
         "lon": -3.58437
       },
       "name": "A-395 PK 3.0",
-      "direction": 61
+      "direction": 59
     },
     {
       "id": "tachwire-es-dgt-000993",
@@ -651,7 +651,7 @@
         "lon": -5.85687
       },
       "name": "A-4 PK 528.0",
-      "direction": 86
+      "direction": 84
     },
     {
       "id": "tachwire-es-dgt-001005",
@@ -1291,7 +1291,7 @@
         "lon": -6.08166
       },
       "name": "A-8062 PK 1.0",
-      "direction": 183
+      "direction": 154
     },
     {
       "id": "tachwire-es-dgt-001069",
@@ -1421,7 +1421,7 @@
         "lon": -2.44477
       },
       "name": "AP-68 PK 128.925",
-      "direction": 263
+      "direction": 262
     },
     {
       "id": "tachwire-es-dgt-001082",
@@ -1431,7 +1431,7 @@
         "lon": -1.64565
       },
       "name": "AP-68 PK 218.2",
-      "direction": 135
+      "direction": 129
     },
     {
       "id": "tachwire-es-dgt-001083",
@@ -1541,7 +1541,7 @@
         "lon": -3.17301
       },
       "name": "CM-101 PK 4.764",
-      "direction": 186
+      "direction": 185
     },
     {
       "id": "tachwire-es-dgt-001094",
@@ -1741,7 +1741,7 @@
         "lon": -4.45404
       },
       "name": "MA-20 PK 10.745",
-      "direction": 1
+      "direction": 7
     },
     {
       "id": "tachwire-es-dgt-001114",
